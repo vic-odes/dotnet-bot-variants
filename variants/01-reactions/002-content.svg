@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><defs>
+  <radialGradient id="bHead" cx="0.36" cy="0.3" r="0.8">
+    <stop offset="0" stop-color="#7253E3"/><stop offset="0.55" stop-color="#512BD4"/><stop offset="1" stop-color="#3D1FA8"/>
+  </radialGradient>
+  <radialGradient id="bBall" cx="0.35" cy="0.3" r="0.8">
+    <stop offset="0" stop-color="#7253E3"/><stop offset="1" stop-color="#3D1FA8"/>
+  </radialGradient>
+  <linearGradient id="bVisor" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4DEFA"/>
+  </linearGradient>
+  <linearGradient id="bBoot" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7253E3"/><stop offset="1" stop-color="#3D1FA8"/>
+  </linearGradient>
+  <clipPath id="bHeadClip"><circle cx="200" cy="170" r="118"/></clipPath>
+  <filter id="sticker"><feMerge><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="silhouette"><feFlood flood-color="#FFFFFF"/><feComposite in2="SourceAlpha" operator="in"/></filter>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter><linearGradient id="gPM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#512BD4"/><stop offset="1" stop-color="#D600AA"/></linearGradient><linearGradient id="gMF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D600AA"/><stop offset="1" stop-color="#F65163"/></linearGradient><linearGradient id="gFP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F65163"/><stop offset="1" stop-color="#512BD4"/></linearGradient><linearGradient id="gPB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#512BD4"/><stop offset="1" stop-color="#0B6CFF"/></linearGradient><linearGradient id="gBP" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B6CFF"/><stop offset="1" stop-color="#512BD4"/></linearGradient><linearGradient id="gDPC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9AAEE"/><stop offset="1" stop-color="#28C2D1"/></linearGradient><linearGradient id="gDPM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B9AAEE"/><stop offset="1" stop-color="#EF99DD"/></linearGradient><radialGradient id="gGlow"><stop offset="0" stop-color="#512BD4" stop-opacity="0.9"/><stop offset="1" stop-color="#512BD4" stop-opacity="0"/></radialGradient>
+   <radialGradient id="gGlowM"><stop offset="0" stop-color="#D600AA" stop-opacity="0.7"/><stop offset="1" stop-color="#D600AA" stop-opacity="0"/></radialGradient>
+   <pattern id="pDots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#fff" opacity="0.14"/></pattern>
+   <pattern id="pDotsL" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#512BD4" opacity="0.12"/></pattern></defs><g filter="url(#sticker)"><g transform="translate(87.4 129.6) scale(0.8429) "><g class="dotnet-bot">
+    <ellipse cx="200" cy="404" rx="96" ry="11" fill="#190649" opacity="0.14"/>
+    <path d="M181 268 L176 330 L174 368" stroke="none" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M219 268 L224 330 L226 368" stroke="none" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M181 268 L176 330 L174 368" stroke="#4426BE" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M219 268 L224 330 L226 368" stroke="#4426BE" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="176" cy="330" r="11" fill="#5E3EE0" /><circle cx="224" cy="330" r="11" fill="#5E3EE0" />
+    <rect x="136" y="358" width="58" height="38" rx="19" fill="url(#bBoot)" /><rect x="206" y="358" width="58" height="38" rx="19" fill="url(#bBoot)" />
+    <rect x="140" y="384" width="50" height="9" rx="4.5" fill="#9C88F0"/><rect x="210" y="384" width="50" height="9" rx="4.5" fill="#9C88F0"/><ellipse cx="200" cy="276" rx="36" ry="18" fill="#311A7F" />
+    <rect x="195" y="28" width="10" height="34" rx="5" fill="#5E3EE0"/><circle cx="200" cy="24" r="12" fill="url(#bBall)" />
+    <circle cx="80" cy="184" r="24" fill="#3D1FA8" /><circle cx="320" cy="184" r="24" fill="#3D1FA8" />
+    <circle cx="200" cy="170" r="118" fill="url(#bHead)" />
+    <ellipse cx="150" cy="96" rx="44" ry="22" fill="#fff" opacity="0.16" transform="rotate(-28 150 96)"/>
+    <g clip-path="url(#bHeadClip)">
+      <path d="M60 222 Q200 258 340 222 L340 250 Q200 288 60 250Z" fill="#9C88F0" />
+      <rect x="188" y="238" width="24" height="20" rx="4" fill="#3D1FA8" />
+    </g>
+    <rect x="102" y="130" width="196" height="82" rx="41" fill="#2A1585" />
+    <rect x="112" y="139" width="176" height="64" rx="32" fill="url(#bVisor)" />
+    <path d="M157 177Q170 155 183 177" fill="none" stroke="#14053A" stroke-width="7" stroke-linecap="round"/><path d="M217 177Q230 155 243 177" fill="none" stroke="#14053A" stroke-width="7" stroke-linecap="round"/><ellipse cx="140" cy="193" rx="14" ry="7" fill="#EF99DD" opacity="0.9"/><ellipse cx="260" cy="193" rx="14" ry="7" fill="#EF99DD" opacity="0.9"/><g>
+    <line x1="96" y1="244" x2="75.77124395554075" y2="294.0679281466065" stroke="none" stroke-width="15" stroke-linecap="round"/>
+    <line x1="96" y1="244" x2="75.77124395554075" y2="294.0679281466065" stroke="#4426BE" stroke-width="15" stroke-linecap="round"/>
+    <line x1="75.77124395554075" y1="294.0679281466065" x2="67.08883507219424" y2="343.3083157972169" stroke="none" stroke-width="14" stroke-linecap="round"/>
+    <line x1="75.77124395554075" y1="294.0679281466065" x2="67.08883507219424" y2="343.3083157972169" stroke="#4426BE" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="96" cy="244" r="14" fill="url(#bBall)" />
+    <circle cx="75.77124395554075" cy="294.0679281466065" r="10" fill="#5E3EE0" />
+  </g><g>
+    <line x1="304" y1="244" x2="324.22875604445926" y2="294.0679281466065" stroke="none" stroke-width="15" stroke-linecap="round"/>
+    <line x1="304" y1="244" x2="324.22875604445926" y2="294.0679281466065" stroke="#4426BE" stroke-width="15" stroke-linecap="round"/>
+    <line x1="324.22875604445926" y1="294.0679281466065" x2="332.91116492780577" y2="343.3083157972169" stroke="none" stroke-width="14" stroke-linecap="round"/>
+    <line x1="324.22875604445926" y1="294.0679281466065" x2="332.91116492780577" y2="343.3083157972169" stroke="#4426BE" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="304" cy="244" r="14" fill="url(#bBall)" />
+    <circle cx="324.22875604445926" cy="294.0679281466065" r="10" fill="#5E3EE0" />
+  </g><circle cx="79.89133586135294" cy="345.565742106887" r="8" fill="url(#bBall)" /><circle cx="67.08883507219424" cy="343.3083157972169" r="18" fill="url(#bBall)" /><circle cx="320.10866413864704" cy="345.565742106887" r="8" fill="url(#bBall)" /><circle cx="332.91116492780577" cy="343.3083157972169" r="18" fill="url(#bBall)" /><path d="M330.0 18.0L334.4 35.6L352.0 40.0L334.4 44.4L330.0 62.0L325.6 44.4L308.0 40.0L325.6 35.6Z" fill="#F7B548"/><path d="M62.0 44.0L65.2 56.8L78.0 60.0L65.2 63.2L62.0 76.0L58.8 63.2L46.0 60.0L58.8 56.8Z" fill="#D600AA"/><path d="M350.0 236.0L352.8 247.2L364.0 250.0L352.8 252.8L350.0 264.0L347.2 252.8L336.0 250.0L347.2 247.2Z" fill="#28C2D1"/><path d="M40.0 268.0L42.4 277.6L52.0 280.0L42.4 282.4L40.0 292.0L37.6 282.4L28.0 280.0L37.6 277.6Z" fill="#F7B548"/></g></g></g></svg>
