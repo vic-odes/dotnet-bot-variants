@@ -76,6 +76,24 @@ function fk(f, pose, root) {
 // ---------- aléa à graine ----------
 function rng(seed) { let s = seed >>> 0 || 1; return () => ((s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296); }
 
+// ---------- sons (temps absolus ; le pic du son tombe une image après l'action) ----------
+const SFX = { // durée, instant du pic (mesurés avec npx hyperframes audio)
+  'swing-1.wav': [0.32, 0.13], 'swing-2.wav': [0.32, 0.14], 'swing-3.wav': [0.32, 0.18],
+  'hit-1.wav': [0.55, 0], 'hit-2.wav': [0.55, 0], 'hit-3.wav': [0.55, 0], 'clash.wav': [1.3, 0], 'thud.wav': [0.7, 0],
+  'bell.wav': [2.02, 0], 'bell-ko.wav': [2.22, 0], 'crowd.wav': [3.0, 0.07],
+  'impact-bass-1.mp3': [2.12, 0.07], 'pop.mp3': [0.72, 0.12], 'whoosh-short.mp3': [0.57, 0.16], 'riser.mp3': [4.3, 0],
+};
+const VOL = { swing: 0.5, hit: 0.95, clash: 0.8, thud: 0.85, bell: 0.55, crowd: 0.45, impact: 0.45, pop: 0.8, whoosh: 0.6, riser: 0.4 };
+const SOUNDS = [];
+let MUSIC_CUT = null;
+const take = { swing: 0, hit: 0 };
+function snd(t, file, vol, { atPeak = true } = {}) {
+  const [d, peak] = SFX[file];
+  SOUNDS.push({ t: Math.max(0, r2(t + (atPeak ? fr(1) - peak : 0))), file, d, vol });
+}
+const swingSnd = (t) => snd(t + 0.05, `swing-${(take.swing++ % 3) + 1}.wav`, VOL.swing);
+const hitSnd = (t) => snd(t, `hit-${(take.hit++ % 3) + 1}.wav`, VOL.hit);
+
 // ---------- scènes ----------
 const SCENES = [
   { id: 'intro', start: 0, end: 8.0 },
@@ -224,10 +242,12 @@ function strike(att, def, Ts, geste, dmg, seed) {
   if (geste === 'saut') rootTo(att, t1, 0.12, 'power3.in', { y: FEET });
   const k = fk(att, target(att, s), { ...att.root });
   swoosh(t1, 0.12, a, k.tip, k.shoulder, att.R.accent);
+  swingSnd(t1);
   const I = t1 + 0.12;
   // point d'impact : sur le corps du défenseur, à hauteur de la pointe
   const ix = def.root.x - def.dir * 60, iy = Math.min(Math.max(k.tip[1], FEET - 420), FEET - 160);
   if (dmg > 0) {
+    hitSnd(I);
     spark(I, ix, iy);
     splatter(I, ix, iy, att.dir, def.R.hitTokens, seed);
     punch(I, ix, iy); shake(I, 6, 12, seed);
@@ -256,7 +276,9 @@ function exchange(e, i) {
     poseTo(def, 'parade', T0 + 0.55, 0.25, 'power2.out');
     poseTo(att, 'arme_haut', T0 + 0.5, 0.25, 'power2.in');
     poseTo(att, 'taille', T0 + 0.8, 0.12, 'expo.out');
+    swingSnd(T0 + 0.8);
     const I = T0 + 0.92;
+    snd(I, 'clash.wav', VOL.clash);
     const p = fk(def, target(def, 'parade'), def.root).tip, h = fk(def, target(def, 'parade'), def.root).hand;
     const cx = (p[0] + h[0]) / 2, cy = (p[1] + h[1]) / 2;
     spark(I, cx, cy, K.yellow, 1.3); spark(I + 0.05, cx + 30, cy - 20, K.white, 0.6);
@@ -278,6 +300,7 @@ function exchange(e, i) {
       const x0 = att.root.x - att.dir * 60, x1 = att.root.x + att.dir * (-300 + k * 95) + (r() - 0.5) * 40;
       S.minis += gopher(id).replace(`<g id="${id}-root">`, `<g id="${id}-root" opacity="0" transform="${rootT(x0, FEET + 10, att.dir * 0.32, 0.32)}">`);
       set(`#${id}-root`, T0 + 0.35 + k * 0.06, { opacity: 1 });
+      if (k % 2 === 0) snd(T0 + 0.35 + k * 0.06, 'pop.mp3', VOL.pop * 0.7);
       to(`#${id}-root`, T0 + 0.35 + k * 0.06, 0.45, 'power2.out', { attr: { transform: rootT(x1, FEET + 14, att.dir * 0.32, 0.32) } });
       // ils courent puis filent hors champ
       const xo = att.dir > 0 ? -200 - k * 40 : W + 200 + k * 40;
@@ -288,6 +311,7 @@ function exchange(e, i) {
     poseTo(att, 'touche', T0 + 1.15, 0.3, 'power2.in');
     rootTo(att, T0 + 1.15, 0.4, 'power2.in', { r: -att.dir * 22, y: FEET + 24, sy: att.R.S * 0.78 });
     const I = T0 + 1.55;
+    snd(I, 'thud.wav', VOL.thud);
     const ix = att.root.x - att.dir * 80, iy = FEET - 40;
     spark(I, ix, iy, K.yellow, 0.8);
     splatter(I, ix, iy - 60, att.dir, att.R.hitTokens, seed, 7);
@@ -319,7 +343,12 @@ function exchange(e, i) {
     rootTo(att, T0 + 0.75, 0.15, 'expo.out', { x: def.root.x - att.dir * 150, sy: att.R.S });
     const k = fk(att, target(att, 'dash'), att.root);
     swoosh(T0 + 0.75, 0.15, a0, k.tip, k.shoulder, att.R.accent);
+    swingSnd(T0 + 0.75);
     const I = T0 + 0.9, ix = def.root.x - def.dir * 40, iy = FEET - 300;
+    snd(I - 4.25, 'riser.mp3', VOL.riser, { atPeak: false });
+    hitSnd(I); snd(I, 'impact-bass-1.mp3', VOL.impact); snd(I + 0.25, 'crowd.wav', VOL.crowd);
+    MUSIC_CUT = r2(I + fr(1));
+    snd(I + fr(4) + 0.95, 'thud.wav', VOL.thud * 0.8);
     spark(I, ix, iy, K.yellow, 1.6); spark(I + 0.06, ix + 40, iy - 60, K.white, 0.8);
     splatter(I, ix, iy, att.dir, def.R.hitTokens, seed, 11);
     punch(I, ix, iy, 1.15, 0.1); shake(I, 10, 16, seed);
@@ -508,13 +537,14 @@ function finish(sc, extraTop = '', extraOver = '') {
   const plate = (f, id, side) => `<div class="plate ${side}" id="${id}"><div class="plate-name">${f.d.nom}</div><div class="plate-ver">${f.d.version}</div></div>`;
   S.cards += plate(F.gauche, 'plate-l', 'l') + plate(F.droite, 'plate-r', 'r');
   const zoomOn = (x, t, d) => { const s = 1.3, px = x, py = FEET - 280; to('#cam', t, d, 'power2.inOut', { scale: s, x: (1 - s) * (px - W / 2), y: (1 - s) * (py - H / 2) }); };
-  zoomOn(STATION.gauche + 60, 3.2, 0.6);
+  snd(0, 'impact-bass-1.mp3', VOL.impact);
+  zoomOn(STATION.gauche + 60, 3.2, 0.6); snd(3.5, 'whoosh-short.mp3', VOL.whoosh);
   fromTo('#plate-l', 3.5, 0.3, 'expo.out', { opacity: 0, x: -60 }, { opacity: 1, x: 0 });
   to('#plate-l', 5.4, 0.15, 'power3.in', { opacity: 0 });
-  zoomOn(STATION.droite - 60, 5.5, 0.7);
+  zoomOn(STATION.droite - 60, 5.5, 0.7); snd(5.85, 'whoosh-short.mp3', VOL.whoosh);
   fromTo('#plate-r', 5.9, 0.3, 'expo.out', { opacity: 0, x: 60 }, { opacity: 1, x: 0 });
   to('#plate-r', 7.5, 0.15, 'power3.in', { opacity: 0 });
-  to('#cam', 7.5, 0.45, 'power2.inOut', { scale: 1, x: 0, y: 0 });
+  to('#cam', 7.5, 0.45, 'power2.inOut', { scale: 1, x: 0, y: 0 }); snd(7.72, 'whoosh-short.mp3', VOL.whoosh);
   breathe(F.gauche, 3.4, 8.0); breathe(F.droite, 3.6, 8.0);
   to('#band', 7.7, 0.15, 'power3.in', { opacity: 0 });
   sc.css = `
@@ -535,8 +565,8 @@ function finish(sc, extraTop = '', extraOver = '') {
 {
   const sc = SCENES[1]; begin(sc);
   fromTo('#hud', 8.0, 0.3, 'expo.out', { opacity: 0, y: -40 }, { opacity: 1, y: 0 });
-  announce(8.2, 9.5, 'ROUND 1', 'small');
-  announce(9.8, 10.9, 'FIGHT!');
+  announce(8.2, 9.5, 'ROUND 1', 'small'); snd(8.2, 'bell.wav', VOL.bell);
+  announce(9.8, 10.9, 'FIGHT!'); snd(9.8, 'impact-bass-1.mp3', VOL.impact);
   breathe(F.gauche, 8.0, 11.2); breathe(F.droite, 8.0, 11.2, 0.4);
   M.echanges.filter((e) => e.at >= sc.start && e.at < sc.end).forEach((e) => exchange(e, M.echanges.indexOf(e)));
   finish(sc, S.hud);
@@ -553,12 +583,13 @@ function finish(sc, extraTop = '', extraOver = '') {
   const sc = SCENES[3]; begin(sc);
   const hud = S.hud;
   M.echanges.filter((e) => e.at >= sc.start && e.at < sc.end).forEach((e) => exchange(e, M.echanges.indexOf(e)));
-  announce(M.ko + 0.1, M.ko + 1.3, 'K.O.');
+  announce(M.ko + 0.1, M.ko + 1.3, 'K.O.'); snd(M.ko + 0.1, 'bell-ko.wav', VOL.bell); snd(M.ko + 0.1, 'crowd.wav', VOL.crowd);
+  snd(M.ko + 1.95, 'whoosh-short.mp3', VOL.whoosh);
   // la caméra glisse vers la droite : le Gopher, K.O., hors du ring
   S.camX = -560;
   to('#cam', M.ko + 1.45, 1.0, 'power2.inOut', { x: -560 });
   S.cards += `<div class="caption" id="ko-cap">${M.droite.nom} est hors du ring</div>`;
-  fromTo('#ko-cap', M.ko + 2.6, 0.25, 'expo.out', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1 });
+  fromTo('#ko-cap', M.ko + 2.0, 0.25, 'expo.out', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1 });
   sc.css = `.caption { position: absolute; left: 60px; right: 60px; top: 520px; text-align: center; font-weight: 700; font-size: 84px; line-height: 1.05; color: #FFFFFF; opacity: 0; }`;
   finish(sc, hud);
 }
@@ -571,8 +602,9 @@ function finish(sc, extraTop = '', extraOver = '') {
   Object.assign(F[other(M.vainqueur)].root, { x: 1500 }); // hors champ
   begin(sc);
   breathe(win, sc.start, sc.start + 4.8);
-  announce(sc.start + 0.2, sc.start + 4.6, 'VICTOIRE', 'small top');
+  announce(sc.start + 0.2, sc.start + 4.6, 'VICTOIRE', 'small top'); snd(sc.start + 0.2, 'impact-bass-1.mp3', VOL.impact); snd(sc.start + 0.3, 'crowd.wav', VOL.crowd);
   S.cards += `<div class="pts" id="pts"><span>${win.d.nom}</span><b>+3 PTS</b></div>`;
+  snd(sc.start + 0.9, 'pop.mp3', VOL.pop);
   fromTo('#pts', sc.start + 0.9, 0.25, 'back.out(1.6)', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1 });
   to('#pts', sc.start + 4.6, 0.12, 'power3.in', { opacity: 0 });
   const rows = M.classement.map((c, i) => `<div class="row${i === 0 ? ' first' : ''}"><span class="rk">${i + 1}</span><span class="nm">${c.nom} <i>${c.techno}</i></span><span class="j">${c.j}</span><span class="p">${c.pts}</span></div>`).join('');
@@ -582,6 +614,7 @@ function finish(sc, extraTop = '', extraOver = '') {
     <div class="row head"><span class="rk"></span><span class="nm"></span><span class="j">J</span><span class="p">PTS</span></div>${rows}
     <div class="next"><div class="n-label">PROCHAIN COMBAT</div><div class="n-imgs">${imgs.join('<span>VS</span>')}</div><div class="n-title">${M.prochain.titre}</div></div></div>`;
   fromTo('#dim', sc.start + 4.8, 0.3, 'power2.inOut', { opacity: 0 }, { opacity: 1 });
+  snd(sc.start + 4.95, 'whoosh-short.mp3', VOL.whoosh);
   fromTo('#table', sc.start + 4.9, 0.35, 'expo.out', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 });
   sc.css = `
     .pts { position: absolute; left: 0; right: 0; top: 560px; text-align: center; color: #FFFFFF; font-weight: 700; font-size: 72px; opacity: 0; }
@@ -604,6 +637,21 @@ function finish(sc, extraTop = '', extraOver = '') {
 }
 
 // ---------- racine ----------
+// une piste par son tant qu'il joue : deux sons ne se chevauchent jamais sur la même piste
+function lanes(list) {
+  const ends = [];
+  for (const x of list) {
+    let k = ends.findIndex((e) => e <= x.t);
+    if (k < 0) { k = ends.length; ends.push(0); }
+    ends[k] = x.t + x.d; x.lane = 11 + k;
+  }
+  return list;
+}
+const audio = [
+  `      <audio id="music-combat" class="clip" src="assets/audio/combat.wav" data-start="0" data-duration="${MUSIC_CUT}" data-track-index="10" data-volume="0.42" data-fade-out="0.02"></audio>`,
+  `      <audio id="music-victoire" class="clip" src="assets/audio/victoire.wav" data-start="${M.fin}" data-duration="${r2(90 - M.fin)}" data-track-index="10" data-volume="0.42" data-fade-out="1.2"></audio>`,
+  ...lanes(SOUNDS.sort((a, b) => a.t - b.t)).map((x, i) => `      <audio id="sfx-${String(i).padStart(3, '0')}" class="clip" src="assets/sfx/${x.file}" data-start="${x.t}" data-duration="${x.d}" data-track-index="${x.lane}" data-volume="${x.vol}"></audio>`),
+].join('\n');
 const hosts = written.map((sc, i) => `      <div id="${sc.id}" data-composition-id="${sc.id}" data-composition-src="compositions/${sc.id}.html" data-start="${sc.start}" data-duration="${r2(sc.end - sc.start)}" data-track-index="${i + 1}" data-track-kind="graphics" data-width="${W}" data-height="${H}"></div>`).join('\n');
 writeFileSync(path.join(OUT, 'index.html'), `<!doctype html>
 <html lang="fr" data-resolution="portrait">
@@ -620,6 +668,7 @@ writeFileSync(path.join(OUT, 'index.html'), `<!doctype html>
     <!-- Généré par championnat/generateur/match.mjs à partir de championnat/matchs/*.mjs : modifier les données, pas ce fichier. -->
     <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="${W}" data-height="${H}">
 ${hosts}
+${audio}
     </div>
     <script>
       window.__timelines = window.__timelines || {};
