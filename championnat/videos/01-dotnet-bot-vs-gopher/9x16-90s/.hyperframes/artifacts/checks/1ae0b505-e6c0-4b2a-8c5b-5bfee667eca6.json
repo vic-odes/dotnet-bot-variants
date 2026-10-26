@@ -1,0 +1,1395 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 542 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/compositions/fightb.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 7,
+    "warningCount": 4,
+    "infoCount": 21,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 15,
+        "selector": "#fighta-card0 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 115.36,
+          "top": 439.29,
+          "right": 263.48,
+          "bottom": 494.32,
+          "width": 148.12,
+          "height": 55.03
+        },
+        "containerSelector": "#fighta-card0 > div:nth-of-type(2)",
+        "text": "GO 1.27",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 115.36,
+          "y": 439.29,
+          "width": 148.12,
+          "height": 55.03
+        },
+        "firstSeen": 12.57,
+        "lastSeen": 15.587,
+        "occurrences": 8,
+        "heldMs": 3016.9999999999995,
+        "times": [
+          12.57,
+          13.073,
+          13.575,
+          14.078,
+          14.581,
+          15,
+          15.084,
+          15.587
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 45,
+        "selector": "#fightb-card5 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 115.36,
+          "top": 442.18,
+          "right": 222.06,
+          "bottom": 494.32,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "containerSelector": "#fightb-card5 > div:nth-of-type(2)",
+        "text": "C# 15",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 115.36,
+          "y": 442.18,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "firstSeen": 44.246,
+        "lastSeen": 47.765,
+        "occurrences": 9,
+        "heldMs": 3518.999999999998,
+        "times": [
+          44.246,
+          44.749,
+          45,
+          45.251,
+          45.754,
+          46.257,
+          46.76,
+          47.263,
+          47.765
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 52.291,
+        "selector": "#fightb-card6 > div:nth-of-type(3)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 146.94,
+          "top": 654.83,
+          "right": 534.7,
+          "bottom": 726.62,
+          "width": 387.76,
+          "height": 71.79
+        },
+        "containerSelector": "#fightb-card7 > div:nth-of-type(1)",
+        "text": "import \"crypto/mldsa\"",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 146.94,
+          "y": 654.83,
+          "width": 387.76,
+          "height": 71.79
+        },
+        "firstSeen": 52.291,
+        "lastSeen": 54.302,
+        "occurrences": 5,
+        "heldMs": 2011.0000000000027,
+        "times": [
+          52.291,
+          52.793,
+          53.296,
+          53.799,
+          54.302
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 63.352,
+        "selector": "#finish-fx81 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 785.61,
+          "top": 818.93,
+          "right": 917.52,
+          "bottom": 872.27,
+          "width": 131.91,
+          "height": 53.34
+        },
+        "containerSelector": "#finish-fx83 > text:nth-of-type(1)",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 785.61,
+          "y": 818.93,
+          "width": 131.91,
+          "height": 53.34
+        },
+        "firstSeen": 63.352,
+        "lastSeen": 63.855,
+        "occurrences": 2,
+        "heldMs": 503.0000000000001,
+        "times": [
+          63.352,
+          63.855
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 65,
+        "selector": "#finish-card9 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 115.36,
+          "top": 442.18,
+          "right": 222.06,
+          "bottom": 494.32,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "containerSelector": "#finish-card9 > div:nth-of-type(2)",
+        "text": "C# 15",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 115.36,
+          "y": 442.18,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "firstSeen": 63.855,
+        "lastSeen": 67.877,
+        "occurrences": 10,
+        "heldMs": 4021.9999999999986,
+        "times": [
+          63.855,
+          64.358,
+          64.86,
+          65,
+          65.363,
+          65.866,
+          66.369,
+          66.872,
+          67.374,
+          67.877
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 65,
+        "selector": "#finish-card10 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 115.36,
+          "top": 672.18,
+          "right": 222.06,
+          "bottom": 724.32,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "containerSelector": "#finish-card10 > div:nth-of-type(2)",
+        "text": "C# 15",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 115.36,
+          "y": 672.18,
+          "width": 106.7,
+          "height": 52.14
+        },
+        "firstSeen": 64.86,
+        "lastSeen": 67.877,
+        "occurrences": 8,
+        "heldMs": 3016.999999999996,
+        "times": [
+          64.86,
+          65,
+          65.363,
+          65.866,
+          66.369,
+          66.872,
+          67.374,
+          67.877
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 69.888,
+        "selector": "#finish-fx104 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 807.83,
+          "top": 572.68,
+          "right": 915.01,
+          "bottom": 682.5,
+          "width": 107.18,
+          "height": 109.82
+        },
+        "containerSelector": "div.big",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 807.83,
+          "y": 572.68,
+          "width": 107.18,
+          "height": 109.82
+        },
+        "firstSeen": 69.888,
+        "lastSeen": 70.391,
+        "occurrences": 2,
+        "heldMs": 503.0000000000001,
+        "times": [
+          69.888,
+          70.391
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 25,
+        "selector": "#fighta-fx25 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 138.32,
+          "top": 757.98,
+          "right": 293.48,
+          "bottom": 800.86,
+          "width": 155.16,
+          "height": 42.88
+        },
+        "containerSelector": "#fighta-fx27 > text:nth-of-type(1)",
+        "text": "Exception",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 138.32,
+          "y": 757.98,
+          "width": 155.16,
+          "height": 42.88
+        },
+        "firstSeen": 25,
+        "lastSeen": 25.14,
+        "occurrences": 2,
+        "heldMs": 140.00000000000057,
+        "times": [
+          25,
+          25.14
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 25,
+        "selector": "#fighta-fx27 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 175.84,
+          "top": 761.21,
+          "right": 276.28,
+          "bottom": 812.48,
+          "width": 100.44,
+          "height": 51.27
+        },
+        "containerSelector": "#fighta-fx31 > text:nth-of-type(1)",
+        "text": "throw",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 175.84,
+          "y": 761.21,
+          "width": 100.44,
+          "height": 51.27
+        },
+        "firstSeen": 25,
+        "lastSeen": 25.14,
+        "occurrences": 2,
+        "heldMs": 140.00000000000057,
+        "times": [
+          25,
+          25.14
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 25,
+        "selector": "#fighta-fx29 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 116.76,
+          "top": 726.11,
+          "right": 299.91,
+          "bottom": 796.61,
+          "width": 183.15,
+          "height": 70.5
+        },
+        "containerSelector": "#fighta-fx31 > text:nth-of-type(1)",
+        "text": "Exception",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 116.76,
+          "y": 726.11,
+          "width": 183.15,
+          "height": 70.5
+        },
+        "firstSeen": 25,
+        "lastSeen": 25.14,
+        "occurrences": 2,
+        "heldMs": 140.00000000000057,
+        "times": [
+          25,
+          25.14
+        ]
+      },
+      {
+        "code": "rotation_pivot_drift",
+        "severity": "warning",
+        "time": 35,
+        "selector": "#fighta-fr-elbF",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 219.53000000000003,
+          "y": 798.655,
+          "width": 433.38,
+          "height": 407.71
+        },
+        "rect": {
+          "left": 219.53000000000003,
+          "top": 798.655,
+          "right": 652.9100000000001,
+          "bottom": 1206.365,
+          "width": 433.38,
+          "height": 407.71
+        },
+        "message": "Rotating element's bounding-box center drifts 274px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
+        "firstSeen": 35,
+        "lastSeen": 35,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          35
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 12.57,
+        "selector": "#fighta-fx3 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 57.95,
+          "top": 763.56,
+          "right": 175.55,
+          "bottom": 933.69,
+          "width": 117.6,
+          "height": 170.13
+        },
+        "containerSelector": "#fighta-fx5 > text:nth-of-type(1)",
+        "text": "Exception",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 57.95,
+          "y": 763.56,
+          "width": 117.6,
+          "height": 170.13
+        },
+        "firstSeen": 12.57,
+        "lastSeen": 12.57,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12.57
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 12.57,
+        "selector": "#fighta-fx5 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 81.42,
+          "top": 871.41,
+          "right": 176.12,
+          "bottom": 933.53,
+          "width": 94.7,
+          "height": 62.12
+        },
+        "containerSelector": "#fighta-fx7 > text:nth-of-type(1)",
+        "text": "throw",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 81.42,
+          "y": 871.41,
+          "width": 94.7,
+          "height": 62.12
+        },
+        "firstSeen": 12.57,
+        "lastSeen": 12.57,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12.57
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 12.57,
+        "selector": "#fighta-fx7 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 33.43,
+          "top": 776.44,
+          "right": 101.9,
+          "bottom": 959.82,
+          "width": 68.47,
+          "height": 183.38
+        },
+        "containerSelector": "#fighta-fx9 > text:nth-of-type(1)",
+        "text": "Exception",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 33.43,
+          "y": 776.44,
+          "width": 68.47,
+          "height": 183.38
+        },
+        "firstSeen": 12.57,
+        "lastSeen": 12.57,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          12.57
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 18.603,
+        "selector": "#fighta-fx14 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 829.34,
+          "top": 1012.1,
+          "right": 906.34,
+          "bottom": 1081.95,
+          "width": 77,
+          "height": 69.85
+        },
+        "containerSelector": "#fighta-fx20 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 829.34,
+          "y": 1012.1,
+          "width": 77,
+          "height": 69.85
+        },
+        "firstSeen": 18.603,
+        "lastSeen": 18.603,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.603
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 18.603,
+        "selector": "#fighta-fx16 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 796.48,
+          "top": 957.61,
+          "right": 920.11,
+          "bottom": 1043.13,
+          "width": 123.63,
+          "height": 85.52
+        },
+        "containerSelector": "#fighta-fx18 > text:nth-of-type(1)",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fighta.html",
+        "bbox": {
+          "x": 796.48,
+          "y": 957.61,
+          "width": 123.63,
+          "height": 85.52
+        },
+        "firstSeen": 18.603,
+        "lastSeen": 18.603,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          18.603
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 44.246,
+        "selector": "#fightb-fx60 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 810.01,
+          "top": 895.12,
+          "right": 943.94,
+          "bottom": 1009.8,
+          "width": 133.93,
+          "height": 114.68
+        },
+        "containerSelector": "#fightb-fx62 > text:nth-of-type(1)",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 810.01,
+          "y": 895.12,
+          "width": 133.93,
+          "height": 114.68
+        },
+        "firstSeen": 44.246,
+        "lastSeen": 44.246,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          44.246
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 44.246,
+        "selector": "#fightb-fx62 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 851.24,
+          "top": 940.12,
+          "right": 927.8,
+          "bottom": 1010.84,
+          "width": 76.56,
+          "height": 70.72
+        },
+        "containerSelector": "#fightb-fx64 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 851.24,
+          "y": 940.12,
+          "width": 76.56,
+          "height": 70.72
+        },
+        "firstSeen": 44.246,
+        "lastSeen": 44.246,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          44.246
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 44.246,
+        "selector": "#fightb-card5 > div:nth-of-type(2)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 435.07,
+          "top": 764.47,
+          "right": 832.22,
+          "bottom": 902.94,
+          "width": 397.15,
+          "height": 138.47
+        },
+        "containerSelector": "#fightb-card5 > div:nth-of-type(3)",
+        "text": "Closed hierarchies",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 435.07,
+          "y": 764.47,
+          "width": 397.15,
+          "height": 138.47
+        },
+        "firstSeen": 44.246,
+        "lastSeen": 44.246,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          44.246
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 51.788,
+        "selector": "#fightb-card7 > div:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 231.54,
+          "top": 730.33,
+          "right": 564.72,
+          "bottom": 817.17,
+          "width": 333.18,
+          "height": 86.84
+        },
+        "containerSelector": "#fightb-card7 > div:nth-of-type(2)",
+        "text": ".NET 11 · EXPÉRIMENTAL",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 231.54,
+          "y": 730.33,
+          "width": 333.18,
+          "height": 86.84
+        },
+        "firstSeen": 51.788,
+        "lastSeen": 51.788,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          51.788
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 57.821,
+        "selector": "#fightb-fx72 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 317.11,
+          "top": 856.88,
+          "right": 403.91,
+          "bottom": 994.47,
+          "width": 86.8,
+          "height": 137.59
+        },
+        "containerSelector": "#fightb-fx74 > text:nth-of-type(1)",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 317.11,
+          "y": 856.88,
+          "width": 86.8,
+          "height": 137.59
+        },
+        "firstSeen": 57.821,
+        "lastSeen": 57.821,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          57.821
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 63.352,
+        "selector": "#finish-fx79 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 828.06,
+          "top": 833.72,
+          "right": 880.53,
+          "bottom": 876.48,
+          "width": 52.47,
+          "height": 42.76
+        },
+        "containerSelector": "#finish-fx81 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 828.06,
+          "y": 833.72,
+          "width": 52.47,
+          "height": 42.76
+        },
+        "firstSeen": 63.352,
+        "lastSeen": 63.352,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          63.352
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 63.352,
+        "selector": "#finish-fx83 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 821.22,
+          "top": 815.66,
+          "right": 887.09,
+          "bottom": 871.15,
+          "width": 65.87,
+          "height": 55.49
+        },
+        "containerSelector": "#finish-fx85 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 821.22,
+          "y": 815.66,
+          "width": 65.87,
+          "height": 55.49
+        },
+        "firstSeen": 63.352,
+        "lastSeen": 63.352,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          63.352
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 64.86,
+        "selector": "#finish-fx94 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 929.89,
+          "top": 992.92,
+          "right": 989.6,
+          "bottom": 1041.79,
+          "width": 59.71,
+          "height": 48.87
+        },
+        "containerSelector": "#finish-fx96 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 929.89,
+          "y": 992.92,
+          "width": 59.71,
+          "height": 48.87
+        },
+        "firstSeen": 64.86,
+        "lastSeen": 64.86,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          64.86
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 65,
+        "selector": "#finish-fx90 > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 950.93,
+          "top": 828.21,
+          "right": 996.38,
+          "bottom": 884.28,
+          "width": 45.45,
+          "height": 56.07
+        },
+        "containerSelector": "#finish-card10",
+        "text": "nil",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.78,
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 950.93,
+          "y": 828.21,
+          "width": 45.45,
+          "height": 56.07
+        },
+        "firstSeen": 65,
+        "lastSeen": 65,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 65,
+        "selector": "#finish-fx92 > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 861.05,
+          "top": 765.05,
+          "right": 962.6,
+          "bottom": 882.85,
+          "width": 101.55,
+          "height": 117.79
+        },
+        "containerSelector": "#finish-card10 > div:nth-of-type(3)",
+        "text": "0xDEAD",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 861.05,
+          "y": 765.05,
+          "width": 101.55,
+          "height": 117.79
+        },
+        "firstSeen": 65,
+        "lastSeen": 65,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 65,
+        "selector": "#finish-fx96 > text:nth-of-type(1)",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 956.01,
+          "top": 897.4,
+          "right": 1098.07,
+          "bottom": 1003.53,
+          "width": 142.06,
+          "height": 106.13
+        },
+        "containerSelector": "#finish > div:nth-of-type(1)",
+        "text": "0xDEAD",
+        "fixHint": "Text is 142px x 106px inside 1080px x 1920px and overflows by up to 18px; widen the container to at least ~1098px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 18.07
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 956.01,
+          "y": 897.4,
+          "width": 142.06,
+          "height": 106.13
+        },
+        "firstSeen": 65,
+        "lastSeen": 65,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 65,
+        "selector": "#finish-fx96 > text:nth-of-type(1)",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 956.01,
+          "top": 897.4,
+          "right": 1098.07,
+          "bottom": 1003.53,
+          "width": 142.06,
+          "height": 106.13
+        },
+        "containerSelector": "#root",
+        "text": "0xDEAD",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "right": 18.07
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 956.01,
+          "y": 897.4,
+          "width": 142.06,
+          "height": 106.13
+        },
+        "firstSeen": 65,
+        "lastSeen": 65,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 65,
+        "selector": "#finish-card9 > div:nth-of-type(3)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 144.24,
+          "top": 567.16,
+          "right": 678.53,
+          "bottom": 649.19,
+          "width": 534.3,
+          "height": 82.03
+        },
+        "containerSelector": "#finish-card10",
+        "text": "extension(IEnumerable<int> s)",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.19,
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 144.24,
+          "y": 567.16,
+          "width": 534.3,
+          "height": 82.03
+        },
+        "firstSeen": 65,
+        "lastSeen": 65,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 69.888,
+        "selector": "#finish-fx106 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 860.52,
+          "top": 795.69,
+          "right": 929.01,
+          "bottom": 858.99,
+          "width": 68.49,
+          "height": 63.3
+        },
+        "containerSelector": "#finish-fx110 > text:nth-of-type(1)",
+        "text": "nil",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 860.52,
+          "y": 795.69,
+          "width": 68.49,
+          "height": 63.3
+        },
+        "firstSeen": 69.888,
+        "lastSeen": 69.888,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          69.888
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 69.888,
+        "selector": "#finish-fx108 > text:nth-of-type(1)",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 766.82,
+          "top": 707.86,
+          "right": 921.37,
+          "bottom": 810.11,
+          "width": 154.55,
+          "height": 102.25
+        },
+        "containerSelector": "div.big",
+        "text": "0xDEAD",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 766.82,
+          "y": 707.86,
+          "width": 154.55,
+          "height": 102.25
+        },
+        "firstSeen": 69.888,
+        "lastSeen": 69.888,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          69.888
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 85,
+        "selector": "#outro-shake > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 210.79,
+          "top": 1427,
+          "right": 869.21,
+          "bottom": 1483,
+          "width": 658.42,
+          "height": 56
+        },
+        "containerSelector": "#outro-dim",
+        "text": "CHAMPIONNAT .NET · POULE A",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/outro.html",
+        "bbox": {
+          "x": 210.79,
+          "y": 1427,
+          "width": 658.42,
+          "height": 56
+        },
+        "firstSeen": 85,
+        "lastSeen": 85,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          85
+        ]
+      }
+    ],
+    "duration": 90,
+    "samples": [
+      5,
+      15,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 32,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 6,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.53:1; WCAG AA requires 3:1.",
+        "text": "nil",
+        "fg": "rgb(247,181,72)",
+        "bg": "rgb(238,234,251)",
+        "ratio": 1.53,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(173,127,51)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(13) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 949.2171630859375,
+          "y": 1301.435791015625,
+          "width": 43.62908935546875,
+          "height": 52.094482421875
+        },
+        "time": 45,
+        "times": [
+          45
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.23:1; WCAG AA requires 3:1.",
+        "text": "0xDEAD",
+        "fg": "rgb(246,81,99)",
+        "bg": "rgb(118,225,254)",
+        "ratio": 2.23,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(207,68,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(15) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 919.6793212890625,
+          "y": 1149.03369140625,
+          "width": 51.4561767578125,
+          "height": 118.88427734375
+        },
+        "time": 45,
+        "times": [
+          45
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.2:1; WCAG AA requires 3:1.",
+        "text": "0xDEAD",
+        "fg": "rgb(247,181,72)",
+        "bg": "rgb(118,225,254)",
+        "ratio": 1.2,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(152,111,44)",
+        "large": true,
+        "selector": "div > div:nth-of-type(3) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(19) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/fightb.html",
+        "bbox": {
+          "x": 903.206298828125,
+          "y": 973.4303588867188,
+          "width": 132.0074462890625,
+          "height": 109.75848388671875
+        },
+        "time": 45,
+        "times": [
+          45
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.37:1; WCAG AA requires 3:1.",
+        "text": "0xDEAD",
+        "fg": "rgb(246,81,99)",
+        "bg": "rgb(81,43,212)",
+        "ratio": 2.37,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(248,119,133)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(15) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 861.052490234375,
+          "y": 765.0523681640625,
+          "width": 101.547119140625,
+          "height": 117.7930908203125
+        },
+        "time": 65,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 2.23:1; WCAG AA requires 3:1.",
+        "text": "nil",
+        "fg": "rgb(246,81,99)",
+        "bg": "rgb(118,225,254)",
+        "ratio": 2.23,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(207,68,83)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(17) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 989.0287475585938,
+          "y": 975.719970703125,
+          "width": 58.80108642578125,
+          "height": 48.203857421875
+        },
+        "time": 65,
+        "times": [
+          65
+        ]
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 1.16:1; WCAG AA requires 3:1.",
+        "text": "0xDEAD",
+        "fg": "rgb(247,181,72)",
+        "bg": "rgb(191,214,185)",
+        "ratio": 1.16,
+        "requiredRatio": 3,
+        "suggestedColor": "rgb(149,109,43)",
+        "large": true,
+        "selector": "div > div:nth-of-type(4) > div > div > div:nth-of-type(1) > div > svg:nth-of-type(4) > g:nth-of-type(19) > g > text",
+        "dataAttributes": {},
+        "sourceFile": "compositions/finish.html",
+        "bbox": {
+          "x": 956.0093994140625,
+          "y": 897.4000854492188,
+          "width": 142.0635986328125,
+          "height": 106.13214111328125
+        },
+        "time": 65,
+        "times": [
+          65
+        ]
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      5,
+      25,
+      45,
+      65,
+      85
+    ],
+    "checked": 63,
+    "passed": 57
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "film_silent",
+        "severity": "warning",
+        "message": "This 90 s film has no sound source (no <audio>, no <video> with sound): add a music bed and sounds on the visible actions unless the person asked for silence; see references/sound.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "enabled": true,
+    "step": 0.15000000000000036,
+    "samples": 599
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}
