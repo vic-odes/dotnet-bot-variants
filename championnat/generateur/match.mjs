@@ -89,7 +89,14 @@ function op(kind, sel, t, a, b) { S.ops.push([kind, sel, r2(t - S.start), a, b])
 const to = (sel, t, d, ease, vars) => op('to', sel, t, { ...vars, duration: r2(Math.max(d, 0.001)), ease });
 const set = (sel, t, vars) => op('set', sel, t, vars);
 const fromTo = (sel, t, d, ease, from, vars) => op('fromTo', sel, t, from, { ...vars, duration: r2(d), ease });
-const attr = (sel, t, d, ease, transform) => to(sel, t, d, ease, { attr: { transform } });
+const LAST = new Map(); // dernier tween d'attribut par élément : { vars, start }
+function attr(sel, t, d, ease, transform) {
+  const prev = LAST.get(sel);
+  if (prev && t <= prev.start) prev.op[0] = 'skip'; // remplacé avant même d'avoir commencé
+  else if (prev && t < prev.start + prev.op[3].duration) prev.op[3].duration = r2(Math.max(0.001, t - prev.start));
+  to(sel, t, d, ease, { attr: { transform } });
+  LAST.set(sel, { op: S.ops[S.ops.length - 1], start: t });
+}
 
 // les 5 niveaux d'un combattant : root (x) > face (sens, échelle) > air (hauteur) > spin (rotation) > sq (écrasement)
 const gX = (f, t, d, ease, x) => { f.x = x; attr(`#${f.p}-root`, t, d, ease, `translate(${r2(x)} ${FEET})`); };
@@ -101,12 +108,17 @@ const gShadow = (f, t, d, ease, s) => { f.sh = s; attr(`#${f.p}-shadow`, t, d, e
 const gAlpha = (f, t, a) => { f.alpha = a; set(`#${f.p}-root`, t, { opacity: a }); };
 function lookAt(f, t, d = 0.08) { gFace(f, t, dirTo(f, other(f)), d); }
 
+const LAG = { body: 0, legB: 0, legF: 0.01, kneeB: 0.03, kneeF: 0.03, armF: 0.02, armB: 0.04, elbF: 0.05, elbB: 0.07, handF: 0.08, handB: 0.1, head: 0.07 };
 function poseTo(f, name, t, d, ease, override = {}) {
   const tg = { ...target(f, name), ...override };
+  const k = Math.min(1.4, Math.max(0.6, d / 0.15));
+  const windup = /\.in$/.test(ease);
   for (const [j, a] of Object.entries(tg)) {
     if (Math.abs(a - f.pose[j]) < 0.01) continue;
     const [x, y] = f.R.J[j];
-    attr(`#${f.p}-${j}`, t, d, ease, jt(x, y, a));
+    const lag = (LAG[j] || 0) * k;
+    const e = !windup && lag >= 0.04 ? 'back.out(1.8)' : ease;
+    attr(`#${f.p}-${j}`, t + lag, d + lag * 0.8, e, jt(x, y, a));
     f.pose[j] = a;
   }
 }
@@ -130,12 +142,26 @@ function hop(f, t, d, { x = f.x, h = 200, flips = 0, air = 'boule', after = 'gar
   if (sound && (flips || h > 150)) snd(t + d * 0.35, 'whoosh-short.mp3', VOL.whoosh * 0.7);
 }
 // pas rapide au sol
-function step(f, t, d, x) { gX(f, t, d, 'power3.out', x); gSq(f, t, d * 0.4, 'power2.out', 1.04, 0.96); gSq(f, t + d * 0.4, d * 0.6, 'power2.out', 1, 1); }
+function step(f, t, d, x) {
+  gX(f, t, d, 'power2.inOut', x); gSq(f, t, d * 0.4, 'sine.out', 1.03, 0.97); gSq(f, t + d * 0.4, d * 0.6, 'sine.inOut', 1, 1);
+  const J = f.R.J, P = f.pose, s = f.R.legK;
+  attr(`#${f.p}-legF`, t, d * 0.5, 'sine.out', jt(J.legF[0], J.legF[1], P.legF - 28 * s)); attr(`#${f.p}-legF`, t + d * 0.5, d * 0.5, 'sine.inOut', jt(J.legF[0], J.legF[1], P.legF));
+  attr(`#${f.p}-legB`, t, d * 0.5, 'sine.out', jt(J.legB[0], J.legB[1], P.legB + 24 * s)); attr(`#${f.p}-legB`, t + d * 0.5, d * 0.5, 'sine.inOut', jt(J.legB[0], J.legB[1], P.legB));
+  attr(`#${f.p}-kneeF`, t + 0.03, d * 0.5, 'sine.out', jt(J.kneeF[0], J.kneeF[1], P.kneeF + 22 * s)); attr(`#${f.p}-kneeF`, t + 0.03 + d * 0.5, d * 0.5, 'sine.inOut', jt(J.kneeF[0], J.kneeF[1], P.kneeF));
+}
 // garde vivante : petit rebond de ninja, décalé entre les deux
 function bob(f, t0, t1, phase = 0) {
+  const r = rng(Math.floor(t0 * 100) + f.p.length), J = f.R.J;
   let t = t0 + phase, down = true;
-  while (t + 0.36 <= t1) { gSq(f, t, 0.36, 'sine.inOut', down ? 1.02 : 1, down ? 0.965 : 1); t += 0.36; down = !down; }
-  if (!down) gSq(f, t, Math.min(0.2, Math.max(0.01, t1 - t)), 'sine.out', 1, 1);
+  while (t + 0.42 <= t1) {
+    const d = 0.42 + r() * 0.2;
+    if (t + d > t1) break;
+    gSq(f, t, d, 'sine.inOut', down ? 1.012 + r() * 0.01 : 1, down ? 0.97 - r() * 0.012 : 1);
+    attr(`#${f.p}-head`, t + 0.09, d, 'sine.inOut', jt(J.head[0], J.head[1], f.pose.head + (down ? 3 + r() * 2 : -1)));
+    t += d; down = !down;
+  }
+  gSq(f, t, Math.max(0.05, Math.min(0.3, t1 - t)), 'sine.out', 1, 1);
+  attr(`#${f.p}-head`, t + 0.05, Math.max(0.05, Math.min(0.3, t1 - t)), 'sine.out', jt(J.head[0], J.head[1], f.pose.head));
 }
 // pans du bandeau qui flottent toute la scène
 function flutter(f, t0, t1, seed) {
@@ -535,7 +561,7 @@ function arena() {
     <polygon points="-20,1360 1100,1360 1100,1380 -20,1380" fill="${K.purpleTint}"/>
     <rect x="-20" y="1380" width="1120" height="${H - 1380}" fill="${K.purple}"/>
     <rect x="-20" y="1380" width="1120" height="8" fill="#7253E3"/>
-    <text x="540" y="1478" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="64" letter-spacing="10" fill="${K.white}">${M.titre}</text>
+    <text x="540" y="1478" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="52" letter-spacing="10" fill="${K.white}">${M.titre}</text>
     <text x="540" y="1530" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="30" letter-spacing="6" fill="${K.purpleTint45}">${POULE}</text>
   </svg>`;
 }
@@ -588,7 +614,7 @@ const CSS = `
   .hud { position: absolute; left: 40px; right: 40px; top: 196px; height: 130px; display: flex; align-items: flex-end; gap: 24px; }
   .hud-side { flex: 1; display: flex; flex-direction: column; gap: 10px; }
   .hud-side.droite { align-items: flex-end; }
-  .hud-name { color: #FFFFFF; font-weight: 700; font-size: 40px; letter-spacing: 0.01em; }
+  .hud-name { color: #FFFFFF; font-weight: 700; font-size: 34px; letter-spacing: 0.01em; }
   .hud-bar { position: relative; width: 100%; height: 40px; background: ${K.midnight}; border: 4px solid #FFFFFF; border-radius: 6px; overflow: hidden; }
   .hud-lag, .hud-fill { position: absolute; inset: 0; }
   .hud-lag { background: ${K.flamingo}; }
@@ -597,17 +623,17 @@ const CSS = `
   .hud-fill.gauche { background: linear-gradient(90deg, ${K.purple}, ${K.magenta}); }
   .hud-fill.droite { background: ${K.cyan}; }
   .hud-round { width: 92px; height: 92px; border-radius: 46px; background: ${K.yellow}; color: ${K.midnight10}; font-weight: 700; font-size: 38px; display: flex; align-items: center; justify-content: center; border: 5px solid #FFFFFF; flex: none; }
-  .card { position: absolute; left: 80px; width: 920px; padding: 24px 36px 30px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
+  .card { position: absolute; left: 110px; width: 860px; padding: 20px 30px 24px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
   .card.db { background: ${K.purple}; color: #FFFFFF; }
   .card.go { background: ${K.cyan}; color: ${K.midnight10}; }
-  .card .tag { font-family: 'Space Mono'; font-weight: 700; font-size: 30px; letter-spacing: 0.08em; }
-  .card .name { font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.02em; margin-top: 6px; }
-  .card .code { font-family: 'Space Mono'; font-size: 30px; color: ${K.code}; background: ${K.midnight}; padding: 12px 18px; border-radius: 10px; margin-top: 16px; white-space: nowrap; }
-  .card .note { font-family: 'Open Sans'; font-weight: 600; font-size: 36px; margin-top: 12px; }
-  .card .big { font-family: 'Space Mono'; font-weight: 700; font-size: 104px; color: ${K.code}; background: ${K.midnight}; padding: 18px 26px; border-radius: 14px; margin-top: 14px; text-align: center; }
-  .ann { position: absolute; left: 0; right: 0; top: 480px; text-align: center; font-weight: 700; font-size: 220px; line-height: 1; color: ${K.yellow}; -webkit-text-stroke: 14px ${K.midnight10}; paint-order: stroke fill; opacity: 0; }
-  .ann.small { font-size: 150px; }
-  .ann.top { top: 380px; }
+  .card .tag { font-family: 'Space Mono'; font-weight: 700; font-size: 28px; letter-spacing: 0.08em; }
+  .card .name { font-weight: 700; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; margin-top: 6px; }
+  .card .code { font-family: 'Space Mono'; font-size: 28px; color: ${K.code}; background: ${K.midnight}; padding: 12px 18px; border-radius: 10px; margin-top: 16px; white-space: nowrap; }
+  .card .note { font-family: 'Open Sans'; font-weight: 600; font-size: 32px; margin-top: 12px; }
+  .card .big { font-family: 'Space Mono'; font-weight: 700; font-size: 72px; color: ${K.code}; background: ${K.midnight}; padding: 18px 26px; border-radius: 14px; margin-top: 14px; text-align: center; }
+  .ann { position: absolute; left: 0; right: 0; top: 480px; text-align: center; font-weight: 700; font-size: 140px; line-height: 1; color: ${K.yellow}; -webkit-text-stroke: 9px ${K.midnight10}; paint-order: stroke fill; opacity: 0; }
+  .ann.small { font-size: 100px; }
+  .ann.top { top: 400px; }
 `;
 
 function sceneFile(sc, inner) {
@@ -619,7 +645,7 @@ function sceneFile(sc, inner) {
   <script>
     (function () {
       const tl = gsap.timeline({ paused: true });
-      const OPS = ${JSON.stringify(S.ops)};
+      const OPS = ${JSON.stringify(S.ops.filter((o) => o[0] !== 'skip'))};
       for (const [k, sel, t, a, b] of OPS) {
         if (k === 'to') tl.to(sel, a, t);
         else if (k === 'set') tl.set(sel, a, t);
@@ -655,6 +681,7 @@ const SCENES = [
   { id: 'outro', start: M.fin, end: 90.0 },
 ];
 function begin(sc) {
+  LAST.clear();
   S = { ...sc, ops: [], fx: '', cards: '', minis: '', camX: 0, fighters: fighterMarkup(F.gauche) + fighterMarkup(F.droite), hud: hudMarkup() };
   flutter(F.gauche, sc.start, sc.end, 31); flutter(F.droite, sc.start, sc.end, 37);
 }
@@ -693,16 +720,16 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   to('#cam', 3.78, 0.22, 'power3.inOut', { scale: 1, x: 0, y: 0 });
   bob(F.gauche, 1.5, 4.0); bob(F.droite, 1.55, 4.0, 0.12);
   sc.css = `
-    .title { position: absolute; left: 0; right: 0; top: 210px; text-align: center; font-weight: 700; font-size: 96px; letter-spacing: 0.08em; color: ${K.yellow}; -webkit-text-stroke: 10px ${K.midnight10}; paint-order: stroke fill; }
+    .title { position: absolute; left: 0; right: 0; top: 210px; text-align: center; font-weight: 700; font-size: 64px; letter-spacing: 0.08em; color: ${K.yellow}; -webkit-text-stroke: 7px ${K.midnight10}; paint-order: stroke fill; }
     .vs { position: absolute; left: 0; right: 0; top: 340px; text-align: center; color: #FFFFFF; font-weight: 700; transform-origin: 540px 200px; }
-    .vs-l, .vs-r { font-size: 100px; line-height: 1.05; letter-spacing: -0.03em; }
+    .vs-l, .vs-r { font-size: 68px; line-height: 1.05; letter-spacing: -0.03em; }
     .vs-r { color: ${K.cyan}; }
-    .vs-v { font-family: 'Space Mono'; font-weight: 700; font-size: 36px; color: ${K.purpleTint}; margin-top: 4px; }
-    .vs-x { font-size: 140px; line-height: 1; color: ${K.white}; -webkit-text-stroke: 12px ${K.midnight10}; paint-order: stroke fill; }
-    .plate { position: absolute; top: 380px; width: 760px; padding: 26px 38px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
+    .vs-v { font-family: 'Space Mono'; font-weight: 700; font-size: 30px; color: ${K.purpleTint}; margin-top: 4px; }
+    .vs-x { font-size: 96px; line-height: 1; color: ${K.white}; -webkit-text-stroke: 8px ${K.midnight10}; paint-order: stroke fill; }
+    .plate { position: absolute; top: 400px; width: 560px; padding: 20px 30px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
     .plate.l { left: 60px; background: ${K.purple}; color: #FFFFFF; }
     .plate.r { right: 60px; background: ${K.cyan}; color: ${K.midnight10}; text-align: right; }
-    .plate-name { font-weight: 700; font-size: 110px; line-height: 1; letter-spacing: -0.03em; }
+    .plate-name { font-weight: 700; font-size: 68px; line-height: 1; letter-spacing: -0.03em; }
     .plate-ver { font-family: 'Space Mono'; font-weight: 700; font-size: 44px; margin-top: 12px; }`;
   finish(sc);
 }
@@ -733,7 +760,7 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   to('#cam', M.ko + 1.2, 0.6, 'power3.inOut', { x: -560 }); snd(M.ko + 1.45, 'whoosh-short.mp3', VOL.whoosh);
   S.cards += `<div class="caption" id="ko-cap">${M.droite.nom} est hors du ring</div>`;
   fromTo('#ko-cap', M.ko + 1.3, 0.2, 'expo.out', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1 });
-  sc.css = `.caption { position: absolute; left: 60px; right: 60px; top: 520px; text-align: center; font-weight: 700; font-size: 84px; line-height: 1.05; color: #FFFFFF; opacity: 0; }`;
+  sc.css = `.caption { position: absolute; left: 60px; right: 60px; top: 520px; text-align: center; font-weight: 700; font-size: 54px; line-height: 1.1; color: #FFFFFF; opacity: 0; }`;
   finish(sc, hud);
 }
 // OUTRO : salto de la victoire, classement, prochain combat
@@ -761,12 +788,12 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   fromTo('#dim', sc.start + 3.5, 0.2, 'power2.inOut', { opacity: 0 }, { opacity: 1 });
   fromTo('#table', sc.start + 3.55, 0.25, 'expo.out', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 });
   sc.css = `
-    .pts { position: absolute; left: 0; right: 0; top: 560px; text-align: center; color: #FFFFFF; font-weight: 700; font-size: 72px; opacity: 0; }
+    .pts { position: absolute; left: 0; right: 0; top: 520px; text-align: center; color: #FFFFFF; font-weight: 700; font-size: 50px; opacity: 0; }
     .pts b { display: inline-block; margin-left: 24px; padding: 6px 26px; background: ${K.yellow}; color: ${K.midnight10}; border-radius: 14px; }
     .dim { position: absolute; inset: 0; background: rgba(20,5,58,0.78); opacity: 0; }
     .table { position: absolute; left: 70px; right: 70px; top: 300px; padding: 36px 44px; background: ${K.midnight}; border: 6px solid #FFFFFF; border-radius: 22px; color: #FFFFFF; opacity: 0; }
-    .t-title { font-family: 'Space Mono'; font-weight: 700; font-size: 40px; letter-spacing: 0.1em; color: ${K.yellow}; margin-bottom: 18px; }
-    .row { display: flex; align-items: center; font-weight: 700; font-size: 52px; padding: 14px 0; border-top: 3px solid ${K.purpleShade}; }
+    .t-title { font-family: 'Space Mono'; font-weight: 700; font-size: 34px; letter-spacing: 0.1em; color: ${K.yellow}; margin-bottom: 18px; }
+    .row { display: flex; align-items: center; font-weight: 700; font-size: 42px; padding: 14px 0; border-top: 3px solid ${K.purpleShade}; }
     .row.head { font-family: 'Space Mono'; font-size: 30px; color: ${K.purpleTint}; border-top: none; padding: 4px 0; }
     .row.first { color: ${K.yellow}; }
     .rk { width: 70px; } .nm { flex: 1; } .nm i { font-style: normal; font-family: 'Space Mono'; font-weight: 400; font-size: 32px; color: ${K.purpleTint}; margin-left: 12px; }
@@ -774,9 +801,9 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
     .next { margin-top: 40px; padding-top: 30px; border-top: 6px solid ${K.purple}; text-align: center; }
     .n-label { font-family: 'Space Mono'; font-weight: 700; font-size: 34px; letter-spacing: 0.12em; color: ${K.purpleTint}; }
     .n-imgs { display: flex; align-items: center; justify-content: center; gap: 30px; margin: 20px 0 10px; }
-    .n-imgs img { height: 210px; width: 260px; object-fit: contain; }
-    .n-imgs span { font-weight: 700; font-size: 70px; color: ${K.yellow}; }
-    .n-title { font-weight: 700; font-size: 54px; }`;
+    .n-imgs img { height: 170px; width: 220px; object-fit: contain; }
+    .n-imgs span { font-weight: 700; font-size: 52px; color: ${K.yellow}; }
+    .n-title { font-weight: 700; font-size: 42px; }`;
   finish(sc);
 }
 
@@ -809,7 +836,7 @@ writeFileSync(path.join(OUT, 'index.html'), `<!doctype html>
   </head>
   <body>
     <!-- Généré par championnat/generateur/match.mjs à partir de championnat/matchs/*.mjs : modifier les données, pas ce fichier. -->
-    <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="${W}" data-height="${H}">
+    <div id="root" data-composition-id="main" data-motion-blur="on" data-start="0" data-duration="90" data-width="${W}" data-height="${H}">
 ${hosts}
 ${audio}
     </div>
