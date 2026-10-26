@@ -194,6 +194,9 @@ function shake(t, frames = 6, amp = 12, seed = 7) {
 
 // ---------- effets ----------
 const BUG = 'M14.25 2c.38 0 .7.28.74.65l.01.1v.75q-.02.97-.53 1.7a3.8 3.8 0 0 1 2.52 3.3h.26a2.25 2.25 0 0 0 2.24-2.26V4.75a.75.75 0 0 1 1.5 0v1.48c0 2-1.56 3.65-3.54 3.76H17v1.51h4.25c.38 0 .7.28.75.65v.1c0 .38-.28.7-.65.74l-.1.01H17v2h.45a3.750 3.75 0 0 1 3.53 3.57v1.68a.75.75 0 0 1-1.5.1v-1.59c.01-1.2-.9-2.170-2.08-2.25h-.15l-.48-.01a5 5 0 0 1-9.54 0h-.49a2.25 2.25 0 0 0-2.24 2.26v1.49a.75.75 0 1 1-1.5 0v-1.48c0-2 1.56-3.65 3.54-3.76h.21L7 15v-2H2.75a.75.75 0 0 1-.74-.65l-.01-.1c0-.38.28-.7.65-.74h.1L7 11.5V10h-.46A3.75 3.75 0 0 1 3 6.42V4.75a.75.75 0 0 1 1.5-.1v1.59c0 1.19.92 2.17 2.09 2.25H7a3.8 3.8 0 0 1 2.52-3.28q-.46-.65-.52-1.5L9 3.51v-.76a.75.75 0 0 1 1.5-.1v.85a1.5 1.5 0 0 0 3 .15v-.9c0-.41.34-.75.75-.75'; // Fluent UI System Icons bug_24_filled (MIT)
+const THUMB = 'M15.06 9q.69-2.13.69-3.75c0-2.4-.94-4.25-2.5-4.25-.85 0-1.11.5-1.44 1.75a65 65 0 0 1-.77 2.72L8.17 9.95a6 6 0 0 1-2.85 2.33l-1.26.48c-.8.3-1.25 1.13-1.09 1.97l.69 3.54c.16.86.82 1.54 1.67 1.75l8.25 2.03a4.75 4.75 0 0 0 5.73-3.44l1.58-6.18A2.75 2.75 0 0 0 18.22 9z'; // Fluent thumb_like_24_filled (MIT)
+const BELL = 'M9.04 19h5.92a3 3 0 0 1-5.92 0M12 2a7.5 7.5 0 0 1 7.5 7.5v4l1.42 3.16a.95.95 0 0 1-.87 1.34H3.95a.95.95 0 0 1-.86-1.34L4.5 13.5V9.24A7.5 7.5 0 0 1 12 2m11 6.25a.75.75 0 0 1 .1 1.5H21a.75.75 0 0 1-.1-1.5H23m-20 0a.75.75 0 0 1 .1 1.5H1a.75.75 0 0 1-.1-1.5H3m19.6-5.7c.23.3.2.72-.07.98l-.08.07-2 1.5a.75.75 0 0 1-.98-1.13l.08-.07 2-1.5a.75.75 0 0 1 1.05.15M2.45 2.4l2 1.5a.75.75 0 1 1-.9 1.2l-2-1.5a.75.75 0 1 1 .9-1.2'; // Fluent alert_on_24_filled (MIT)
+const icon = (d, id, size, color) => `<svg id="${id}" class="ico" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="${d}" fill="${color}"/></svg>`;
 let fxN = 0;
 const fxId = () => `fx${fxN++}`;
 function spark(t, x, y, color = K.yellow, s = 1) {
@@ -785,6 +788,18 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   const sc = SCENES[2]; begin(sc);
   const hud = S.hud;
   inScene(sc).forEach((e) => exchange(e, E.indexOf(e)));
+  // rappel « like » entre la carte de l'échange 5 et l'approche de l'échange 6
+  const tR = E[4].at + 4.8, tRe = E[5].at - 0.1;
+  S.cards += `<div class="remind" id="remind">${icon(THUMB, 'r-thumb', 64, K.white)}<span>Team ${M.gauche.nom} ? <b>LIKE</b></span></div>`;
+  snd(tR, 'pop.mp3', VOL.pop);
+  fromTo('#remind', tR, 0.2, 'back.out(1.6)', { opacity: 0, scale: 0.6, rotation: 0 }, { opacity: 1, scale: 1, rotation: -3 });
+  to('#r-thumb', tR + 0.3, 0.12, 'power2.out', { rotation: -18, transformOrigin: '50% 80%' });
+  to('#r-thumb', tR + 0.42, 0.35, 'back.out(3)', { rotation: 0, transformOrigin: '50% 80%' });
+  to('#remind', tRe - 0.12, 0.12, 'power2.in', { opacity: 0, scale: 0.9 });
+  sc.css = `
+    .remind { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; white-space: nowrap; top: 430px; display: flex; align-items: center; justify-content: center; gap: 22px;
+      padding: 22px 36px; background: ${K.magenta}; border: 6px solid #FFFFFF; border-radius: 60px; color: #FFFFFF; font-weight: 700; font-size: 50px; opacity: 0; }
+    .remind b { color: #FFFFFF; letter-spacing: 0.04em; }`;
   finish(sc, hud);
 }
 // FINISH : combo, break outer;, K.O.
@@ -809,21 +824,37 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   Object.assign(lose, { x: 1500, dy: 0, r: 0 });
   begin(sc);
   hop(win, sc.start + 0.05, 0.7, { h: 200, flips: -1, after: 'victoire' });
-  announce(sc.start + 0.2, sc.start + 3.4, 'VICTOIRE', 'small top'); snd(sc.start + 0.2, 'impact-bass-1.mp3', VOL.impact); snd(sc.start + 0.3, 'crowd.wav', VOL.crowd);
+  announce(sc.start + 0.2, sc.start + 2.9, 'VICTOIRE', 'small top'); snd(sc.start + 0.2, 'impact-bass-1.mp3', VOL.impact); snd(sc.start + 0.3, 'crowd.wav', VOL.crowd);
   S.cards += `<div class="pts" id="pts"><span>${win.d.nom}</span><b>+3 PTS</b></div>`;
   snd(sc.start + 0.8, 'pop.mp3', VOL.pop);
   fromTo('#pts', sc.start + 0.8, 0.2, 'back.out(1.6)', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1 });
-  to('#pts', sc.start + 3.4, 0.1, 'power3.in', { opacity: 0 });
-  bob(win, sc.start + 0.9, sc.start + 3.5);
+  to('#pts', sc.start + 2.9, 0.1, 'power3.in', { opacity: 0 });
+  bob(win, sc.start + 0.9, sc.start + 3.0);
   const rows = M.classement.map((c, i) => `<div class="row${i === 0 ? ' first' : ''}"><span class="rk">${i + 1}</span><span class="nm">${c.nom} <i>${c.techno}</i></span><span class="j">${c.j}</span><span class="p">${c.pts}</span></div>`).join('');
   mkdirSync(path.join(OUT, 'assets/img'), { recursive: true });
   const imgs = M.prochain.images.map((src, i) => { const name = `prochain-${i}.png`; copyFileSync(path.join(REPO, src), path.join(OUT, 'assets/img', name)); return `<img src="assets/img/${name}" alt="">`; });
   S.cards += `<div class="dim" id="dim"></div><div class="table" id="table"><div class="t-title">${M.titre} · ${POULE}</div>
     <div class="row head"><span class="rk"></span><span class="nm"></span><span class="j">J</span><span class="p">PTS</span></div>${rows}
     <div class="next"><div class="n-label">PROCHAIN COMBAT</div><div class="n-imgs">${imgs.join('<span>VS</span>')}</div><div class="n-title">${M.prochain.titre}</div></div></div>`;
-  snd(sc.start + 3.55, 'whoosh-short.mp3', VOL.whoosh);
-  fromTo('#dim', sc.start + 3.5, 0.2, 'power2.inOut', { opacity: 0 }, { opacity: 1 });
-  fromTo('#table', sc.start + 3.55, 0.25, 'expo.out', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 });
+  snd(sc.start + 3.05, 'whoosh-short.mp3', VOL.whoosh);
+  fromTo('#dim', sc.start + 3.0, 0.2, 'power2.inOut', { opacity: 0 }, { opacity: 1 });
+  fromTo('#table', sc.start + 3.05, 0.25, 'expo.out', { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1 });
+  to('#table', sc.start + 6.45, 0.15, 'power2.in', { opacity: 0, scale: 0.96 });
+  // carton final : like + abonnement
+  const tC = sc.start + 6.65;
+  S.cards += `<div class="cta" id="cta"><div class="cta-t">Le combat t'a plu ?</div>
+    <div class="btn like" id="b-like">${icon(THUMB, 'c-thumb', 76, K.white)}<span>LIKE</span></div>
+    <div class="btn sub" id="b-sub">${icon(BELL, 'c-bell', 76, K.midnight10)}<span>ABONNE-TOI</span></div>
+    <div class="cta-s">pour ne rater aucun combat ${M.titre}</div></div>`;
+  fromTo('#cta', tC, 0.2, 'expo.out', { opacity: 0 }, { opacity: 1 });
+  fromTo('#b-like', tC + 0.1, 0.25, 'back.out(1.8)', { scale: 0.4, rotation: -8 }, { scale: 1, rotation: -3 });
+  snd(tC + 0.1, 'pop.mp3', VOL.pop);
+  to('#c-thumb', tC + 0.45, 0.12, 'power2.out', { rotation: -20, transformOrigin: '50% 80%' });
+  to('#c-thumb', tC + 0.57, 0.4, 'back.out(3)', { rotation: 0, transformOrigin: '50% 80%' });
+  fromTo('#b-sub', tC + 0.6, 0.25, 'back.out(1.8)', { scale: 0.4, rotation: 8 }, { scale: 1, rotation: 2 });
+  snd(tC + 0.6, 'pop.mp3', VOL.pop);
+  [12, -12, 9, -9, 5, 0].forEach((a, i) => to('#c-bell', tC + 0.95 + i * 0.08, 0.08, 'sine.inOut', { rotation: a, transformOrigin: '50% 10%' }));
+  [12, -12, 9, -9, 5, 0].forEach((a, i) => to('#c-bell', tC + 2.1 + i * 0.08, 0.08, 'sine.inOut', { rotation: a, transformOrigin: '50% 10%' }));
   sc.css = `
     .pts { position: absolute; left: 0; right: 0; top: 520px; text-align: center; color: #FFFFFF; font-weight: 700; font-size: 50px; opacity: 0; }
     .pts b { display: inline-block; margin-left: 24px; padding: 6px 26px; background: ${K.yellow}; color: ${K.midnight10}; border-radius: 14px; }
@@ -840,7 +871,13 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
     .n-imgs { display: flex; align-items: center; justify-content: center; gap: 30px; margin: 20px 0 10px; }
     .n-imgs img { height: 170px; width: 220px; object-fit: contain; }
     .n-imgs span { font-weight: 700; font-size: 52px; color: ${K.yellow}; }
-    .n-title { font-weight: 700; font-size: 42px; }`;
+    .n-title { font-weight: 700; font-size: 42px; }
+    .cta { position: absolute; left: 0; right: 0; top: 400px; display: flex; flex-direction: column; align-items: center; gap: 44px; color: #FFFFFF; opacity: 0; }
+    .cta-t { font-weight: 700; font-size: 64px; }
+    .btn { display: flex; align-items: center; gap: 26px; padding: 26px 56px; border: 6px solid #FFFFFF; border-radius: 80px; font-weight: 700; font-size: 72px; letter-spacing: 0.04em; }
+    .btn.like { background: ${K.magenta}; color: #FFFFFF; }
+    .btn.sub { background: ${K.yellow}; color: ${K.midnight10}; }
+    .cta-s { font-family: 'Space Mono'; font-weight: 700; font-size: 32px; color: ${K.purpleTint}; }`;
   finish(sc);
 }
 

@@ -60,8 +60,13 @@ SHOTS (secondes) :
   03  4,0–5,6   ROUND 1 (cloche) puis FIGHT!
   04–13 5,6–75,6  10 échanges de 7 s (données du combat) ; `break outer;` à 69,5 s coupe la musique.
   14  75,6–80,0 K.O., la caméra glisse vers le Gopher hors du ring.
-  15  80,0–83,5 VICTOIRE : salto arrière de dotnet-bot, « +3 PTS ».
-  16  83,5–90,0 classement CODE NINJA · POULE A + prochain combat.
+  15  80,0–83,0 VICTOIRE : salto arrière de dotnet-bot, « +3 PTS ».
+  16  83,0–86,6 classement CODE NINJA · POULE A + prochain combat.
+  17  86,7–90,0 carton final : « Le combat t'a plu ? », LIKE (magenta, pouce Fluent) puis ABONNE-TOI (jaune, cloche Fluent qui sonne).
+  Rappel : 38,4–40,5 s, pastille « Team dotnet-bot ? LIKE » entre deux cartes.
+
+CARTES (révision 6) : une technique de combat par touche ; étiquette = « TECHNO · TERRAIN » (LANGAGE, PORTÉE, FRAMEWORK,
+  EXÉCUTION, CONCURRENCE, OUTILLAGE, ÉCOSYSTÈME, DÉPLOIEMENT) ; nom = la technique ; puis une ligne de code ou une note de preuve.
 
 SOUND: synthwave de combat 150 BPM (outils/synth_synthwave.py) qui entre fort sur la mesure 1 ; bruitages : lame (2 ou 3 prises
        en rotation), impact sur chaque touche, parade métallique sur l'échange 7 ; silence net sur `break outer;`, puis jingle du K.O.

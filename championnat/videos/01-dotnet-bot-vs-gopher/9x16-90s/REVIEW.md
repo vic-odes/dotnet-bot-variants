@@ -1,6 +1,10 @@
 # Revue — combat n°1 : dotnet-bot vs Gopher
 
 ## Choix créatifs
+- Révision 6 (retour utilisateur) : chaque touche est une **technique de combat** (« Lame du binaire unique », « Garde LINQ »…)
+  dont l'étiquette nomme le terrain de l'avantage : langage, portée du framework, exécution, concurrence, outillage,
+  écosystème, déploiement. Rappel « Team dotnet-bot ? LIKE » à 38,4–40,5 s ; carton final LIKE + ABONNE-TOI (icônes Fluent
+  pouce et cloche) à 86,7–90 s ; victoire et classement resserrés (80–83 s, 83–86,6 s).
 - Révision 5 (retour utilisateur) : mascottes réduites d'environ un quart (dotnet-bot 0,85, Gopher 0,63), écarts et sauts ajustés.
 - Révision 4 (retour utilisateur) : combat de rue au lieu du ring (rue de nuit .NET, enseigne néon, réverbère, benne /dev/null
   pour le K.O.) ; décor foncé pour que les combattants ressortent ; décor exclu de l'audit de lisibilité (`data-layout-ignore`).
@@ -11,7 +15,9 @@
 - Mise en scène **Arcade** (choisie par l'utilisateur) ; non construites : « Retransmission TV » et « Le ring est un IDE » (STORYLINES.md).
 - Pantins redessinés sur un squelette commun (dotnet-bot d'après les variantes vectorielles, Gopher d'après Renée French).
 - Violence de dessin animé : bugs Fluent et jetons d'erreur (`null`, `Exception`, `panic:`, `nil`…) à la place du sang.
-- Fonctionnalités des dernières versions, vérifiées le 2026-10-26 : Go 1.27 (sorti) contre C# 15 / .NET 11 (RC2, GA en novembre 2026).
+- Avantages vérifiés le 2026-10-26 : Go 1.27 (sorti) contre C# 15 / .NET 11 (RC2, GA en novembre 2026) ; avantages de fond
+  (binaire unique, goroutines, Docker/Kubernetes écrits en Go ; portée multi-plateforme, PGO dynamique / Native AOT, LINQ,
+  Minimal API, NuGet + Hot Reload, publication de conteneur sans Dockerfile).
 
 ## Mesuré / regardé
 - `hyperframes check` : 0 erreur.

@@ -18,7 +18,11 @@ par-dessus l'adversaire, rebonds sur les cordes, fumée, shurikens, chocs en ple
 
 Championnat des mascottes, combat n°1 (Poule A, journée 1) : dotnet-bot contre le Gopher (Go), à l'épée sur un
 ring, en motion design. Chaque coup porté fait jaillir une fonctionnalité **de la dernière version** du langage de
-l'attaquant, comme un avantage sur l'autre. dotnet-bot gagne par K.O. Calendrier et tirage : `championnat/README.md`.
+l'attaquant, comme un avantage sur l'autre. dotnet-bot gagne par K.O.
+
+Révision 6 : chaque coup est une **technique de combat** qui illustre un avantage, quel que soit le terrain (fonctionnalités
+du langage, portée et facilité du framework, exécution, concurrence, outillage, écosystème, déploiement). La vidéo rappelle
+de **liker** (à mi-combat) et de **s'abonner** (carton final). Calendrier et tirage : `championnat/README.md`.
 
 Violence : façon dessin animé — pas de sang, des **bugs et du code qui giclent** (rouge « exception »).
 Audio : **musique de combat**, bruitages de lame et d'impacts, **pas de commentateur**.
