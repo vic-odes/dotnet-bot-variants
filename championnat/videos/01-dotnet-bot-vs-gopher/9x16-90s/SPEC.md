@@ -1,4 +1,4 @@
-# SPEC — Match 1 : dotnet-bot vs Gopher (Arcade)
+# SPEC — Match 1 : dotnet-bot vs Gopher (Arcade ninja, CODE NINJA)
 
 GOAL:    le spectateur voit chaque nouveauté de Go 1.27 frapper, puis C# 15 / .NET 11 répondre coup pour coup,
          et rit quand `break outer;` éjecte le Gopher du ring.
@@ -36,28 +36,23 @@ OBJECTS:
   - Épées : lame 260 px #E7F0FF à arête #9DC4FF, garde dans la couleur d'équipe ; traînée de lame = arc 0,12 s couleur d'équipe à 60 %.
   - Mini-gophers (goroutines) : 6 petits gophers de 90 px pour le gag `goroutineleak`.
 
-MOTION:
-  - Anticipation 0,25 s power2.in (recul du corps 30 px, bras armé) ; frappe 0,12 s expo.out ; arrêt sur image 4 images
-    à l'impact ; recul de la victime back.out(1.4) 0,35 s, 60–90 px ; retour en garde 0,5 s power2.inOut.
-  - Garde vivante : respiration scaleY 1→1,025 sur 2 temps, décalée entre les deux personnages ; jamais les deux bras ensemble.
-  - Caméra (wrapper) : coup de zoom 1→1,08 en 0,08 s expo.out vers l'impact, retour 0,5 s power2.inOut ;
-    secousse ±12 px pendant 6 images, tirée d'un aléa à graine fixe.
-  - Carte : surgit du point d'impact, scale 0,2→1 + rotation -20°→-6° en 0,25 s back.out(1.6), immobile pendant la lecture
-    (≥ 2,6 s), sort en 0,15 s (scale 1→0,9, flou 8 px, opacité 0). Le texte ne bouge jamais pendant qu'on le lit.
-  - Barres de vie : chute en 0,2 s power3.out, traînée rouge en 0,5 s après 0,35 s.
-  - Annonces : claquent en 0,15 s (scale 1,6→1) puis tiennent ; sortie 0,12 s.
-  - Chaque attaque a son geste : coup de taille vertical, estoc, moulinet, saut, parade-riposte, traversée ; jamais deux fois le même d'affilée.
+MOTION (révision ninja) :
+  - Gestes 0,1–0,25 s (armé 0,14 s power2.in, frappe 0,1 s expo.out) ; sauts 0,5–0,75 s, arc power2.out/in, saltos linéaires,
+    atterrissage écrasé (1,12 × 0,84 en 0,05 s puis back.out) ; garde = petit rebond toutes les 0,36 s ; pans du bandeau qui flottent.
+  - Chaque échange (7 s) : approche acrobatique (choc en plein vol, saut par-dessus avec changement de côté, rebond sur les cordes,
+    fumée-téléportation) → touche (taille, estoc, revers, toupie, shuriken) → roulade arrière de la victime → trois chocs rapides
+    au sol pendant la lecture de la carte → séparation en salto arrière → menace du prochain attaquant.
+  - Combattants bornés entre x 190 et 890 ; écart de garde 290 px.
+  - Caméra : coup de zoom 1,08 à chaque touche, secousse ±12 px 5 images.
 
-SHOTS (secondes, voir STORYBOARD.md) :
-  01  0,0–3,2   face-à-face en garde, « dotnet-bot VS Gopher » claque à 0,3 s ; lecture 0,3–3,0.
-  02  3,2–8,0   cartes des combattants : « .NET 11 · C# 15 » / « Go 1.27 », « POULE A · JOURNÉE 1 ».
-  03  8,0–11,2  ROUND 1 (8,2) puis FIGHT! (9,8), sur les temps forts.
-  04–11 11,2–62,4  8 échanges de 6,4 s (BRIEF.md) : impact à +1,1 s, carte lisible +1,35→+4,4 s, retour en garde.
-  12  62,4–68,8 combo dotnet-bot : Extension indexers puis `[with(capacity: 64), ..]`, deux cartes à 1,6 s d'écart.
-  13  68,8–75,2 `break outer;` : dotnet-bot traverse, le Gopher passe par-dessus les cordes et sort du cadre ; musique coupée net.
-  14  75,2–80,0 K.O. : le Gopher étourdi hors du ring (yeux en spirale), « K.O. » claque.
-  15  80,0–84,8 VICTOIRE : dotnet-bot épée levée, « +3 PTS ».
-  16  84,8–90,0 classement de la poule A + « Prochain combat : Alien (Lisp) vs Ziggy (Zig) ».
+SHOTS (secondes) :
+  01  0,0–1,9   CODE NINJA + « dotnet-bot (.NET 11 · C# 15) VS Gopher (Go 1.27) » dès l'image 0 ; salto arrière des deux ninjas.
+  02  1,9–4,0   présentation éclair : zoom dotnet-bot, zoom Gopher.
+  03  4,0–5,6   ROUND 1 (cloche) puis FIGHT!
+  04–13 5,6–75,6  10 échanges de 7 s (données du combat) ; `break outer;` à 69,5 s coupe la musique.
+  14  75,6–80,0 K.O., la caméra glisse vers le Gopher hors du ring.
+  15  80,0–83,5 VICTOIRE : salto arrière de dotnet-bot, « +3 PTS ».
+  16  83,5–90,0 classement CODE NINJA · POULE A + prochain combat.
 
 SOUND: synthwave de combat 150 BPM (outils/synth_synthwave.py) qui entre fort sur la mesure 1 ; bruitages : lame (2 ou 3 prises
        en rotation), impact sur chaque touche, parade métallique sur l'échange 7 ; silence net sur `break outer;`, puis jingle du K.O.

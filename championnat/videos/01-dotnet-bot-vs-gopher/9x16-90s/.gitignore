@@ -3,3 +3,4 @@ node_modules/
 renders/*.tmp*
 renders/work-*/
 renders/.*hf-transaction*/
+renders/raw.mp4

@@ -12,6 +12,10 @@ angle: character
 
 ## Intent
 
+Championnat **CODE NINJA** (nom choisi le 2026-10-26). Style : combat de ninjas, rapide et acrobatique (saltos, sauts
+par-dessus l'adversaire, rebonds sur les cordes, fumée, shurikens, chocs en plein vol), le combat continue sous les cartes.
+
+
 Championnat des mascottes, combat n°1 (Poule A, journée 1) : dotnet-bot contre le Gopher (Go), à l'épée sur un
 ring, en motion design. Chaque coup porté fait jaillir une fonctionnalité **de la dernière version** du langage de
 l'attaquant, comme un avantage sur l'autre. dotnet-bot gagne par K.O. Calendrier et tirage : `championnat/README.md`.
@@ -24,18 +28,7 @@ Audio : **musique de combat**, bruitages de lame et d'impacts, **pas de commenta
 Go 1.27 (sorti le 19 août 2026, go.dev/doc/go1.27) contre C# 15 / .NET 11 (RC2, sortie prévue en novembre 2026,
 learn.microsoft.com « What's new in C# 15 » et « What's new in .NET 11 »).
 
-| # | Attaquant | Fonctionnalité | Effet |
-|---|---|---|---|
-| 1 | Gopher | Méthodes génériques (Go 1.27) | dotnet-bot −15 |
-| 2 | dotnet-bot | Union types (C# 15) | Gopher −20 |
-| 3 | Gopher | `encoding/json/v2` (Go 1.27) | dotnet-bot −10 |
-| 4 | dotnet-bot | Runtime Async (.NET 11) | Gopher −15 |
-| 5 | Gopher | Package `simd` (expérimental, Go 1.27) | dotnet-bot −10 |
-| 6 | dotnet-bot | Closed hierarchies (C# 15) | Gopher −15 |
-| 7 | Gopher | `crypto/mldsa` post-quantique (Go 1.27) | paré par dotnet-bot : ML-KEM + HPKE (.NET 11, expérimental) |
-| 8 | Gopher | profil `goroutineleak` (Go 1.27) — gag : ses goroutines « fuitées » le font trébucher | Gopher −15 |
-| 9 | dotnet-bot | combo : Extension indexers + collection expression arguments (C# 15) | Gopher −15 |
-| 10 | dotnet-bot | coup final : `break outer;` (labeled break, C# 15) — le Gopher sort du ring, K.O. | Gopher −20 |
+Échanges, gestes et horaires : `championnat/matchs/01-dotnet-bot-vs-gopher.mjs` (un échange toutes les 7 s à partir de 5,6 s).
 
 Bilan : dotnet-bot 65 PV restants, Gopher 0.
 

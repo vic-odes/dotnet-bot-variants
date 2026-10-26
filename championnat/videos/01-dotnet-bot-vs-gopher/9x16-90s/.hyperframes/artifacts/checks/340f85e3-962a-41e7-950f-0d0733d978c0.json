@@ -1,0 +1,260 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "composition_file_too_large",
+        "severity": "warning",
+        "message": "This HTML composition file has 588 lines. Smaller sub-compositions are easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/compositions/fightb.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "gsap_tween_tail",
+        "severity": "warning",
+        "message": "In timeline \"main\", a tween on attr of #finish-fl-sq ends at 68.770 s, 0.110 s after a later tween on attr ends at 68.660 s. For that tail the earlier tween takes attr back and leaves its own end value on screen, so the later tween's end never shows. End the earlier tween by 68.600 s, or add overwrite: \"auto\" to the later tween.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "90",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 68.66
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "rotation_pivot_drift",
+        "severity": "warning",
+        "time": 25,
+        "selector": "#fighta-fl-face",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 59.55499999999995,
+          "y": 834.47,
+          "width": 885.95,
+          "height": 577.62
+        },
+        "rect": {
+          "left": 59.55499999999995,
+          "top": 834.47,
+          "right": 945.505,
+          "bottom": 1412.09,
+          "width": 885.95,
+          "height": 577.62
+        },
+        "message": "Rotating element's bounding-box center drifts 190px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
+        "firstSeen": 25,
+        "lastSeen": 25,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          25
+        ]
+      },
+      {
+        "code": "rotation_pivot_drift",
+        "severity": "warning",
+        "time": 25,
+        "selector": "#fighta-fr-face",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 209.985,
+          "y": 801.28,
+          "width": 791.95,
+          "height": 498.58
+        },
+        "rect": {
+          "left": 209.985,
+          "top": 801.28,
+          "right": 1001.9350000000001,
+          "bottom": 1299.86,
+          "width": 791.95,
+          "height": 498.58
+        },
+        "message": "Rotating element's bounding-box center drifts 178px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
+        "firstSeen": 25,
+        "lastSeen": 25,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          25
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 85,
+        "selector": "#outro-shake > svg:nth-of-type(1) > text:nth-of-type(1)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 311.38,
+          "top": 1415,
+          "right": 768.63,
+          "bottom": 1497,
+          "width": 457.25,
+          "height": 82
+        },
+        "containerSelector": "#outro-dim",
+        "text": "CODE NINJA",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/outro.html",
+        "bbox": {
+          "x": 311.38,
+          "y": 1415,
+          "width": 457.25,
+          "height": 82
+        },
+        "firstSeen": 85,
+        "lastSeen": 85,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          85
+        ]
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 85,
+        "selector": "#outro-shake > svg:nth-of-type(1) > text:nth-of-type(2)",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 454.73,
+          "top": 1496,
+          "right": 625.27,
+          "bottom": 1541,
+          "width": 170.53,
+          "height": 45
+        },
+        "containerSelector": "#outro-dim",
+        "text": "POULE A",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 1,
+        "dataAttributes": {},
+        "sourceFile": "compositions/outro.html",
+        "bbox": {
+          "x": 454.73,
+          "y": 1496,
+          "width": 170.53,
+          "height": 45
+        },
+        "firstSeen": 85,
+        "lastSeen": 85,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          85
+        ]
+      }
+    ],
+    "duration": 90,
+    "samples": [
+      5,
+      15,
+      25,
+      35,
+      45,
+      55,
+      65,
+      75,
+      85
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      5,
+      25,
+      45,
+      65,
+      85
+    ],
+    "checked": 23,
+    "passed": 23
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.15000000000000036,
+    "samples": 599
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

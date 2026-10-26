@@ -110,6 +110,11 @@ export function dotnetBot(p, J = BOT_JOINTS) {
           <path d="M-140 52 Q0 88 140 52 L140 80 Q0 118 -140 80Z" fill="${BOT.band}"/>
           <rect x="-12" y="68" width="24" height="20" rx="4" fill="${BOT.lo}"/>
         </g>
+        <g id="${p}-tails" transform="${jt(-108, -62, 0)}">
+          <path d="M0 -8 C-30 -18 -60 4 -96 -6 L-92 12 C-58 22 -30 2 0 10 Z" fill="${K.magenta}"/>
+          <path d="M0 2 C-24 14 -48 40 -80 40 L-70 56 C-40 54 -18 28 4 16 Z" fill="${K.magenta}"/>
+        </g>
+        <g clip-path="url(#${p}-headClip)"><path d="M-140 -84 Q0 -66 140 -84 L140 -56 Q0 -38 -140 -56Z" fill="${K.magenta}"/></g>
         <rect x="-98" y="-40" width="196" height="82" rx="41" fill="${BOT.visorFrame}"/>
         <rect x="-88" y="-31" width="176" height="64" rx="32" fill="url(#${p}-gVisor)"/>
         ${botEyes(p)}
@@ -181,6 +186,11 @@ export function gopher(p, J = GO_JOINTS) {
       ${goArm(p, -1, J, false)}
       <path d="M-158 -300 C-168 -430 -96 -486 0 -486 C100 -486 172 -434 166 -300 L170 -120 C174 -30 104 12 4 12 C-100 12 -172 -30 -168 -120 Z" fill="${GO.body}" ${gst}/>
       <g id="${p}-head" transform="${jt(...J.head)}">
+        <g id="${p}-tails" transform="${jt(-150, -112, 0)}">
+          <path d="M0 -10 C-30 -20 -60 2 -100 -8 L-96 12 C-60 22 -30 2 0 12 Z" fill="${K.midnight}" ${gst}/>
+          <path d="M0 2 C-26 16 -50 44 -84 44 L-74 62 C-42 58 -18 30 6 18 Z" fill="${K.midnight}" ${gst}/>
+        </g>
+        <path d="M-154 -98 Q0 -132 156 -110 L160 -78 Q0 -100 -158 -66 Z" fill="${K.midnight}" ${gst}/>
         ${goEyes(p)}
         <ellipse cx="26" cy="52" rx="56" ry="36" fill="${GO.snout}" ${gst}/>
         <ellipse cx="26" cy="28" rx="28" ry="17" fill="${GO.nose}"/>
