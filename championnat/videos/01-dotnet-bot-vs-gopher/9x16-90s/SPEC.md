@@ -1,10 +1,19 @@
 # SPEC — Match 1 : dotnet-bot vs Gopher (Arcade ninja, CODE NINJA)
 
 GOAL:    le spectateur voit chaque nouveauté de Go 1.27 frapper, puis C# 15 / .NET 11 répondre coup pour coup,
-         et rit quand `break outer;` éjecte le Gopher du ring.
-OUTPUT:  HyperFrames, 1080 x 1920, 30 fps, MP4 H.264 (Shorts / TikTok).
+         et rit quand `break outer;` envoie le Gopher dans la benne /dev/null.
+OUTPUT:  HyperFrames, 1080 x 1920, 60 fps (flou de mouvement), MP4 H.264 (Shorts / TikTok).
 TIME:    90 s x 30 = 2700 images. Musique 150 BPM → 12 images par temps, 48 par mesure (1,6 s).
          Chaque échange = 4 mesures = 6,4 s.
+
+LOOK (révision 4 : combat de rue) :
+  - Rue de nuit aux couleurs .NET : immeubles en silhouettes #14053A / #110338, fenêtres éteintes (#190649) et quelques-unes
+    allumées (#F7B548, #EF99DD, #28C2D1 à 30–50 %), escalier de secours, badauds adossés au mur.
+  - Enseigne au néon « CODE NINJA » (tube #D600AA 7 px + reflet #EF99DD 2 px) au-dessus de la rue, à la place du tablier du ring.
+  - Réverbère à gauche (cône de lumière #F7B548 à 22 %), panneau « RUE DU CODE » à droite : ils servent d'appuis aux rebonds.
+  - Trottoir #311A7F, chaussée #190649, deux flaques de lumière #B9AAEE sous les combattants, flaque cyan, marquage jaune.
+  - K.O. : le perdant plonge dans une benne « /dev/null » au bord de la rue ; le couvercle s'envole.
+  - Interface, cartes, annonces et polices : inchangées (voir plus bas).
 
 LOOK (jeu de combat 2D, vue de profil, charte .NET — charte/BRAND-DOTNET.md) :
   - Salle : fond #0F042C ; 3 rangées de public en ombres (têtes rondes 34–46 px) #190649 / #14053A,

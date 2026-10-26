@@ -1,6 +1,8 @@
 # Revue — combat n°1 : dotnet-bot vs Gopher
 
 ## Choix créatifs
+- Révision 4 (retour utilisateur) : combat de rue au lieu du ring (rue de nuit .NET, enseigne néon, réverbère, benne /dev/null
+  pour le K.O.) ; décor foncé pour que les combattants ressortent ; décor exclu de l'audit de lisibilité (`data-layout-ignore`).
 - Révision 3 (retour utilisateur) : titres réduits d'environ un tiers ; animation plus fluide (articulations décalées avec
   dépassement, foulées au sol, garde irrégulière, un seul tween actif par articulation), rendu à 60 i/s avec flou de mouvement.
 - Révision 2 (retour utilisateur) : titre « CODE NINJA », chorégraphie ninja beaucoup plus rapide et acrobatique, intro 4 s,
@@ -17,7 +19,7 @@
 - Regardé : 16 plans du storyboard, planche de revue, raccords des 4 coupes (continus), planche téléphone 360 px (tout se lit),
   décomposition d'un estoc image par image (17,9–18,8 s).
 - **Le son a été mesuré, pas écouté** : placement des pics une image après l'action (`hyperframes audio`). Rendu
-  `renders/championnat-01-dotnet-bot-vs-gopher-9x16.mp4` : 90 s, 1080×1920, 60 i/s, H.264 + AAC, 47 Mo ; mixage normalisé à −14,7 LUFS (loudnorm + limiteur),
+  `renders/championnat-01-dotnet-bot-vs-gopher-9x16.mp4` : 90 s, 1080×1920, 60 i/s, H.264 + AAC, 51 Mo ; mixage normalisé à −14,7 LUFS (loudnorm + limiteur),
   pic vrai −1,4 dB, aucune saturation. Silences voulus : 72,8–75,7 s (après `break outer;`) et 78,7–80,2 s (avant la victoire). Musique et bruitages générés par code (Openverse injoignable, pas de compte HeyGen dans la session) : à écouter avant publication.
 
 ## Plan le plus faible

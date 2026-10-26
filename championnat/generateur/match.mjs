@@ -376,7 +376,7 @@ function approach(kind, att, def, T0, seed) {
   } else if (kind === 'corde') {
     // course vers les cordes, rebond et salto vers l'adversaire
     const dir = dirTo(att, def);
-    const rope = dir > 0 ? 70 : 1010;
+    const rope = dir > 0 ? 80 : 1000; // rebond sur le réverbère (gauche) ou le panneau de rue (droite)
     gFace(att, T0, -dir); gX(att, T0, 0.28, 'power2.in', rope); poseTo(att, 'dash', T0, 0.12, 'power2.out');
     speedLines(T0 + 0.1, rope - dir * 40, rope - dir * 300, FEET - 200, seed);
     gFace(att, T0 + 0.3, dir, 0.06);
@@ -495,7 +495,7 @@ function exchange(e, i) {
   } else if (e.geste === 'final') {
     // recul en salto jusqu'aux cordes, rebond, élan : break outer;
     const dir = dirTo(att, def);
-    const rope = dir > 0 ? 70 : 1010;
+    const rope = dir > 0 ? 80 : 1000; // rebond sur le réverbère (gauche) ou le panneau de rue (droite)
     hop(att, T0, 0.55, { x: rope, h: 260, flips: -1 });
     poseTo(att, 'arme_estoc', T0 + 0.6, 0.15, 'power2.in');
     const a0 = fk(att, target(att, 'arme_estoc')).tip;
@@ -514,10 +514,14 @@ function exchange(e, i) {
     eyes(def, 'ko', I); hp(def, I + fr(3), 0);
     // le Gopher passe par-dessus les cordes et sort du ring
     poseTo(def, 'vol', I + fr(3), 0.25, 'power2.out');
-    gX(def, I + fr(3), 0.95, 'power1.out', 1330);
-    gAir(def, I + fr(3), 0.5, 'power2.out', -620); gAir(def, I + fr(3) + 0.5, 0.45, 'power2.in', 180);
-    gSpin(def, I + fr(3), 0.95, 'power1.out', 3 * 360 + 90);
+    gX(def, I + fr(3), 0.95, 'power1.out', 1340);
+    gAir(def, I + fr(3), 0.5, 'power2.out', -620); gAir(def, I + fr(3) + 0.5, 0.45, 'power2.in', 120);
+    gSpin(def, I + fr(3), 0.95, 'power1.out', 3 * 360 + 180);
     snd(I + fr(3) + 0.95, 'thud.wav', VOL.thud * 0.8);
+    { const tl = I + fr(3) + 0.9;
+      to('#binlid', tl, 0.35, 'power2.out', { x: 120, y: -260, rotation: 160 });
+      to('#binlid', tl + 0.35, 0.4, 'power2.in', { x: 230, y: 160, rotation: 300 });
+      snd(tl + 0.75, 'clash.wav', VOL.clash * 0.6); }
     card(I + 0.08, T0 + 4.8, att, e.carte, ix, iy);
     eyes(att, 'happy', T0 + 1.6);
     hop(att, T0 + 2.0, 0.6, { x: 470, h: 300, flips: 1, after: 'garde' });
@@ -538,31 +542,61 @@ function exchange(e, i) {
 }
 
 // ---------- décor ----------
+// rue de nuit : immeubles, fenêtres, enseigne au néon, réverbère, panneau, trottoir, chaussée éclairée
 function arena() {
   const r = rng(3);
-  let crowd = '';
-  for (let row = 0; row < 3; row++) {
-    const y = 1000 + row * 62, col = row === 1 ? K.midnight10 : K.midnight;
-    for (let x = -20 + row * 24; x < WORLD_W + 40; x += 64 + Math.floor(r() * 18)) {
-      const hr = 26 + r() * 10;
-      crowd += `<circle cx="${r2(x)}" cy="${r2(y - hr)}" r="${r2(hr)}" fill="${col}"/><rect x="${r2(x - hr * 1.5)}" y="${r2(y - 4)}" width="${r2(hr * 3)}" height="90" rx="${r2(hr)}" fill="${col}"/>`;
+  let city = '';
+  // immeubles du fond (silhouettes) et leurs fenêtres
+  const blds = [[-40, 520, 300], [250, 380, 260], [500, 600, 230], [720, 430, 300], [1010, 560, 260], [1260, 400, 240], [1490, 520, 260]];
+  for (const [x, top, w] of blds) {
+    const col = r() < 0.5 ? K.midnight10 : '#110338';
+    city += `<rect x="${x}" y="${top}" width="${w}" height="${1180 - top}" fill="${col}"/>`;
+    for (let wy = top + 40; wy < 1100; wy += 74) {
+      for (let wx = x + 26; wx < x + w - 40; wx += 58) {
+        const v = r();
+        const fill = v < 0.14 ? K.yellow : v < 0.19 ? K.magentaTint : v < 0.23 ? K.cyan : K.midnight;
+        const op = v < 0.23 ? 0.3 + r() * 0.2 : 0.7;
+        city += `<rect x="${r2(wx)}" y="${r2(wy)}" width="30" height="40" rx="3" fill="${fill}" opacity="${r2(op)}"/>`;
+      }
     }
   }
-  return `<svg class="layer" viewBox="0 0 ${WORLD_W} ${H}" width="${WORLD_W}" height="${H}">
-    <defs><radialGradient id="spot" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="${K.purpleTint}" stop-opacity="0.22"/><stop offset="1" stop-color="${K.purpleTint}" stop-opacity="0"/></radialGradient></defs>
+  // escalier de secours sur l'immeuble central
+  let fire = '';
+  for (let y = 700; y < 1100; y += 120) fire += `<rect x="740" y="${y}" width="200" height="8" fill="${K.purpleShade}"/><line x1="760" y1="${y}" x2="920" y2="${y + 112}" stroke="${K.purpleShade}" stroke-width="6"/>`;
+  // badauds adossés au mur
+  let crowd = '';
+  for (const [x, s] of [[150, 1], [205, 0.9], [610, 1.05], [880, 0.95], [940, 1.1], [1150, 1], [1220, 0.92]]) {
+    const hr = 30 * s, y = 1165;
+    crowd += `<circle cx="${x}" cy="${r2(y - 150 * s)}" r="${r2(hr)}" fill="${K.midnight20}"/><rect x="${r2(x - hr * 1.3)}" y="${r2(y - 120 * s)}" width="${r2(hr * 2.6)}" height="${r2(124 * s)}" rx="${r2(hr)}" fill="${K.midnight20}"/>`;
+  }
+  return `<svg class="layer" data-layout-ignore viewBox="0 0 ${WORLD_W} ${H}" width="${WORLD_W}" height="${H}">
+    <defs>
+      <radialGradient id="pool" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="${K.purpleTint}" stop-opacity="0.55"/><stop offset="1" stop-color="${K.purpleTint}" stop-opacity="0"/></radialGradient>
+      <linearGradient id="cone" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${K.yellow}" stop-opacity="0.22"/><stop offset="1" stop-color="${K.yellow}" stop-opacity="0"/></linearGradient>
+    </defs>
     <rect width="${WORLD_W}" height="${H}" fill="${K.midnight20}"/>
-    <ellipse cx="540" cy="760" rx="760" ry="640" fill="url(#spot)"/>
+    ${city}${fire}
+    <g>
+      <rect x="330" y="690" width="420" height="96" rx="16" fill="${K.midnight20}" stroke="${K.purpleShade}" stroke-width="6"/>
+      <text x="540" y="760" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="58" letter-spacing="8" fill="none" stroke="${K.magenta}" stroke-width="7">${M.titre}</text>
+      <text x="540" y="760" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="58" letter-spacing="8" fill="none" stroke="${K.magentaTint}" stroke-width="2">${M.titre}</text>
+    </g>
     ${crowd}
-    <rect x="1100" y="1360" width="${WORLD_W - 1100}" height="${H - 1360}" fill="${K.midnight}"/>
-    <rect x="1100" y="1360" width="${WORLD_W - 1100}" height="10" fill="${K.purpleShade}"/>
-    <rect x="96" y="1000" width="22" height="190" rx="6" fill="${K.purpleShade}"/><rect x="962" y="1000" width="22" height="190" rx="6" fill="${K.purpleShade}"/>
-    <g stroke-width="8" stroke-linecap="round"><line x1="107" y1="1030" x2="973" y2="1030" stroke="${K.magenta}"/><line x1="107" y1="1080" x2="973" y2="1080" stroke="${K.white}"/><line x1="107" y1="1130" x2="973" y2="1130" stroke="${K.blue}"/></g>
-    <polygon points="100,1180 980,1180 1100,1360 -20,1360" fill="${K.purpleTint45}"/>
-    <polygon points="-20,1360 1100,1360 1100,1380 -20,1380" fill="${K.purpleTint}"/>
-    <rect x="-20" y="1380" width="1120" height="${H - 1380}" fill="${K.purple}"/>
-    <rect x="-20" y="1380" width="1120" height="8" fill="#7253E3"/>
-    <text x="540" y="1478" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="52" letter-spacing="10" fill="${K.white}">${M.titre}</text>
-    <text x="540" y="1530" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="30" letter-spacing="6" fill="${K.purpleTint45}">${POULE}</text>
+    <rect x="-20" y="1168" width="${WORLD_W + 40}" height="40" fill="${K.purpleShade}"/>
+    <rect x="-20" y="1168" width="${WORLD_W + 40}" height="6" fill="#7253E3"/>
+    <rect x="-20" y="1208" width="${WORLD_W + 40}" height="${H - 1208}" fill="${K.midnight}"/>
+    <ellipse cx="300" cy="1300" rx="430" ry="95" fill="url(#pool)"/>
+    <ellipse cx="780" cy="1300" rx="430" ry="95" fill="url(#pool)"/>
+    <ellipse cx="640" cy="1430" rx="170" ry="18" fill="${K.cyan}" opacity="0.22"/>
+    ${Array.from({ length: 12 }, (_, i) => `<rect x="${-20 + i * 150}" y="1560" width="90" height="12" rx="6" fill="${K.yellow}" opacity="0.7"/>`).join('')}
+    <ellipse cx="420" cy="1680" rx="80" ry="14" fill="${K.purpleShade}"/>
+    <polygon points="110,660 190,660 330,1300 -30,1300" fill="url(#cone)"/>
+    <rect x="40" y="640" width="22" height="660" rx="6" fill="${K.purpleShade}"/>
+    <path d="M51 652 Q51 618 100 618 L160 618" fill="none" stroke="${K.purpleShade}" stroke-width="12" stroke-linecap="round"/>
+    <path d="M130 610 h64 l-10 30 h-44 z" fill="${K.purpleShade}"/><rect x="142" y="640" width="40" height="12" rx="6" fill="${K.yellow}"/>
+    <rect x="975" y="800" width="20" height="500" rx="6" fill="${K.purpleShade}"/>
+    <rect x="880" y="806" width="160" height="56" rx="8" fill="${K.cyanShade}" stroke="${K.white}" stroke-width="4"/>
+    <text x="960" y="844" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="26" fill="${K.white}">RUE DU CODE</text>
   </svg>`;
 }
 function frontRow() {
@@ -574,11 +608,14 @@ function frontRow() {
   }
   return s;
 }
+// premier plan : poubelles (pour le K.O.), badauds
 function ropesFront() {
-  return `<svg class="layer" viewBox="0 0 ${WORLD_W} ${H}" width="${WORLD_W}" height="${H}">
-    <g stroke-width="11" stroke-linecap="round"><line x1="-10" y1="1200" x2="1090" y2="1200" stroke="${K.magenta}"/><line x1="-10" y1="1262" x2="1090" y2="1262" stroke="${K.white}"/><line x1="-10" y1="1324" x2="1090" y2="1324" stroke="${K.blue}"/></g>
-    <rect x="-16" y="1150" width="38" height="232" rx="8" fill="${K.purpleShade}"/><rect x="-22" y="1160" width="50" height="190" rx="14" fill="${K.magenta}"/>
-    <rect x="1058" y="1150" width="38" height="232" rx="8" fill="${K.purpleShade}"/><rect x="1052" y="1160" width="50" height="190" rx="14" fill="${K.cyan}"/>
+  const bin = (x, w, h, col) => `<rect x="${x}" y="${1490 - h}" width="${w}" height="${h}" rx="10" fill="${col}" stroke="${K.midnight20}" stroke-width="5"/>
+    ${[0.3, 0.6].map((k) => `<rect x="${x + 10}" y="${r2(1490 - h + h * k)}" width="${w - 20}" height="8" rx="4" fill="${K.midnight20}" opacity="0.4"/>`).join('')}`;
+  return `<svg class="layer" data-layout-ignore viewBox="0 0 ${WORLD_W} ${H}" width="${WORLD_W}" height="${H}">
+    ${bin(1120, 440, 320, K.cyanShade)}
+    <text x="1340" y="1420" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="40" fill="${K.cyanTint}">/dev/null</text>
+    <g transform="translate(1340 1166)"><g id="binlid"><rect x="-226" y="-14" width="452" height="24" rx="10" fill="${K.cyan}" stroke="${K.midnight20}" stroke-width="5"/><rect x="-16" y="-30" width="32" height="18" rx="6" fill="${K.cyan}" stroke="${K.midnight20}" stroke-width="5"/></g></g>
     ${frontRow()}
   </svg>`;
 }
@@ -758,7 +795,7 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   announce(M.ko + 0.1, M.ko + 1.1, 'K.O.'); snd(M.ko + 0.1, 'bell-ko.wav', VOL.bell); snd(M.ko + 0.1, 'crowd.wav', VOL.crowd);
   S.camX = -560;
   to('#cam', M.ko + 1.2, 0.6, 'power3.inOut', { x: -560 }); snd(M.ko + 1.45, 'whoosh-short.mp3', VOL.whoosh);
-  S.cards += `<div class="caption" id="ko-cap">${M.droite.nom} est hors du ring</div>`;
+  S.cards += `<div class="caption" id="ko-cap">${M.droite.nom} finit dans les poubelles</div>`;
   fromTo('#ko-cap', M.ko + 1.3, 0.2, 'expo.out', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1 });
   sc.css = `.caption { position: absolute; left: 60px; right: 60px; top: 520px; text-align: center; font-weight: 700; font-size: 54px; line-height: 1.1; color: #FFFFFF; opacity: 0; }`;
   finish(sc, hud);

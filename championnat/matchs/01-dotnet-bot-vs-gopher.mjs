@@ -1,7 +1,7 @@
 // Combat n°1 — Poule A, journée 1 : dotnet-bot vs Gopher.
 // Fonctionnalités vérifiées le 2026-10-26 : go.dev/doc/go1.27 (Go 1.27, 19 août 2026) ;
 // learn.microsoft.com « What's new in C# 15 » et « What's new in .NET 11 » (RC2, GA prévue en novembre 2026).
-// Approches acrobatiques : choc (choc en plein vol), saut (par-dessus l'adversaire), corde (rebond), fumee (téléportation).
+// Approches acrobatiques : choc (choc en plein vol), saut (par-dessus l'adversaire), corde (rebond sur le réverbère ou le panneau), fumee (téléportation).
 // Gestes de touche : taille, estoc, revers, toupie, shuriken ; cas spéciaux : parade, chute (gag), combo, final.
 export default {
   numero: 1,
