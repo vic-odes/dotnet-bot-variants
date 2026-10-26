@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "b2e12ce2-bd71-4fbc-a249-2349a363922d",
-  "currentRevision": "fd0e8689-8d2a-4c3c-8655-133be80a3bea",
+  "currentRevision": "12ff1940-14cd-4e5c-bf50-b82ba8e4559d",
   "pendingChanges": false,
   "files": {
     "AGENTS.md": {
@@ -9,16 +9,16 @@
       "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
     },
     "BRIEF.md": {
-      "hash": "f5b54e86ccada491c39c515c158457cc3089f388c1d967e87df7f37f15a92f01",
-      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/f5/f5b54e86ccada491c39c515c158457cc3089f388c1d967e87df7f37f15a92f01"
+      "hash": "354d614b013d3842779e439074aecacdf337543735f7e536d79557362a12d2b7",
+      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/35/354d614b013d3842779e439074aecacdf337543735f7e536d79557362a12d2b7"
     },
     "CLAUDE.md": {
       "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
       "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
     },
     "SPEC.md": {
-      "hash": "e745a06d63fb68037419a596975c6abfa138d1fc0f8436d79717e2b056c6d7b0",
-      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/e7/e745a06d63fb68037419a596975c6abfa138d1fc0f8436d79717e2b056c6d7b0"
+      "hash": "07326eae6617a1349a305ffa5a6e209bea69a5cc041b6c453bded1c3e1124e8c",
+      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/07/07326eae6617a1349a305ffa5a6e209bea69a5cc041b6c453bded1c3e1124e8c"
     },
     "STORYLINES.md": {
       "hash": "75f501d7fc773231577231282991ffe18766be4f1c14ba64e5fd940d616cc752",
@@ -357,8 +357,8 @@
       "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/d7/d78aaebb3b3de4fe2261dd148f4857cf1bbdce2ba475bcbc19a8da576d4232dc"
     },
     "REVIEW.md": {
-      "hash": "9c659b6d78d1727a827e70ec294233ce9d34262653d6ccac1426e100dc18bef8",
-      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/9c/9c659b6d78d1727a827e70ec294233ce9d34262653d6ccac1426e100dc18bef8"
+      "hash": "85c652589b95968cb4482de363c0627c101712346330fa74c9219d2153ec7162",
+      "content": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/85/85c652589b95968cb4482de363c0627c101712346330fa74c9219d2153ec7162"
     }
   },
   "revisions": {
@@ -1138,12 +1138,35 @@
           "after": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/b7/b7d2122292d5f1411852021fe2cac06e5b6af4236fe19282a09e4d798952888a"
         }
       }
+    },
+    "12ff1940-14cd-4e5c-bf50-b82ba8e4559d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1793053658729,
+      "endedAt": 1793053658741,
+      "files": {
+        "BRIEF.md": {
+          "before": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/f5/f5b54e86ccada491c39c515c158457cc3089f388c1d967e87df7f37f15a92f01",
+          "after": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/35/354d614b013d3842779e439074aecacdf337543735f7e536d79557362a12d2b7"
+        },
+        "REVIEW.md": {
+          "before": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/9c/9c659b6d78d1727a827e70ec294233ce9d34262653d6ccac1426e100dc18bef8",
+          "after": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/85/85c652589b95968cb4482de363c0627c101712346330fa74c9219d2153ec7162"
+        },
+        "SPEC.md": {
+          "before": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/e7/e745a06d63fb68037419a596975c6abfa138d1fc0f8436d79717e2b056c6d7b0",
+          "after": "/root/.cache/hyperframes/history/b2e12ce2-bd71-4fbc-a249-2349a363922d/blobs/07/07326eae6617a1349a305ffa5a6e209bea69a5cc041b6c453bded1c3e1124e8c"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
-      "id": "ab12a1c2-ec89-4b31-bae6-fce51c17d31c"
+      "revision": null,
+      "id": "41acde88-7ec4-415e-9eb3-4a46edec9923"
     },
     "revisions": {
       "750756bd-0b37-461b-a338-69550ec34190": [
@@ -1330,7 +1353,6 @@
         {
           "id": "ceb81ddc-89f5-4a17-a090-40821253ee23",
           "scope": "project",
-          "report": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/checks/ceb81ddc-89f5-4a17-a090-40821253ee23.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -1352,7 +1374,9 @@
           "revision": "3c81fd73-871c-42e5-a1e0-59bf140779b2",
           "inputFingerprint": "b22dfa39d4fb8d4604993b7594267ae747e6e7ea0c5a4b14460ccefd2ca73ae2",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         }
       ],
       "f619ec3f-f8c9-483e-92f6-34a9592b539b": [
@@ -1448,7 +1472,6 @@
         {
           "id": "ab12a1c2-ec89-4b31-bae6-fce51c17d31c",
           "scope": "project",
-          "report": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/checks/ab12a1c2-ec89-4b31-bae6-fce51c17d31c.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -1470,7 +1493,9 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         }
       ]
     },
@@ -1528,13 +1553,40 @@
         "inputFingerprint": "3b9085eef121c484f87228d966c05e436614b0b68be0b750dde7ebf9ba9deabe",
         "inputScope": "local-project-files",
         "attribution": "unversioned"
+      },
+      {
+        "id": "41acde88-7ec4-415e-9eb3-4a46edec9923",
+        "scope": "project",
+        "report": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/checks/41acde88-7ec4-415e-9eb3-4a46edec9923.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793053654318,
+        "contentHash": "b997ff1f116a6484f6ded4cb9174e61935cc6e6c260e6ddecc8fab005a8f654b",
+        "revision": null,
+        "inputFingerprint": "60808fb2de9faf2786d8a9af530c9b410c607552efbd5e2bbf2ea40d6a581a7e",
+        "inputScope": "local-project-files",
+        "attribution": "inputs-changed"
       }
     ]
   },
   "snapshots": {
     "latest": {
-      "revision": "fd0e8689-8d2a-4c3c-8655-133be80a3bea",
-      "id": "7246ce49-0cd4-4729-ad23-e8c05edc61dd-1"
+      "revision": "934a5021-10db-445b-af86-3ccef069fb54",
+      "id": "f3708ed7-0cf4-45c6-81dd-3a24164fca73-6"
     },
     "revisions": {
       "49d2c113-dead-4729-9312-5bce6cb93533": [],
@@ -4770,7 +4822,6 @@
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-0",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-00-at-7s.png",
           "time": 7,
           "metadata": {
             "width": 1080,
@@ -4785,12 +4836,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-1",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-01-at-14.5s.png",
           "time": 14.5,
           "metadata": {
             "width": 1080,
@@ -4805,12 +4857,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-2",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-02-at-22s.png",
           "time": 22,
           "metadata": {
             "width": 1080,
@@ -4825,12 +4878,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-3",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-03-at-28.5s.png",
           "time": 28.5,
           "metadata": {
             "width": 1080,
@@ -4845,12 +4899,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-4",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-04-at-39.3s.png",
           "time": 39.3,
           "metadata": {
             "width": 1080,
@@ -4865,12 +4920,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-5",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-05-at-43s.png",
           "time": 43,
           "metadata": {
             "width": 1080,
@@ -4885,12 +4941,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-6",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-06-at-49s.png",
           "time": 49,
           "metadata": {
             "width": 1080,
@@ -4905,12 +4962,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-7",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-07-at-51.5s.png",
           "time": 51.5,
           "metadata": {
             "width": 1080,
@@ -4925,12 +4983,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-8",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-08-at-57s.png",
           "time": 57,
           "metadata": {
             "width": 1080,
@@ -4945,12 +5004,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-9",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-09-at-63s.png",
           "time": 63,
           "metadata": {
             "width": 1080,
@@ -4965,12 +5025,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-10",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-10-at-65.5s.png",
           "time": 65.5,
           "metadata": {
             "width": 1080,
@@ -4985,12 +5046,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-11",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-11-at-71s.png",
           "time": 71,
           "metadata": {
             "width": 1080,
@@ -5005,12 +5067,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-12",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-12-at-84.5s.png",
           "time": 84.5,
           "metadata": {
             "width": 1080,
@@ -5025,12 +5088,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-13",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-13-at-87.6s.png",
           "time": 87.6,
           "metadata": {
             "width": 1080,
@@ -5045,12 +5109,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-14",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-14-at-89.5s.png",
           "time": 89.5,
           "metadata": {
             "width": 1080,
@@ -5065,12 +5130,13 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "cc0466fa-8be4-49b7-bfd4-e2cde88de977-15",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/47e733d6-b990-4efe-b774-ddba66d069a1/frame-15-at-87.3s.png",
           "time": 87.3,
           "metadata": {
             "width": 1080,
@@ -5085,14 +5151,15 @@
           "revision": "47324497-9a67-4e9f-a4e2-e5ed5cca05fb",
           "inputFingerprint": "dc9d01a4f06c42b9a6015d1fe559aee49533ddef6bf4d38e18684ed5fed2aa65",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         }
       ],
       "fd0e8689-8d2a-4c3c-8655-133be80a3bea": [
         {
           "scope": "full",
           "id": "7246ce49-0cd4-4729-ad23-e8c05edc61dd-0",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/daba4dd9-9393-4a28-aa9c-2d48a1175c12/frame-00-at-39.3s.png",
           "time": 39.3,
           "metadata": {
             "width": 1080,
@@ -5107,12 +5174,13 @@
           "revision": "fd0e8689-8d2a-4c3c-8655-133be80a3bea",
           "inputFingerprint": "60808fb2de9faf2786d8a9af530c9b410c607552efbd5e2bbf2ea40d6a581a7e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         },
         {
           "scope": "full",
           "id": "7246ce49-0cd4-4729-ad23-e8c05edc61dd-1",
-          "image": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/.hyperframes/artifacts/snapshots/daba4dd9-9393-4a28-aa9c-2d48a1175c12/frame-01-at-87.3s.png",
           "time": 87.3,
           "metadata": {
             "width": 1080,
@@ -5127,7 +5195,9 @@
           "revision": "fd0e8689-8d2a-4c3c-8655-133be80a3bea",
           "inputFingerprint": "60808fb2de9faf2786d8a9af530c9b410c607552efbd5e2bbf2ea40d6a581a7e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "310e138e-d892-45c1-967f-8db1d495ddd0"
         }
       ]
     },
@@ -5456,15 +5526,15 @@
   },
   "renders": {
     "latest": {
-      "id": "9a306db0-7472-4aa5-8294-b09ec9b4ef4a",
-      "completedAt": 1793039474614,
+      "id": "310e138e-d892-45c1-967f-8db1d495ddd0",
+      "completedAt": 1793054117005,
       "output": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/renders/raw.mp4",
       "status": "completed",
-      "revision": "934a5021-10db-445b-af86-3ccef069fb54"
+      "revision": "12ff1940-14cd-4e5c-bf50-b82ba8e4559d"
     },
     "retainedRevisions": [
-      "934a5021-10db-445b-af86-3ccef069fb54",
-      "3c81fd73-871c-42e5-a1e0-59bf140779b2"
+      "12ff1940-14cd-4e5c-bf50-b82ba8e4559d",
+      "934a5021-10db-445b-af86-3ccef069fb54"
     ]
   },
   "pendingArtifactCleanup": []
