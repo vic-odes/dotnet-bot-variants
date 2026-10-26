@@ -1,0 +1,38 @@
+<svg viewBox="72.78 49.43 549.79 437.15" width="549.79" height="437.15" xmlns="http://www.w3.org/2000/svg">
+  <title>Poney Django, dessin original</title>
+  <g stroke="#0c4b33" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <!-- queue -->
+    <path d="M152 282C104 268 74 312 86 372C100 346 118 340 132 344C122 366 126 390 140 404C146 370 160 340 164 312Z" fill="#44b78b"/>
+    <!-- pattes arrière-plan -->
+    <rect x="176" y="336" width="40" height="140" rx="18" fill="#d7ede1"/>
+    <rect x="372" y="336" width="40" height="140" rx="18" fill="#d7ede1"/>
+    <!-- pattes avant-plan -->
+    <path d="M208 340h46v126a8 8 0 0 1-8 8h-30a8 8 0 0 1-8-8z" fill="#f4fbf7"/>
+    <path d="M404 334h46v132a8 8 0 0 1-8 8h-30a8 8 0 0 1-8-8z" fill="#f4fbf7"/>
+    <path d="M208 452h46v14a8 8 0 0 1-8 8h-30a8 8 0 0 1-8-8z" fill="#0c4b33"/>
+    <path d="M404 452h46v14a8 8 0 0 1-8 8h-30a8 8 0 0 1-8-8z" fill="#0c4b33"/>
+    <path d="M176 456h40v12a8 8 0 0 1-8 8h-24a8 8 0 0 1-8-8z" fill="#0c4b33"/>
+    <path d="M372 456h40v12a8 8 0 0 1-8 8h-24a8 8 0 0 1-8-8z" fill="#0c4b33"/>
+    <!-- corps + cou -->
+    <path d="M374 236C394 190 410 162 430 140L496 170C474 204 446 254 424 300A142 82 0 1 1 374 236Z" fill="#f4fbf7"/>
+    <!-- aile -->
+    <path d="M322 262C302 212 262 180 204 178C212 200 224 212 240 216C234 230 238 242 254 248C252 262 260 272 278 274C292 284 308 280 322 262Z" fill="#c9f0dd"/>
+    <!-- tête -->
+    <path d="M430 112C470 92 520 104 540 140C552 160 572 176 574 198C576 222 556 236 530 232C500 228 474 214 452 196C426 176 410 128 430 112Z" fill="#f4fbf7"/>
+    <ellipse cx="548" cy="206" rx="26" ry="22" fill="#e1f3e9"/>
+    <!-- oreilles -->
+    <path d="M448 104L452 62L478 98Z" fill="#f4fbf7"/>
+    <path d="M478 98L496 60L508 104Z" fill="#f4fbf7"/>
+    <!-- crinière -->
+    <path d="M440 92C472 70 508 76 520 96C496 92 478 104 470 120C450 116 430 132 430 150C410 150 398 172 404 196C384 200 372 224 378 246C360 252 350 270 356 290C334 270 340 236 360 220C350 196 362 168 386 160C384 132 404 110 440 92Z" fill="#44b78b"/>
+  </g>
+  <!-- visage -->
+  <ellipse cx="496" cy="150" rx="14" ry="17" fill="#092e20"/><circle cx="501" cy="143" r="5" fill="#fff"/>
+  <path d="M480 128q14-10 28-2" fill="none" stroke="#0c4b33" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="556" cy="198" rx="4" ry="6" fill="#0c4b33"/>
+  <path d="M532 220q14 8 26 0" fill="none" stroke="#0c4b33" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="512" cy="186" rx="14" ry="8" fill="#9fd8b9" opacity=".8"/>
+  <!-- étincelles -->
+  <path d="M586 70l7 19 19 7-19 7-7 19-7-19-19-7 19-7z" fill="#44b78b"/>
+  <path d="M120 170l5 13 13 5-13 5-5 13-5-13-13-5 13-5z" fill="#44b78b"/>
+</svg>

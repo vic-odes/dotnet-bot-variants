@@ -1,0 +1,306 @@
+{
+  "graine": "championnat-dotnet-bot-2026",
+  "combattants": {
+    "dotnet-bot": {
+      "nom": "dotnet-bot",
+      "techno": ".NET / C#"
+    },
+    "java": {
+      "nom": "Duke",
+      "techno": "Java"
+    },
+    "nodejs": {
+      "nom": "Tortue-fusée",
+      "techno": "Node.js"
+    },
+    "django": {
+      "nom": "Poney",
+      "techno": "Django / Python"
+    },
+    "php": {
+      "nom": "elePHPant",
+      "techno": "PHP"
+    },
+    "go": {
+      "nom": "Gopher",
+      "techno": "Go"
+    },
+    "rust": {
+      "nom": "Ferris",
+      "techno": "Rust"
+    },
+    "kotlin": {
+      "nom": "Kodee",
+      "techno": "Kotlin"
+    },
+    "dart-flutter": {
+      "nom": "Dash",
+      "techno": "Dart / Flutter"
+    },
+    "scratch": {
+      "nom": "Scratch Cat",
+      "techno": "Scratch"
+    },
+    "perl": {
+      "nom": "Chameau",
+      "techno": "Perl"
+    },
+    "lisp": {
+      "nom": "Alien",
+      "techno": "Lisp"
+    },
+    "zig": {
+      "nom": "Ziggy",
+      "techno": "Zig"
+    },
+    "gleam": {
+      "nom": "Lucy",
+      "techno": "Gleam"
+    },
+    "raku": {
+      "nom": "Camelia",
+      "techno": "Raku"
+    }
+  },
+  "chapeaux": [
+    [
+      "dotnet-bot",
+      "java",
+      "nodejs",
+      "django"
+    ],
+    [
+      "php",
+      "go",
+      "rust",
+      "kotlin"
+    ],
+    [
+      "dart-flutter",
+      "scratch",
+      "perl",
+      "lisp"
+    ],
+    [
+      "zig",
+      "gleam",
+      "raku"
+    ]
+  ],
+  "poules": {
+    "A": [
+      "dotnet-bot",
+      "go",
+      "lisp",
+      "zig"
+    ],
+    "B": [
+      "django",
+      "kotlin",
+      "dart-flutter",
+      "raku"
+    ],
+    "C": [
+      "java",
+      "rust",
+      "perl",
+      "gleam"
+    ],
+    "D": [
+      "nodejs",
+      "php",
+      "scratch"
+    ]
+  },
+  "matchs": [
+    {
+      "n": 1,
+      "phase": "Poule A",
+      "journee": 1,
+      "gauche": "dotnet-bot",
+      "droite": "go"
+    },
+    {
+      "n": 2,
+      "phase": "Poule A",
+      "journee": 1,
+      "gauche": "lisp",
+      "droite": "zig"
+    },
+    {
+      "n": 3,
+      "phase": "Poule B",
+      "journee": 1,
+      "gauche": "django",
+      "droite": "kotlin"
+    },
+    {
+      "n": 4,
+      "phase": "Poule B",
+      "journee": 1,
+      "gauche": "dart-flutter",
+      "droite": "raku"
+    },
+    {
+      "n": 5,
+      "phase": "Poule C",
+      "journee": 1,
+      "gauche": "java",
+      "droite": "rust"
+    },
+    {
+      "n": 6,
+      "phase": "Poule C",
+      "journee": 1,
+      "gauche": "perl",
+      "droite": "gleam"
+    },
+    {
+      "n": 7,
+      "phase": "Poule D",
+      "journee": 1,
+      "gauche": "nodejs",
+      "droite": "php"
+    },
+    {
+      "n": 8,
+      "phase": "Poule A",
+      "journee": 2,
+      "gauche": "dotnet-bot",
+      "droite": "lisp"
+    },
+    {
+      "n": 9,
+      "phase": "Poule A",
+      "journee": 2,
+      "gauche": "zig",
+      "droite": "go"
+    },
+    {
+      "n": 10,
+      "phase": "Poule B",
+      "journee": 2,
+      "gauche": "django",
+      "droite": "dart-flutter"
+    },
+    {
+      "n": 11,
+      "phase": "Poule B",
+      "journee": 2,
+      "gauche": "raku",
+      "droite": "kotlin"
+    },
+    {
+      "n": 12,
+      "phase": "Poule C",
+      "journee": 2,
+      "gauche": "java",
+      "droite": "perl"
+    },
+    {
+      "n": 13,
+      "phase": "Poule C",
+      "journee": 2,
+      "gauche": "gleam",
+      "droite": "rust"
+    },
+    {
+      "n": 14,
+      "phase": "Poule D",
+      "journee": 2,
+      "gauche": "scratch",
+      "droite": "nodejs"
+    },
+    {
+      "n": 15,
+      "phase": "Poule A",
+      "journee": 3,
+      "gauche": "zig",
+      "droite": "dotnet-bot"
+    },
+    {
+      "n": 16,
+      "phase": "Poule A",
+      "journee": 3,
+      "gauche": "go",
+      "droite": "lisp"
+    },
+    {
+      "n": 17,
+      "phase": "Poule B",
+      "journee": 3,
+      "gauche": "raku",
+      "droite": "django"
+    },
+    {
+      "n": 18,
+      "phase": "Poule B",
+      "journee": 3,
+      "gauche": "kotlin",
+      "droite": "dart-flutter"
+    },
+    {
+      "n": 19,
+      "phase": "Poule C",
+      "journee": 3,
+      "gauche": "gleam",
+      "droite": "java"
+    },
+    {
+      "n": 20,
+      "phase": "Poule C",
+      "journee": 3,
+      "gauche": "rust",
+      "droite": "perl"
+    },
+    {
+      "n": 21,
+      "phase": "Poule D",
+      "journee": 3,
+      "gauche": "php",
+      "droite": "scratch"
+    },
+    {
+      "n": 22,
+      "phase": "Quart de finale 1",
+      "gauche": "1er A",
+      "droite": "2e B"
+    },
+    {
+      "n": 23,
+      "phase": "Quart de finale 2",
+      "gauche": "1er C",
+      "droite": "2e D"
+    },
+    {
+      "n": 24,
+      "phase": "Quart de finale 3",
+      "gauche": "1er B",
+      "droite": "2e A"
+    },
+    {
+      "n": 25,
+      "phase": "Quart de finale 4",
+      "gauche": "1er D",
+      "droite": "2e C"
+    },
+    {
+      "n": 26,
+      "phase": "Demi-finale 1",
+      "gauche": "Vainqueur QF1",
+      "droite": "Vainqueur QF2"
+    },
+    {
+      "n": 27,
+      "phase": "Demi-finale 2",
+      "gauche": "Vainqueur QF3",
+      "droite": "Vainqueur QF4"
+    },
+    {
+      "n": 28,
+      "phase": "Finale",
+      "gauche": "Vainqueur DF1",
+      "droite": "Vainqueur DF2"
+    }
+  ]
+}
