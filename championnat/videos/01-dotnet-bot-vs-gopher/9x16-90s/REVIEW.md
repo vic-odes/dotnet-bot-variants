@@ -12,8 +12,10 @@
   `composition_file_too_large` (scènes générées, on ne les édite pas à la main), `text_occluded` à 85 s (le décor sous le panneau du classement).
 - Regardé : 16 plans du storyboard, planche de revue, raccords des 4 coupes (continus), planche téléphone 360 px (tout se lit),
   décomposition d'un estoc image par image (17,9–18,8 s).
-- **Le son a été mesuré, pas écouté** : placement des pics une image après l'action (`hyperframes audio`), niveaux du rendu mesurés
-  après coup. Musique et bruitages générés par code (Openverse injoignable, pas de compte HeyGen dans la session) : à écouter avant publication.
+- **Le son a été mesuré, pas écouté** : placement des pics une image après l'action (`hyperframes audio`). Rendu
+  `renders/championnat-01-dotnet-bot-vs-gopher-9x16.mp4` : 90 s, 1080×1920, H.264 + AAC, 25,5 Mo ; mixage remonté de −19,9 à
+  −14,5 LUFS (loudnorm + limiteur), pic vrai −0,9 dB, aucune saturation. Silences voulus : 72,9–75,3 s (après `break outer;`)
+  et 78,3–80,2 s (le Gopher étourdi, avant la victoire). Musique et bruitages générés par code (Openverse injoignable, pas de compte HeyGen dans la session) : à écouter avant publication.
 
 ## Plan le plus faible
 - Le gag `goroutineleak` (56–62 s) : la chute du Gopher est lisible mais raide ; avec plus de temps, une vraie glissade sur les goroutines.

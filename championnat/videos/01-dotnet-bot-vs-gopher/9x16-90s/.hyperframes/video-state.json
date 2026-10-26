@@ -2753,5 +2753,16 @@
         "attribution": "inputs-changed"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "b521c70c-a80c-4d79-bbcb-69fe8dddf5a9",
+      "completedAt": 1793027180602,
+      "output": "/home/user/dotnet-bot-variants/championnat/videos/01-dotnet-bot-vs-gopher/9x16-90s/renders/championnat-01-dotnet-bot-vs-gopher-9x16.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
 }
