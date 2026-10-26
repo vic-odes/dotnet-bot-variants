@@ -19,12 +19,12 @@ const POULE = M.phase.split(' · ')[0];
 
 // ---------- combattants ----------
 const RIGS = {
-  'dotnet-bot': { draw: dotnetBot, defs: dotnetBotDefs, J: BOT_JOINTS, S: 1.15, cy: -200, accent: K.magenta, k: 1, legK: 1,
+  'dotnet-bot': { draw: dotnetBot, defs: dotnetBotDefs, J: BOT_JOINTS, S: 0.85, cy: -200, accent: K.magenta, k: 1, legK: 1,
     hitTokens: ['null', 'Exception', 'NRE', 'throw'] },
-  go: { draw: gopher, defs: () => '', J: GO_JOINTS, S: 0.85, cy: -270, accent: K.cyan, k: 1.2, legK: 0.35,
+  go: { draw: gopher, defs: () => '', J: GO_JOINTS, S: 0.63, cy: -270, accent: K.cyan, k: 1.2, legK: 0.35,
     hitTokens: ['panic:', 'nil', 'err', '0xDEAD'] },
 };
-const STATION = { gauche: 300, droite: 780 };
+const STATION = { gauche: 320, droite: 760 };
 const F = {};
 for (const side of ['gauche', 'droite']) {
   const d = M[side], R = RIGS[d.id];
@@ -35,7 +35,7 @@ for (const side of ['gauche', 'droite']) {
 }
 const other = (f) => (f === F.gauche ? F.droite : F.gauche);
 const dirTo = (a, b) => (b.x >= a.x ? 1 : -1);
-const CL = (x) => Math.max(190, Math.min(890, x)); // le combattant reste entier dans le cadre
+const CL = (x) => Math.max(150, Math.min(930, x)); // le combattant reste entier dans le cadre
 
 // Poses : angles absolus par articulation, écarts par rapport à la garde.
 const POSES = {
@@ -345,7 +345,7 @@ function strike(att, def, Ts, geste, dmg, seed, { roll = true } = {}) {
     hp(def, I + fr(3), def.hp - dmg);
     if (roll) {
       // roulade arrière de la victime
-      const back = CL(def.x + dir * 150);
+      const back = CL(def.x + dir * 120);
       poseTo(def, 'touche', I + fr(3), 0.1, 'power2.out');
       hop(def, I + fr(3) + 0.1, 0.5, { x: back, h: 110, flips: -1, air: 'boule', sound: false });
     }
@@ -354,7 +354,7 @@ function strike(att, def, Ts, geste, dmg, seed, { roll = true } = {}) {
 }
 // approches acrobatiques : rapprochent l'attaquant à ~230 px du défenseur
 function approach(kind, att, def, T0, seed) {
-  const gap = 290;
+  const gap = 230;
   if (kind === 'choc') {
     // les deux bondissent, choc des lames en plein vol, chacun retombe
     const mid = (att.x + def.x) / 2;
@@ -369,7 +369,7 @@ function approach(kind, att, def, T0, seed) {
     const dir = dirTo(att, def);
     const nx = CL(def.x + dir * gap);
     step(att, T0, 0.18, att.x + dir * 80);
-    hop(att, T0 + 0.18, 0.62, { x: nx, h: 420, flips: 1 });
+    hop(att, T0 + 0.18, 0.62, { x: nx, h: 330, flips: 1 });
     const need = CL(nx - dir * gap); if (Math.abs(need - def.x) > 1) step(def, T0 + 0.6, 0.22, need);
     eyes(def, 'normal', T0 + 0.3);
     lookAt(att, T0 + 0.82); gFace(def, T0 + 0.9, dirTo(def, att), 0.1);
@@ -408,7 +408,7 @@ function approach(kind, att, def, T0, seed) {
 // enchaînement au sol : trois chocs rapides, petits sauts
 function flurry(a, b, t0, seed) {
   const dir = dirTo(a, b);
-  step(a, t0, 0.18, CL(b.x - dir * 270));
+  step(a, t0, 0.18, CL(b.x - dir * 215));
   for (let i = 0; i < 3; i++) {
     const t = t0 + 0.22 + i * 0.42;
     const [x, y] = i % 2 ? [b, a] : [a, b];
@@ -438,7 +438,7 @@ function exchange(e, i) {
     approach('choc', att, def, T0, seed);
     eyes(def, 'angry', T0 + 0.8);
     const dir = dirTo(att, def);
-    step(att, T0 + 0.9, 0.16, CL(def.x - dir * 280));
+    step(att, T0 + 0.9, 0.16, CL(def.x - dir * 220));
     poseTo(def, 'parade', T0 + 1.0, 0.12, 'power2.out');
     poseTo(att, 'arme_haut', T0 + 0.95, 0.14, 'power2.in'); poseTo(att, 'taille', T0 + 1.12, 0.1, 'expo.out'); swingSnd(T0 + 1.12);
     const I = T0 + 1.22;
@@ -458,12 +458,12 @@ function exchange(e, i) {
     for (let k = 0; k < (e.mini || 0); k++) {
       const id = `${att.p}m${k}`, r = rng(seed + k);
       const x1 = nx + (-260 + k * 95) + (r() - 0.5) * 40;
-      S.minis += gopher(id).replace(`<g id="${id}-root">`, `<g id="${id}-root" opacity="0" transform="translate(${r2(nx)} ${FEET + 12}) scale(${r2(dir * 0.3)} 0.3)">`);
+      S.minis += gopher(id).replace(`<g id="${id}-root">`, `<g id="${id}-root" opacity="0" transform="translate(${r2(nx)} ${FEET + 12}) scale(${r2(dir * 0.24)} 0.24)">`);
       set(`#${id}-root`, T0 + 0.55 + k * 0.04, { opacity: 1 });
       if (k % 2 === 0) snd(T0 + 0.55 + k * 0.04, 'pop.mp3', VOL.pop * 0.6);
-      attr(`#${id}-root`, T0 + 0.55 + k * 0.04, 0.35, 'power2.out', `translate(${r2(x1)} ${FEET + 14}) scale(${r2(dir * 0.3)} 0.3)`);
+      attr(`#${id}-root`, T0 + 0.55 + k * 0.04, 0.35, 'power2.out', `translate(${r2(x1)} ${FEET + 14}) scale(${r2(dir * 0.24)} 0.24)`);
       const xo = k % 2 ? -220 - k * 30 : W + 220 + k * 30;
-      attr(`#${id}-root`, T0 + 2.0 + k * 0.07, 0.9, 'power2.in', `translate(${xo} ${FEET + 14}) scale(${r2((xo < 0 ? -1 : 1) * 0.3)} 0.3)`);
+      attr(`#${id}-root`, T0 + 2.0 + k * 0.07, 0.9, 'power2.in', `translate(${xo} ${FEET + 14}) scale(${r2((xo < 0 ? -1 : 1) * 0.24)} 0.24)`);
     }
     // il glisse et tombe sur le dos
     eyes(att, 'hurt', T0 + 0.8);
@@ -485,7 +485,7 @@ function exchange(e, i) {
     const h1 = strike(att, def, T0 + 1.0, 'revers', e.degats[0], seed);
     // seconde touche : bond en toupie
     const dir = dirTo(att, def);
-    hop(att, T0 + 3.0, 0.5, { x: CL(def.x - dir * 260), h: 240, flips: 1, after: null });
+    hop(att, T0 + 3.0, 0.5, { x: CL(def.x - dir * 210), h: 200, flips: 1, after: null });
     poseTo(att, 'garde', T0 + 3.48, 0.08, 'power2.out');
     const h2 = strike(att, def, T0 + 3.55, 'toupie', e.degats[1], seed + 5);
     card(h1.I + 0.06, h2.I - 0.12, att, e.cartes[0], h1.ix, h1.iy);
@@ -500,7 +500,7 @@ function exchange(e, i) {
     poseTo(att, 'arme_estoc', T0 + 0.6, 0.15, 'power2.in');
     const a0 = fk(att, target(att, 'arme_estoc')).tip;
     poseTo(att, 'dash', T0 + 0.8, 0.12, 'expo.out');
-    gX(att, T0 + 0.8, 0.14, 'expo.out', def.x - dir * 150);
+    gX(att, T0 + 0.8, 0.14, 'expo.out', def.x - dir * 120);
     speedLines(T0 + 0.82, att.x - dir * 60, att.x - dir * 520, FEET - 220, seed);
     const k = fk(att, target(att, 'dash'));
     swoosh(T0 + 0.8, 0.14, a0, k.tip, k.shoulder, att.R.accent); swingSnd(T0 + 0.8);
@@ -515,7 +515,7 @@ function exchange(e, i) {
     // le Gopher passe par-dessus les cordes et sort du ring
     poseTo(def, 'vol', I + fr(3), 0.25, 'power2.out');
     gX(def, I + fr(3), 0.95, 'power1.out', 1340);
-    gAir(def, I + fr(3), 0.5, 'power2.out', -620); gAir(def, I + fr(3) + 0.5, 0.45, 'power2.in', 120);
+    gAir(def, I + fr(3), 0.5, 'power2.out', -620); gAir(def, I + fr(3) + 0.5, 0.45, 'power2.in', 150);
     gSpin(def, I + fr(3), 0.95, 'power1.out', 3 * 360 + 180);
     snd(I + fr(3) + 0.95, 'thud.wav', VOL.thud * 0.8);
     { const tl = I + fr(3) + 0.9;
@@ -585,8 +585,8 @@ function arena() {
     <rect x="-20" y="1168" width="${WORLD_W + 40}" height="40" fill="${K.purpleShade}"/>
     <rect x="-20" y="1168" width="${WORLD_W + 40}" height="6" fill="#7253E3"/>
     <rect x="-20" y="1208" width="${WORLD_W + 40}" height="${H - 1208}" fill="${K.midnight}"/>
-    <ellipse cx="300" cy="1300" rx="430" ry="95" fill="url(#pool)"/>
-    <ellipse cx="780" cy="1300" rx="430" ry="95" fill="url(#pool)"/>
+    <ellipse cx="320" cy="1300" rx="400" ry="90" fill="url(#pool)"/>
+    <ellipse cx="760" cy="1300" rx="400" ry="90" fill="url(#pool)"/>
     <ellipse cx="640" cy="1430" rx="170" ry="18" fill="${K.cyan}" opacity="0.22"/>
     ${Array.from({ length: 12 }, (_, i) => `<rect x="${-20 + i * 150}" y="1560" width="90" height="12" rx="6" fill="${K.yellow}" opacity="0.7"/>`).join('')}
     <ellipse cx="420" cy="1680" rx="80" ry="14" fill="${K.purpleShade}"/>

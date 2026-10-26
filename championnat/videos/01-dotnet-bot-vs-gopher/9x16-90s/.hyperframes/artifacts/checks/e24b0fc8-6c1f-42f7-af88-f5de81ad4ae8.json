@@ -48,20 +48,20 @@
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
-          "x": 49.745000000000005,
-          "y": 841.415,
-          "width": 899.13,
-          "height": 568.81
+          "x": 135.03499999999997,
+          "y": 958.44,
+          "width": 664.57,
+          "height": 420.42
         },
         "rect": {
-          "left": 49.745000000000005,
-          "top": 841.415,
-          "right": 948.875,
-          "bottom": 1410.225,
-          "width": 899.13,
-          "height": 568.81
+          "left": 135.03499999999997,
+          "top": 958.44,
+          "right": 799.605,
+          "bottom": 1378.8600000000001,
+          "width": 664.57,
+          "height": 420.42
         },
-        "message": "Rotating element's bounding-box center drifts 193px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "message": "Rotating element's bounding-box center drifts 317px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
         "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
         "firstSeen": 25,
         "lastSeen": 25,
@@ -79,20 +79,20 @@
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
-          "x": 214.84999999999997,
-          "y": 797.685,
-          "width": 789.58,
-          "height": 502.25
+          "x": 341.13,
+          "y": 925.115,
+          "width": 585.22,
+          "height": 372.25
         },
         "rect": {
-          "left": 214.84999999999997,
-          "top": 797.685,
-          "right": 1004.4300000000001,
-          "bottom": 1299.935,
-          "width": 789.58,
-          "height": 502.25
+          "left": 341.13,
+          "top": 925.115,
+          "right": 926.35,
+          "bottom": 1297.365,
+          "width": 585.22,
+          "height": 372.25
         },
-        "message": "Rotating element's bounding-box center drifts 103px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "message": "Rotating element's bounding-box center drifts 146px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
         "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
         "firstSeen": 25,
         "lastSeen": 25,
@@ -110,20 +110,20 @@
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
-          "x": 374.58000000000004,
-          "y": 730.145,
-          "width": 396.56,
-          "height": 338.55
+          "x": 452.2099999999999,
+          "y": 776.725,
+          "width": 293.92,
+          "height": 250.93
         },
         "rect": {
-          "left": 374.58000000000004,
-          "top": 730.145,
-          "right": 771.14,
-          "bottom": 1068.695,
-          "width": 396.56,
-          "height": 338.55
+          "left": 452.2099999999999,
+          "top": 776.725,
+          "right": 746.13,
+          "bottom": 1027.655,
+          "width": 293.92,
+          "height": 250.93
         },
-        "message": "Rotating element's bounding-box center drifts 618px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "message": "Rotating element's bounding-box center drifts 623px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
         "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
         "firstSeen": 55,
         "lastSeen": 55,
@@ -141,20 +141,20 @@
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
-          "x": 438.36,
-          "y": 778.58,
-          "width": 256.92,
-          "height": 245.26
+          "x": 499.4800000000001,
+          "y": 812.63,
+          "width": 190.42,
+          "height": 181.78
         },
         "rect": {
-          "left": 438.36,
-          "top": 778.58,
-          "right": 695.2800000000001,
-          "bottom": 1023.84,
-          "width": 256.92,
-          "height": 245.26
+          "left": 499.4800000000001,
+          "top": 812.63,
+          "right": 689.9000000000001,
+          "bottom": 994.41,
+          "width": 190.42,
+          "height": 181.78
         },
-        "message": "Rotating element's bounding-box center drifts 616px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "message": "Rotating element's bounding-box center drifts 621px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
         "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
         "firstSeen": 55,
         "lastSeen": 55,
@@ -172,20 +172,20 @@
         "dataAttributes": {},
         "sourceFile": "index.html",
         "bbox": {
-          "x": 830.9649999999999,
-          "y": 811.7850000000001,
-          "width": 102.41,
-          "height": 90.59
+          "x": 790.4699999999999,
+          "y": 837.2399999999999,
+          "width": 75.9,
+          "height": 67.14
         },
         "rect": {
-          "left": 830.9649999999999,
-          "top": 811.7850000000001,
-          "right": 933.375,
-          "bottom": 902.375,
-          "width": 102.41,
-          "height": 90.59
+          "left": 790.4699999999999,
+          "top": 837.2399999999999,
+          "right": 866.37,
+          "bottom": 904.38,
+          "width": 75.9,
+          "height": 67.14
         },
-        "message": "Rotating element's bounding-box center drifts 960px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
+        "message": "Rotating element's bounding-box center drifts 884px across rotation — it is not spinning about its own center (check transformOrigin/svgOrigin).",
         "fixHint": "The bounding-box center should stay fixed while the element spins; check its transformOrigin/svgOrigin so rotation pivots about the element's own center rather than a point in a coordinate space it was resized out of.",
         "firstSeen": 55,
         "lastSeen": 55,
@@ -237,8 +237,8 @@
       65,
       85
     ],
-    "checked": 45,
-    "passed": 45
+    "checked": 38,
+    "passed": 38
   },
   "craft": {
     "ok": true,
