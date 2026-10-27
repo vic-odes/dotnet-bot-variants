@@ -9,4 +9,6 @@ node championnat/generateur/match.mjs championnat/matchs/<combat>.mjs championna
 - `match.mjs` : la chorégraphie. À partir des données du combat (`championnat/matchs/*.mjs` : échanges, gestes, cartes,
   dégâts), il écrit `index.html` et les 5 scènes HyperFrames (intro, fighta, fightb, finish, outro).
   Les fichiers générés ne se modifient pas à la main : on change les données ou le générateur, puis on relance.
-- Gestes disponibles : `taille`, `estoc`, `revers`, `moulinet`, `saut` ; cas spéciaux : `parade`, `chute` (gag), `combo`, `final`.
+- Approches : `choc`, `saut`, `corde`, `fumee`. Gestes de touche : `taille`, `estoc`, `revers`, `toupie`, `shuriken` ;
+  cas spéciaux : `parade` (avec `riposte`), `chute` (gag, `mini` = nombre de mini-combattants), `combo` (2 cartes), `final`.
+- Pour produire un nouveau combat : `championnat/PROMPT.md`.
