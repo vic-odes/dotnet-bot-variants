@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Deterministic offline BGM: synthwave (default 100 BPM, A minor, Am-F-C-G).
-Usage: synth_synthwave.py out.wav --seconds 120 --bpm 100
+Usage: synth_synthwave.py out.wav --seconds 120 --bpm 100 [--key am|bm|cm|dm|em|fm|gm] [--grille i-VI-III-VII|i-VII-VI-V]
+--key transpose la grille (tonalité mineure), --grille choisit l'enchaînement : par défaut, A mineur Am-F-C-G (inchangé).
 Structure: 2-bar intro (pad + arp), full groove (kick, gated snare, octave saw bass,
 detuned saw pad, arp lead), 2-bar outro (pad) with fade. Bar = 4 beats."""
 import argparse, numpy as np, soundfile as sf
@@ -8,6 +9,8 @@ from scipy.signal import lfilter
 
 ap = argparse.ArgumentParser()
 ap.add_argument("out"); ap.add_argument("--seconds", type=float, default=120); ap.add_argument("--bpm", type=float, default=100)
+ap.add_argument("--key", default="am", choices=["am", "bm", "cm", "dm", "em", "fm", "gm"])
+ap.add_argument("--grille", default="i-VI-III-VII", choices=["i-VI-III-VII", "i-VII-VI-V"])
 a = ap.parse_args()
 SR = 44100; beat = 60 / a.bpm; bar = 4 * beat; N = int(a.seconds * SR)
 L = np.zeros(N); R = np.zeros(N)
@@ -69,8 +72,13 @@ def lead(note, dur):  # square-ish pluck with vibrato-free bright tone
     s = lowpass(s, 0.3)
     return s * np.minimum(1, t / 0.003) * np.exp(-t * 9)
 
-# Am - F - C - G, one bar each
-prog = [(45, [57, 60, 64]), (41, [53, 57, 60]), (48, [55, 60, 64]), (43, [55, 59, 62])]
+# Am - F - C - G (or Am - G - F - E), one bar each, then transposed to --key (nearest, within -5..+6 semitones)
+GRILLES = {
+    "i-VI-III-VII": [(45, [57, 60, 64]), (41, [53, 57, 60]), (48, [55, 60, 64]), (43, [55, 59, 62])],
+    "i-VII-VI-V": [(45, [57, 60, 64]), (43, [55, 59, 62]), (41, [53, 57, 60]), (40, [56, 59, 64])],
+}
+tr = {"am": 0, "bm": 2, "cm": 3, "dm": 5, "em": -5, "fm": -4, "gm": -2}[a.key]
+prog = [(r + tr, [c + tr for c in ch]) for r, ch in GRILLES[a.grille]]
 n_bars = int(np.ceil(a.seconds / bar))
 intro, outro = 2, 2
 for b in range(n_bars):

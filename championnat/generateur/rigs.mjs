@@ -202,5 +202,175 @@ export function gopher(p, J = GO_JOINTS) {
   </g>`;
 }
 
+// ---------- Alien Lisp (d'après Conrad Barski, lisperati.com, domaine public) ----------
+// Corps en haricot vert à écailles, quatre pattes fines (deux par articulation), trois yeux sur le dessus, grand sourire,
+// long bras qui tient l'épée (à la place du drapeau LISP).
+const AL = { body: '#8DE17A', hi: '#C6F5B8', scale: '#55D85A', line: '#3F7F3A', eye: '#111111' };
+const ast = `stroke="${AL.line}" stroke-width="7" stroke-linejoin="round"`;
+function alLimb(len, w = 1) {
+  return `<line x1="0" y1="0" x2="0" y2="${len}" stroke="${AL.line}" stroke-width="${24 * w}" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="${len}" stroke="${AL.body}" stroke-width="${12 * w}" stroke-linecap="round"/>`;
+}
+function alLeg(p, side, J) {
+  const n = side < 0 ? 'B' : 'F';
+  const pair = (dx) => `<g transform="translate(${dx} 0)">${alLimb(78)}</g>`;
+  const toes = (dx) => `<g transform="translate(${dx} 0)">${alLimb(60)}<circle cx="-11" cy="64" r="14" fill="${AL.body}" ${ast}/><circle cx="11" cy="64" r="14" fill="${AL.body}" ${ast}/></g>`;
+  return `<g id="${p}-leg${n}" transform="${jt(...J[`leg${n}`])}">
+    ${pair(-22)}${pair(22)}
+    <g id="${p}-knee${n}" transform="${jt(...J[`knee${n}`])}">${toes(-22)}${toes(22)}</g>
+  </g>`;
+}
+function alArm(p, side, J, withSword) {
+  const n = side < 0 ? 'B' : 'F';
+  const w = side < 0 ? 0.8 : 1.15;
+  return `<g id="${p}-arm${n}" transform="${jt(...J[`arm${n}`])}">
+    ${alLimb(78, w)}
+    <g id="${p}-elb${n}" transform="${jt(...J[`elb${n}`])}">
+      ${alLimb(70, w)}
+      <g id="${p}-hand${n}" transform="${jt(...J[`hand${n}`])}">
+        ${withSword ? sword(p, K.magenta) : ''}
+        <ellipse cx="0" cy="0" rx="20" ry="18" fill="${AL.body}" ${ast}/>
+        <path d="M6 -10 q14 2 12 12" fill="none" stroke="${AL.line}" stroke-width="5" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>`;
+}
+function alEyes(p) {
+  const E3 = [{ x: -34, y: -18, r: 27 }, { x: 0, y: -44, r: 25 }, { x: 32, y: -14, r: 28 }], dx = 9;
+  const white = E3.map((q) => `<ellipse cx="${q.x}" cy="${q.y}" rx="${q.r}" ry="${q.r * 0.88}" fill="#FFFFFF" ${ast}/>`).join('');
+  const pupil = (k = 1) => E3.map((q) => `<circle cx="${q.x + dx}" cy="${q.y + 2}" r="${10 * k}" fill="${AL.eye}"/>`).join('');
+  const lid = E3.map((q) => `<path d="M${q.x - q.r - 2} ${q.y - q.r - 4} L${q.x + q.r + 2} ${q.y - q.r - 4} L${q.x + q.r + 2} ${q.y - 4} L${q.x - q.r - 2} ${q.y - q.r * 0.6}Z" fill="${AL.body}" stroke="${AL.line}" stroke-width="5" stroke-linejoin="round"/>`).join('');
+  const squeeze = E3.map((q) => `<path d="M${q.x - 12} ${q.y - 10}L${q.x + 9} ${q.y}L${q.x - 12} ${q.y + 10}" fill="none" stroke="${AL.eye}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`).join('');
+  const happy = E3.map((q) => `<path d="M${q.x - 13} ${q.y + 6}Q${q.x} ${q.y - 14} ${q.x + 13} ${q.y + 6}" fill="none" stroke="${AL.eye}" stroke-width="6" stroke-linecap="round"/>`).join('');
+  const ko = E3.map((q) => `<path d="M${q.x} ${q.y} m-3 0 a3 3 0 1 1 6 0 a8 8 0 1 1 -16 0 a14 14 0 1 1 28 0" fill="none" stroke="${AL.eye}" stroke-width="4.5" stroke-linecap="round"/>`).join('');
+  return `${white}
+    <g id="${p}-eyes-normal">${pupil()}</g>
+    <g id="${p}-eyes-angry" opacity="0">${pupil(0.9)}${lid}</g>
+    <g id="${p}-eyes-hurt" opacity="0">${squeeze}</g>
+    <g id="${p}-eyes-happy" opacity="0">${happy}</g>
+    <g id="${p}-eyes-ko" opacity="0">${ko}</g>`;
+}
+
+export const ALIEN_JOINTS = {
+  legB: [-70, -150, 6], kneeB: [0, 78, -6], legF: [58, -150, -8], kneeF: [0, 78, 8],
+  body: [0, -150, 0], head: [52, -118, 0],
+  armB: [-6, -70, 30], elbB: [0, 78, -40], handB: [0, 70, 0],
+  armF: [86, -66, -40], elbF: [0, 78, -70], handF: [0, 70, -30],
+};
+
+export function alien(p, J = ALIEN_JOINTS) {
+  const scales = [[-70, -70], [-40, -86], [-10, -96], [-82, -36], [-52, -50], [-22, -60], [-64, -6], [-34, -18], [-4, -28]]
+    .map(([x, y]) => `<path d="M${x - 20} ${y + 8} q20 -26 40 0" fill="${AL.scale}" stroke="${AL.hi}" stroke-width="4"/>`).join('');
+  return `<g id="${p}-root">
+    <ellipse id="${p}-shadow" cx="0" cy="0" rx="130" ry="15" fill="${K.midnight20}" opacity="0.35"/>
+    ${alLeg(p, -1, J)}
+    <g id="${p}-body" transform="${jt(...J.body)}">
+      ${alArm(p, -1, J, false)}
+      <path d="M-116 4 C-128 -70 -60 -128 30 -128 C96 -128 120 -80 116 -30 C112 4 96 18 60 18 L-90 22 C-108 22 -114 16 -116 4Z" fill="${AL.body}" ${ast}/>
+      ${scales}
+      <path d="M-70 -104 C-30 -122 40 -126 80 -100" fill="none" stroke="${AL.hi}" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+      <g id="${p}-head" transform="${jt(...J.head)}">
+        <g id="${p}-tails" transform="${jt(-62, 10, 0)}">
+          <path d="M0 -8 C-26 -16 -50 2 -82 -6 L-78 12 C-50 20 -26 2 0 10 Z" fill="${K.midnight}" ${ast}/>
+          <path d="M0 2 C-22 12 -40 36 -68 36 L-60 52 C-34 50 -14 26 4 16 Z" fill="${K.midnight}" ${ast}/>
+        </g>
+        ${alEyes(p)}
+        <path d="M-66 4 Q0 -12 66 8 L64 24 Q0 6 -64 20Z" fill="${K.midnight}" stroke="${AL.line}" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M-58 44 Q-24 86 14 44 Z" fill="#FFFFFF" stroke="${AL.line}" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M-44 48 V66 M-30 50 V74 M-16 50 V74 M-2 48 V64 M-52 55 H12" stroke="${AL.line}" stroke-width="3"/>
+      </g>
+      ${alArm(p, 1, J, true)}
+    </g>
+    ${alLeg(p, 1, J)}
+  </g>`;
+}
+
+// ---------- Ziggy, l'iguane de Zig (d'après ziglang/logo, CC BY 4.0) ----------
+// Corps orange redressé, ventre rouge-orangé, crête noire en pointes, gros œil, museau arrondi, queue enroulée derrière.
+const ZG = { body: '#FBB040', shade: '#F09E2F', belly: '#F15A29', limb: '#F98A31', line: '#231F20' };
+const zst = `stroke="${ZG.line}" stroke-width="7" stroke-linejoin="round"`;
+function zgLimb(len) {
+  return `<line x1="0" y1="0" x2="0" y2="${len}" stroke="${ZG.line}" stroke-width="40" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="${len}" stroke="${ZG.limb}" stroke-width="27" stroke-linecap="round"/>`;
+}
+function zgLeg(p, side, J) {
+  const n = side < 0 ? 'B' : 'F';
+  return `<g id="${p}-leg${n}" transform="${jt(...J[`leg${n}`])}">
+    ${zgLimb(30)}
+    <g id="${p}-knee${n}" transform="${jt(...J[`knee${n}`])}">
+      ${zgLimb(16)}
+      <path d="M-20 8 L-34 34 L-12 26 L0 40 L10 26 L34 36 L22 8 Z" fill="${ZG.limb}" ${zst}/>
+    </g>
+  </g>`;
+}
+function zgArm(p, side, J, withSword) {
+  const n = side < 0 ? 'B' : 'F';
+  return `<g id="${p}-arm${n}" transform="${jt(...J[`arm${n}`])}">
+    ${zgLimb(60)}
+    <g id="${p}-elb${n}" transform="${jt(...J[`elb${n}`])}">
+      ${zgLimb(50)}
+      <g id="${p}-hand${n}" transform="${jt(...J[`hand${n}`])}">
+        ${withSword ? sword(p, K.yellow, 1.1) : ''}
+        <path d="M-20 -8 C-24 14 -10 26 4 24 L22 30 L18 16 L28 8 L16 0 C14 -16 -16 -20 -20 -8Z" fill="${ZG.limb}" ${zst}/>
+      </g>
+    </g>
+  </g>`;
+}
+function zgEyes(p) {
+  const q = { x: 46, y: -50, r: 36 }, dx = 10;
+  const white = `<circle cx="${q.x}" cy="${q.y}" r="${q.r}" fill="#FFFFFF" ${zst}/>`;
+  const pupil = (k = 1) => `<circle cx="${q.x + dx}" cy="${q.y}" r="${18 * k}" fill="${ZG.line}"/><circle cx="${q.x + dx + 6}" cy="${q.y - 7}" r="${5 * k}" fill="#FFFFFF"/>`;
+  const brow = `<path d="M${q.x - 40} ${q.y - 44} L${q.x + 40} ${q.y - 44} L${q.x + 40} ${q.y - 6} L${q.x - 40} ${q.y - 30}Z" fill="${ZG.body}"/><path d="M${q.x - 40} ${q.y - 30} L${q.x + 40} ${q.y - 6}" stroke="${ZG.line}" stroke-width="8" stroke-linecap="round"/>`;
+  const squeeze = `<path d="M${q.x - 16} ${q.y - 16}L${q.x + 14} ${q.y}L${q.x - 16} ${q.y + 16}" fill="none" stroke="${ZG.line}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const happy = `<path d="M${q.x - 20} ${q.y + 8} Q${q.x} ${q.y - 22} ${q.x + 20} ${q.y + 8}" fill="none" stroke="${ZG.line}" stroke-width="8" stroke-linecap="round"/>`;
+  const ko = `<path d="M${q.x} ${q.y} m-3 0 a3 3 0 1 1 6 0 a8 8 0 1 1 -16 0 a14 14 0 1 1 28 0 a20 20 0 1 1 -40 0" fill="none" stroke="${ZG.line}" stroke-width="5" stroke-linecap="round"/>`;
+  return `${white}
+    <g id="${p}-eyes-normal">${pupil()}</g>
+    <g id="${p}-eyes-angry" opacity="0">${pupil(0.9)}${brow}</g>
+    <g id="${p}-eyes-hurt" opacity="0">${squeeze}</g>
+    <g id="${p}-eyes-happy" opacity="0">${happy}</g>
+    <g id="${p}-eyes-ko" opacity="0">${ko}</g>`;
+}
+
+export const ZIGGY_JOINTS = {
+  legB: [-46, -66, 6], kneeB: [0, 30, -6], legF: [44, -66, -8], kneeF: [0, 30, 8],
+  body: [0, -66, 0], head: [34, -262, 0],
+  armB: [-20, -176, 30], elbB: [0, 60, -40], handB: [0, 50, 0],
+  armF: [62, -170, -40], elbF: [0, 60, -70], handF: [0, 50, -30],
+};
+
+export function ziggy(p, J = ZIGGY_JOINTS) {
+  const spike = (x, y, h, lean) => `<path d="M${x - 14} ${y} Q${x - 6} ${y - h * 0.6} ${x + lean} ${y - h} Q${x + 4} ${y - h * 0.4} ${x + 14} ${y + 4}Z" fill="${ZG.line}"/>`;
+  const back = [[-86, -40, 40], [-94, -84, 48], [-92, -130, 56], [-80, -176, 62], [-60, -218, 66], [-32, -252, 60]]
+    .map(([x, y, h]) => spike(x, y, h, -h * 0.8)).join('');
+  return `<g id="${p}-root">
+    <ellipse id="${p}-shadow" cx="0" cy="0" rx="150" ry="16" fill="${K.midnight20}" opacity="0.35"/>
+    ${zgLeg(p, -1, J)}
+    <g id="${p}-body" transform="${jt(...J.body)}">
+      <path d="M-70 -10 C-170 0 -236 -90 -214 -200 C-208 -232 -178 -232 -184 -204 C-200 -120 -160 -56 -70 -50Z" fill="${ZG.body}" ${zst}/>
+      ${zgArm(p, -1, J, false)}
+      ${back}
+      <path d="M-92 4 C-114 -120 -74 -250 22 -276 C96 -292 120 -196 108 -100 C100 -20 64 14 4 14 C-54 14 -86 12 -92 4Z" fill="${ZG.body}" ${zst}/>
+      <path d="M100 -170 C112 -100 98 -22 40 6 C20 -40 30 -120 58 -186Z" fill="${ZG.belly}"/>
+      <path d="M-40 -40 C-20 -90 -10 -150 -16 -200" fill="none" stroke="${ZG.shade}" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+      <g id="${p}-head" transform="${jt(...J.head)}">
+        ${spike(-30, -80, 54, -30)}${spike(0, -96, 64, -20)}${spike(30, -96, 50, -6)}
+        <g id="${p}-tails" transform="${jt(-70, -58, 0)}">
+          <path d="M0 -10 C-30 -20 -60 2 -96 -8 L-92 12 C-58 22 -30 2 0 12 Z" fill="${K.midnight}" ${zst}/>
+          <path d="M0 2 C-26 16 -50 44 -82 44 L-72 62 C-40 58 -18 30 6 18 Z" fill="${K.midnight}" ${zst}/>
+        </g>
+        <path d="M-76 20 C-86 -50 -28 -98 40 -96 C96 -94 118 -62 122 -40 C156 -40 174 -12 160 12 C146 30 110 36 70 36 C20 44 -66 46 -76 20Z" fill="${ZG.body}" ${zst}/>
+        <path d="M-72 -70 Q30 -110 122 -54 L120 -34 Q30 -88 -76 -48Z" fill="${K.midnight}" stroke="${ZG.line}" stroke-width="5" stroke-linejoin="round"/>
+        ${zgEyes(p)}
+        <circle cx="-26" cy="0" r="14" fill="${ZG.line}"/>
+        <path d="M84 18 Q116 24 150 12" fill="none" stroke="${ZG.line}" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="146" cy="-16" r="4" fill="${ZG.line}"/>
+      </g>
+      ${zgArm(p, 1, J, true)}
+    </g>
+    ${zgLeg(p, 1, J)}
+  </g>`;
+}
+
 // État d'yeux : ids des groupes à basculer
 export const EYE_STATES = ['normal', 'angry', 'hurt', 'happy', 'ko'];

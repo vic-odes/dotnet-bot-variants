@@ -1,0 +1,749 @@
+{
+  "version": 1,
+  "historyId": "c2b27b54-d166-4e53-9958-bf486e405e02",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "edc204e5ba1dd7d43a707f51027548522c7043b995d5718ca93cd371d53f7f4f",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\ed\\edc204e5ba1dd7d43a707f51027548522c7043b995d5718ca93cd371d53f7f4f"
+    },
+    "CLAUDE.md": {
+      "hash": "edc204e5ba1dd7d43a707f51027548522c7043b995d5718ca93cd371d53f7f4f",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\ed\\edc204e5ba1dd7d43a707f51027548522c7043b995d5718ca93cd371d53f7f4f"
+    },
+    "assets/common/brand/dotnet/logo/dotnet-logo.jpg": {
+      "hash": "cc5438ece76b29957deca89942e47d61e69cc722d249fa69be2cf5dac9c471eb",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\cc\\cc5438ece76b29957deca89942e47d61e69cc722d249fa69be2cf5dac9c471eb"
+    },
+    "assets/common/brand/dotnet/logo/dotnet-logo.png": {
+      "hash": "8fcf6f6cd575c0f8c643691765a7db2a4b3b104bfbff34646555f5ccffdb2895",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\8f\\8fcf6f6cd575c0f8c643691765a7db2a4b3b104bfbff34646555f5ccffdb2895"
+    },
+    "assets/common/brand/dotnet/logo/dotnet-logo.svg": {
+      "hash": "8d216a0450a62d54d39bbf828e9cbeedda9e21451072bd0857ae9f4cd0ee0bb3",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\8d\\8d216a0450a62d54d39bbf828e9cbeedda9e21451072bd0857ae9f4cd0ee0bb3"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Black/dotnet-logo-text_Black.png": {
+      "hash": "ef88d8260cc90f4227ef2090f3d2c43a22e7daf32008119dc771b68222c12f9c",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\ef\\ef88d8260cc90f4227ef2090f3d2c43a22e7daf32008119dc771b68222c12f9c"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Black/dotnet-logo-text_Black.svg": {
+      "hash": "4e4b3b149a1620220c873899bbe221a3daa79d29b520a21d097436581b479575",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\4e\\4e4b3b149a1620220c873899bbe221a3daa79d29b520a21d097436581b479575"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Black/dotnet-logo-text_Black@2x.png": {
+      "hash": "c6e21b115fb025a1db6ff829def8d00628b96bc8be555c1ea544b3a746067ca7",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\c6\\c6e21b115fb025a1db6ff829def8d00628b96bc8be555c1ea544b3a746067ca7"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Purple/dotnet-logo-text-logo-Purple.png": {
+      "hash": "68e8bf99ceb96198a56ef5c9f2f2e734e60ccea037478af0e000579fe1e97049",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\68\\68e8bf99ceb96198a56ef5c9f2f2e734e60ccea037478af0e000579fe1e97049"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Purple/dotnet-logo-text-logo-Purple.svg": {
+      "hash": "1ac37531af65c6064899251fc571d4d14a7c9be4b71670274a8b75b92430c18c",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\1a\\1ac37531af65c6064899251fc571d4d14a7c9be4b71670274a8b75b92430c18c"
+    },
+    "assets/common/brand/dotnet/logo/text-only/Purple/dotnet-logo-text-logo-Purple@2x.png": {
+      "hash": "60b727fa9ac30c18becfb1bc46b8bcbe8f5310ba51959978ebe2b9d03c987264",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\60\\60b727fa9ac30c18becfb1bc46b8bcbe8f5310ba51959978ebe2b9d03c987264"
+    },
+    "assets/common/brand/dotnet/logo/text-only/White/dotnet-logo-text_White.png": {
+      "hash": "e4c44da7e3a52bdbed659be47bc4050491ccb6bfb7c649dfafa134538184b5f0",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\e4\\e4c44da7e3a52bdbed659be47bc4050491ccb6bfb7c649dfafa134538184b5f0"
+    },
+    "assets/common/brand/dotnet/logo/text-only/White/dotnet-logo-text_White.svg": {
+      "hash": "69f9d66efa0e041e4b95e19f490ad2571cbdd49799adb1ed4cd54c11529cdc56",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\69\\69f9d66efa0e041e4b95e19f490ad2571cbdd49799adb1ed4cd54c11529cdc56"
+    },
+    "assets/common/brand/dotnet/logo/text-only/White/dotnet-logo-text_White@2x.png": {
+      "hash": "c5fca5bf6f087686bba4a3130a41fcf52e07d1382de6d38184adef1fa24fc5c7",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\c5\\c5fca5bf6f087686bba4a3130a41fcf52e07d1382de6d38184adef1fa24fc5c7"
+    },
+    "assets/common/fonts/open-sans/OFL.txt": {
+      "hash": "d3ae2f5ab25063a8b94b5c14f37901531c18c35c84b2e6e3eae5697b61d4d179",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\d3\\d3ae2f5ab25063a8b94b5c14f37901531c18c35c84b2e6e3eae5697b61d4d179"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-300-italic.woff2": {
+      "hash": "89d2990c4d23780ec1bd20e85436cb0de7cb6e42a8d5b5aa83f2c41c48be4063",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\89\\89d2990c4d23780ec1bd20e85436cb0de7cb6e42a8d5b5aa83f2c41c48be4063"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-300-normal.woff2": {
+      "hash": "803a03075b3ce057a52a75a67389c5ce1c0bfe0694f55929bcb8837bd7dc8f8a",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\80\\803a03075b3ce057a52a75a67389c5ce1c0bfe0694f55929bcb8837bd7dc8f8a"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-400-italic.woff2": {
+      "hash": "3b50909a098195a8a3fda73fe29c260724e6f9ca624dd750cb8af7cb0c9198e2",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\3b\\3b50909a098195a8a3fda73fe29c260724e6f9ca624dd750cb8af7cb0c9198e2"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-400-normal.woff2": {
+      "hash": "0e44026ad31376af1b56593cd4acb4f353f8e8789c51759e18f64578e4ef296a",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\0e\\0e44026ad31376af1b56593cd4acb4f353f8e8789c51759e18f64578e4ef296a"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-500-italic.woff2": {
+      "hash": "d934b55026ec23dd50a86b18234c7837d3d09f57da2c2e11d2cfe78640e7fd29",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\d9\\d934b55026ec23dd50a86b18234c7837d3d09f57da2c2e11d2cfe78640e7fd29"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-500-normal.woff2": {
+      "hash": "fcb3290e95d43c9427acb996e3c1243c44f003eae5104707b3f5ed65fba7d452",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\fc\\fcb3290e95d43c9427acb996e3c1243c44f003eae5104707b3f5ed65fba7d452"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-600-italic.woff2": {
+      "hash": "9c2ee1189487a952d87c77ec148d63b8d0c0007fa67d0c716e5c721325e7efcf",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\9c\\9c2ee1189487a952d87c77ec148d63b8d0c0007fa67d0c716e5c721325e7efcf"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-600-normal.woff2": {
+      "hash": "a97a6ed7ef9f75c495e9224f5c59b2271d826e4a4345b738b390b0c76cc9f412",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\a9\\a97a6ed7ef9f75c495e9224f5c59b2271d826e4a4345b738b390b0c76cc9f412"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-700-italic.woff2": {
+      "hash": "f3e06f32b559ebe1a870bbe5a2c03ccbcd65986d125158870ccb9805b124011c",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\f3\\f3e06f32b559ebe1a870bbe5a2c03ccbcd65986d125158870ccb9805b124011c"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-700-normal.woff2": {
+      "hash": "594a622208d1dad5d1dd58aef74f212ce7132d8f0aa5bacea6cfeb86d308c17a",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\59\\594a622208d1dad5d1dd58aef74f212ce7132d8f0aa5bacea6cfeb86d308c17a"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-800-italic.woff2": {
+      "hash": "089e559e2f8cbf0591bc471f24a75673bceae7ad175104c27370c49f1f3757b1",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\08\\089e559e2f8cbf0591bc471f24a75673bceae7ad175104c27370c49f1f3757b1"
+    },
+    "assets/common/fonts/open-sans/open-sans-latin-800-normal.woff2": {
+      "hash": "fef878a06bd272926ceed713ac28deb89e0a9c59f6680925eaed701f3e8b4913",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\fe\\fef878a06bd272926ceed713ac28deb89e0a9c59f6680925eaed701f3e8b4913"
+    },
+    "assets/common/fonts/space-grotesk/OFL.txt": {
+      "hash": "c9a6f76d065b19ee383e42c8a114915e733bcbaed9759de41f4016b64d502cd5",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\c9\\c9a6f76d065b19ee383e42c8a114915e733bcbaed9759de41f4016b64d502cd5"
+    },
+    "assets/common/fonts/space-grotesk/space-grotesk-latin-300-normal.woff2": {
+      "hash": "a5de30e3b00eec05d96c3db37b9a90e36c6ed68f1bed5b38eb3e6871ff04a145",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\a5\\a5de30e3b00eec05d96c3db37b9a90e36c6ed68f1bed5b38eb3e6871ff04a145"
+    },
+    "assets/common/fonts/space-grotesk/space-grotesk-latin-400-normal.woff2": {
+      "hash": "65fd17fcbd2e2f522940b5f67ead3d23329e02891aa5495e74d11a499c0b0673",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\65\\65fd17fcbd2e2f522940b5f67ead3d23329e02891aa5495e74d11a499c0b0673"
+    },
+    "assets/common/fonts/space-grotesk/space-grotesk-latin-500-normal.woff2": {
+      "hash": "1b1a8131d9edf975d9decee81e2f2bf504812f7a4f498e5500f28a613e22e64c",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\1b\\1b1a8131d9edf975d9decee81e2f2bf504812f7a4f498e5500f28a613e22e64c"
+    },
+    "assets/common/fonts/space-grotesk/space-grotesk-latin-700-normal.woff2": {
+      "hash": "35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\35\\35f8aec56cfd5cbfdb03cc68733a54a0b05bb3617ffcd5fd332badc0b045ca55"
+    },
+    "assets/common/fonts/space-mono/OFL.txt": {
+      "hash": "da9e80c42017e7f70bba8cd039b97752a6cf296d092466bed000c78729b89129",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\da\\da9e80c42017e7f70bba8cd039b97752a6cf296d092466bed000c78729b89129"
+    },
+    "assets/common/fonts/space-mono/space-mono-latin-400-normal.woff2": {
+      "hash": "fb4a81a2d0a893e5c38c394a7e716a1cef0b24610a0af49c96f6d529bd66bf2b",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\fb\\fb4a81a2d0a893e5c38c394a7e716a1cef0b24610a0af49c96f6d529bd66bf2b"
+    },
+    "assets/common/fonts/space-mono/space-mono-latin-700-normal.woff2": {
+      "hash": "2d46bd159b53f55c41167a4f1540a074649464194fd1e416f5b4694a6c0f282c",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\2d\\2d46bd159b53f55c41167a4f1540a074649464194fd1e416f5b4694a6c0f282c"
+    },
+    "assets/common/vendor/gsap.min.js": {
+      "hash": "fd6978c80858a3036c39b4e53b5a6f9385d759d43283e6b1de89237e5640d85f",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\fd\\fd6978c80858a3036c39b4e53b5a6f9385d759d43283e6b1de89237e5640d85f"
+    },
+    "assets/img/prochain-0.png": {
+      "hash": "94371f47e12b7e060eb8867f79bfc4acf632439a9f50d724add13428c660fc83",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\94\\94371f47e12b7e060eb8867f79bfc4acf632439a9f50d724add13428c660fc83"
+    },
+    "assets/img/prochain-1.png": {
+      "hash": "66eca131689528b9ebe4924b0d6218ccc773f89ef12a0fe7907d230640616bcd",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\66\\66eca131689528b9ebe4924b0d6218ccc773f89ef12a0fe7907d230640616bcd"
+    },
+    "assets/sfx/CREDITS.md": {
+      "hash": "84cdca10669b25bcaceea1e677cc0b62865b170a6e14853db2cb90d5e844dd1f",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\84\\84cdca10669b25bcaceea1e677cc0b62865b170a6e14853db2cb90d5e844dd1f"
+    },
+    "assets/sfx/bell-ko.wav": {
+      "hash": "aaa6ff3b1280e479d690086425c6c27c71ccb872b4dc3f2c426461184ca41c1d",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\aa\\aaa6ff3b1280e479d690086425c6c27c71ccb872b4dc3f2c426461184ca41c1d"
+    },
+    "assets/sfx/bell.wav": {
+      "hash": "4979f189f6207ba051f86aaa5c985baf53535e5e164eff3531e83e479492f14a",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\49\\4979f189f6207ba051f86aaa5c985baf53535e5e164eff3531e83e479492f14a"
+    },
+    "assets/sfx/clash.wav": {
+      "hash": "86563dc358d880bd89b2c77c088d4e98a62a94e6c9be7858f4233a2a93685fa9",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\86\\86563dc358d880bd89b2c77c088d4e98a62a94e6c9be7858f4233a2a93685fa9"
+    },
+    "assets/sfx/crowd.wav": {
+      "hash": "d16afd020c0c72eef14acb3286a8010927f0e46873df7fb68c54d1cec8c6fb7d",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\d1\\d16afd020c0c72eef14acb3286a8010927f0e46873df7fb68c54d1cec8c6fb7d"
+    },
+    "assets/sfx/hit-1.wav": {
+      "hash": "399efb0932259889d8177f56897b09d13ddc19d8e665a94bea13d6ac15f62cc5",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\39\\399efb0932259889d8177f56897b09d13ddc19d8e665a94bea13d6ac15f62cc5"
+    },
+    "assets/sfx/hit-2.wav": {
+      "hash": "fc8dd047e5a8ae3a434c6072241fcd9d776dc91588a109d8824799dc717c70f1",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\fc\\fc8dd047e5a8ae3a434c6072241fcd9d776dc91588a109d8824799dc717c70f1"
+    },
+    "assets/sfx/hit-3.wav": {
+      "hash": "e907b509724f2c58a98cbc8c244c6bf1290d066fe609a1b420f68f8245e70af7",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\e9\\e907b509724f2c58a98cbc8c244c6bf1290d066fe609a1b420f68f8245e70af7"
+    },
+    "assets/sfx/impact-bass-1.mp3": {
+      "hash": "634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\63\\634d5eda5eb7b501aca98393a64f3815eccf24157cd1d95df55aaec1b5000bd7"
+    },
+    "assets/sfx/pop.mp3": {
+      "hash": "19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\19\\19ab7193f626ff57fdeef60b45543bac416fcbcec803cfb417abe4b271c1b352"
+    },
+    "assets/sfx/riser.mp3": {
+      "hash": "d2f29d49f27dee7d3b25af22ffe5bebc39390cc5d5fb3b3e1c433499c77f3d1d",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\d2\\d2f29d49f27dee7d3b25af22ffe5bebc39390cc5d5fb3b3e1c433499c77f3d1d"
+    },
+    "assets/sfx/swing-1.wav": {
+      "hash": "c23e3a2c16ed44c749c03ac010254070bc4e97bdb5aef74f9315b28248b58011",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\c2\\c23e3a2c16ed44c749c03ac010254070bc4e97bdb5aef74f9315b28248b58011"
+    },
+    "assets/sfx/swing-2.wav": {
+      "hash": "891b83a77fbadf6875ce35cf46138cf5761fc7add524c10b2623eeaf304de0f4",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\89\\891b83a77fbadf6875ce35cf46138cf5761fc7add524c10b2623eeaf304de0f4"
+    },
+    "assets/sfx/swing-3.wav": {
+      "hash": "cc869b01f4e4fcf64275a4a6fa0cb9ef0020c7c3372a3dca9f54b1aacf4b4426",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\cc\\cc869b01f4e4fcf64275a4a6fa0cb9ef0020c7c3372a3dca9f54b1aacf4b4426"
+    },
+    "assets/sfx/thud.wav": {
+      "hash": "23131a7517620d5923e4d6a336c16f1289b93c668227dffa8281632ecb74ba33",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\23\\23131a7517620d5923e4d6a336c16f1289b93c668227dffa8281632ecb74ba33"
+    },
+    "assets/sfx/whoosh-short.mp3": {
+      "hash": "c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\c2\\c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
+    },
+    "compositions/fighta.html": {
+      "hash": "d9fe2dd5b7bcd3760761027c360321e9dc0dd464d7e66d2340788cceb528019a",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\d9\\d9fe2dd5b7bcd3760761027c360321e9dc0dd464d7e66d2340788cceb528019a"
+    },
+    "compositions/fightb.html": {
+      "hash": "56004995269d92cea2993007bf2baca717ae1322dbe44c52628b6308b66693a3",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\56\\56004995269d92cea2993007bf2baca717ae1322dbe44c52628b6308b66693a3"
+    },
+    "compositions/finish.html": {
+      "hash": "432f2249e9f7bab8ecb6296e1d0d94f9342aa5bffd10192ebbf70eb2fa834864",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\43\\432f2249e9f7bab8ecb6296e1d0d94f9342aa5bffd10192ebbf70eb2fa834864"
+    },
+    "compositions/intro.html": {
+      "hash": "115d812f4974e388fef76fcd0f0d476de64db5ad482b97229d96b1a206482454",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\11\\115d812f4974e388fef76fcd0f0d476de64db5ad482b97229d96b1a206482454"
+    },
+    "compositions/outro.html": {
+      "hash": "91936d00ee7b13f6728eb7d4df407974660d024283148066cea4e1a4cc23f3e4",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\91\\91936d00ee7b13f6728eb7d4df407974660d024283148066cea4e1a4cc23f3e4"
+    },
+    "frame.md": {
+      "hash": "e03d03205f4e8dc072f1fc0bd244052423f1bd73686546abe5f9da9c6092e3bf",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\e0\\e03d03205f4e8dc072f1fc0bd244052423f1bd73686546abe5f9da9c6092e3bf"
+    },
+    "hyperframes.json": {
+      "hash": "687e5c4a0a6ff969a5f316158089fb408f0c2d8f989d19e47289f7aa34a18d24",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\68\\687e5c4a0a6ff969a5f316158089fb408f0c2d8f989d19e47289f7aa34a18d24"
+    },
+    "index.html": {
+      "hash": "253cd15e6c0dc1e9dff8b2d250f1eefb982683cf3ec736cce1d10018805da4ae",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\25\\253cd15e6c0dc1e9dff8b2d250f1eefb982683cf3ec736cce1d10018805da4ae"
+    },
+    "meta.json": {
+      "hash": "68f5deb8673d76bc45b22fcf0e1a82a323a1f77e9a0855344e6396e395b576dc",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\68\\68f5deb8673d76bc45b22fcf0e1a82a323a1f77e9a0855344e6396e395b576dc"
+    },
+    "package.json": {
+      "hash": "89724d222d4481d23c1d81908ccf34f6798eb576ce069c492d10709d44e557ab",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\89\\89724d222d4481d23c1d81908ccf34f6798eb576ce069c492d10709d44e557ab"
+    },
+    "assets/audio/combat.wav": {
+      "hash": "11e9d4c552a48c094ccad0a62ae1d6eb80507facb6c90b32999f6479a2dcb02d",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\11\\11e9d4c552a48c094ccad0a62ae1d6eb80507facb6c90b32999f6479a2dcb02d"
+    },
+    "assets/audio/victoire.wav": {
+      "hash": "a2cba117728f2bbf363666164a97c470831960b9f875d871f2b43dfc91d7f85f",
+      "content": "C:\\Users\\vngou\\.cache\\hyperframes\\history\\c2b27b54-d166-4e53-9958-bf486e405e02\\blobs\\a2\\a2cba117728f2bbf363666164a97c470831960b9f875d871f2b43dfc91d7f85f"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "53fe4094-bead-4b97-a87f-f2e88b6c9b63"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "53fe4094-bead-4b97-a87f-f2e88b6c9b63",
+        "scope": "project",
+        "report": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\checks\\53fe4094-bead-4b97-a87f-f2e88b6c9b63.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1793165177260,
+        "contentHash": "893ef499a9e234af2b83f1c25c815802c9ea15bda1a200cf11ad29e09c4265d8",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": {
+      "revision": null,
+      "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-20"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-0",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-00-at-1.5s.png",
+        "time": 1.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210462,
+        "contentHash": "1b6f12d58a40ee9efda10f5001ab9959106d9935b0b6949432b801cde081be9f",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-1",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-01-at-3.3s.png",
+        "time": 3.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210462,
+        "contentHash": "ad383c2508a0160f2a17ec0fd2f7adbe0aba08b62ab80cfeab4d024b3237a781",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-2",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-02-at-7.8s.png",
+        "time": 7.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210462,
+        "contentHash": "dab4957dab19dc1e82425f16412bcea543bac2ab608373d5611d805c2994cca3",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-3",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-03-at-14.8s.png",
+        "time": 14.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210463,
+        "contentHash": "4277c81996750afb78bbd412c2c32de0926ec53e65cba54c381ea53a31b05d91",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-4",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-04-at-21.8s.png",
+        "time": 21.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210463,
+        "contentHash": "8b4bdba03ac9fba08568339525a66aa4b7743ce596c357d2513527207f6ef1d3",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-5",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-05-at-28.8s.png",
+        "time": 28.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210463,
+        "contentHash": "92d28318276f668b46f6a35a709fd84fa98bd0838d219b17ae10e06ad82410fa",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-6",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-06-at-35.8s.png",
+        "time": 35.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210463,
+        "contentHash": "1eab3e13417f5b42cfe6ae52e471d62b45a1b286b71ad641d1e83f80f8286515",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-7",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-07-at-39.4s.png",
+        "time": 39.4,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210464,
+        "contentHash": "60ae6bfd552336de8280c12c59c6356fc80bb9a168ab6111970f8109f8cccd13",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-8",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-08-at-42.8s.png",
+        "time": 42.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210464,
+        "contentHash": "dd73af5a443e497bcac9559fdce67770dafe18f75434d4d0bd922ff5844ec0ac",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-9",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-09-at-49.5s.png",
+        "time": 49.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210464,
+        "contentHash": "59a07bb39e03e6d19d8de98d82cf6883ecccb6fc40b3d499084c8ed30b9b28b3",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-10",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-10-at-51.8s.png",
+        "time": 51.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210465,
+        "contentHash": "41e0dee2408717c341fa931657bbf381ed52303dcef3b5cbc9766d8b0ca47ebb",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-11",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-11-at-56.5s.png",
+        "time": 56.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210465,
+        "contentHash": "d35312a8c500282af7cac3e294cc406b8e4063a8aa338185ef6513b75071466f",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-12",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-12-at-63s.png",
+        "time": 63,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210466,
+        "contentHash": "86c057c7ea431fd3a2e721d32dab4d6902cb648778f91eba1ec29c1728dcae55",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-13",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-13-at-65.8s.png",
+        "time": 65.8,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210467,
+        "contentHash": "b8d483914c2ba8d8a3c6f1a07a99fd3c89e944e16d51419b8a172b2dfbb8e0ff",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-14",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-14-at-70.5s.png",
+        "time": 70.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210467,
+        "contentHash": "23554f3f42830cba588fee5e17c32ac8e63e16cf70025f2f1e9163d795e5d243",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-15",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-15-at-76.3s.png",
+        "time": 76.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210468,
+        "contentHash": "4551935b409d9d26634f6351832a1f87b437cbfd7ade89e11873b91a998af249",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-16",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-16-at-77.6s.png",
+        "time": 77.6,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210469,
+        "contentHash": "df3cd89cd0d4cd6ccaef100be0eb638895f40a4b768231972f09cf37ce36fb18",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-17",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-17-at-81.2s.png",
+        "time": 81.2,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210470,
+        "contentHash": "4e3009a2d807a33627fff352973bf445f530293b8edb271f1c7a5b345594d729",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-18",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-18-at-84.5s.png",
+        "time": 84.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210471,
+        "contentHash": "35e0aac375f7069a3cfbf10a273d12c0ddb3fb30983e06f7b99109226d884326",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-19",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-19-at-88.5s.png",
+        "time": 88.5,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210471,
+        "contentHash": "6036e63bfb3dbff31cef275bb0039af9a9cda5d5ae3e4c0e8e5c63e10bd59d24",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      },
+      {
+        "scope": "full",
+        "id": "258dffbb-b815-4f9a-b95f-ce42d2b35079-20",
+        "image": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\.hyperframes\\artifacts\\snapshots\\0202c12f-6b08-468d-a95d-6d2238827a58\\frame-20-at-87.3s.png",
+        "time": 87.3,
+        "metadata": {
+          "width": 1080,
+          "height": 1920,
+          "zoomScale": 1,
+          "browserGpuMode": "auto",
+          "warnings": [],
+          "partial": false
+        },
+        "createdAt": 1793165210472,
+        "contentHash": "cedcad84b8342cd5936b16da887854dcff21d0505f2004f27d71bf590ed8ed10",
+        "revision": null,
+        "inputFingerprint": "28a1e938dd57f8b3e86d1365978066374fcfd0d2c1c9a114be16bc24988266bd",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "renders": {
+    "latest": {
+      "id": "e3116db9-a387-45ba-ab03-53539e7be9df",
+      "completedAt": 1793165639470,
+      "output": "C:\\Users\\vngou\\source\\repos\\dotnet-bot-variants\\championnat\\videos\\02-alien-vs-ziggy\\9x16-90s\\renders\\raw.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

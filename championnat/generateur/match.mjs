@@ -4,7 +4,7 @@
 import { writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { K, jt, dotnetBot, dotnetBotDefs, gopher, BOT_JOINTS, GO_JOINTS, EYE_STATES } from './rigs.mjs';
+import { K, jt, dotnetBot, dotnetBotDefs, gopher, alien, ziggy, BOT_JOINTS, GO_JOINTS, ALIEN_JOINTS, ZIGGY_JOINTS, EYE_STATES } from './rigs.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '../..');
@@ -18,11 +18,18 @@ const r2 = (n) => +n.toFixed(3);
 const POULE = M.phase.split(' · ')[0];
 
 // ---------- combattants ----------
+// tails = pivot des pans du bandeau dans la tête ; mini = échelle des mini-combattants du gag `chute` ;
+// team = couleurs de carte (fond, texte) et de barre de vie, prises dans la charte .NET.
+const P1 = { bg: K.purple, fg: '#FFFFFF', hud: `linear-gradient(90deg, ${K.purple}, ${K.magenta})` };
 const RIGS = {
   'dotnet-bot': { draw: dotnetBot, defs: dotnetBotDefs, J: BOT_JOINTS, S: 0.85, cy: -200, accent: K.magenta, k: 1, legK: 1,
-    hitTokens: ['null', 'Exception', 'NRE', 'throw'] },
+    tails: [-108, -62], mini: 0.24, team: P1, hitTokens: ['null', 'Exception', 'NRE', 'throw'] },
   go: { draw: gopher, defs: () => '', J: GO_JOINTS, S: 0.63, cy: -270, accent: K.cyan, k: 1.2, legK: 0.35,
-    hitTokens: ['panic:', 'nil', 'err', '0xDEAD'] },
+    tails: [-150, -112], mini: 0.24, team: { bg: K.cyan, fg: K.midnight10, hud: K.cyan }, hitTokens: ['panic:', 'nil', 'err', '0xDEAD'] },
+  lisp: { draw: alien, defs: () => '', J: ALIEN_JOINTS, S: 1.0, cy: -220, accent: K.magenta, k: 1, legK: 0.7,
+    tails: [-62, 10], mini: 0.36, team: P1, hitTokens: ['NIL', '(error)', 'UNBOUND', ')))'] },
+  zig: { draw: ziggy, defs: () => '', J: ZIGGY_JOINTS, S: 0.75, cy: -230, accent: K.yellow, k: 1.1, legK: 0.5,
+    tails: [-70, -58], mini: 0.3, team: { bg: K.yellow, fg: K.midnight10, hud: K.yellow }, hitTokens: ['error.OOM', 'panic', 'undefined', 'unreachable'] },
 };
 const STATION = { gauche: 320, droite: 760 };
 const F = {};
@@ -34,6 +41,8 @@ for (const side of ['gauche', 'droite']) {
     eyes: 'normal', hp: 100 };
 }
 const other = (f) => (f === F.gauche ? F.droite : F.gauche);
+// gag du K.O. : étiquette de la benne et légende (par défaut, celles du combat n°1)
+const GAG = { benne: '/dev/null', couleur: K.cyanTint, legende: `${M.droite.nom} finit dans les poubelles`, ...M.gag };
 const dirTo = (a, b) => (b.x >= a.x ? 1 : -1);
 const CL = (x) => Math.max(150, Math.min(930, x)); // le combattant reste entier dans le cadre
 
@@ -166,7 +175,7 @@ function bob(f, t0, t1, phase = 0) {
 // pans du bandeau qui flottent toute la scène
 function flutter(f, t0, t1, seed) {
   const r = rng(seed);
-  const [tx, ty] = f.R.draw === dotnetBot ? [-108, -62] : [-150, -112];
+  const [tx, ty] = f.R.tails;
   for (let t = t0, k = 0; t < t1 - 0.05; t += 0.18, k++) {
     attr(`#${f.p}-tails`, t, 0.18, 'sine.inOut', jt(tx, ty, (k % 2 ? -14 : 10) + (r() - 0.5) * 8));
   }
@@ -454,19 +463,20 @@ function exchange(e, i) {
     flurry(def, att, T0 + 2.2, seed);
     separate(T0 + 5.95, 140);
   } else if (e.geste === 'chute') {
-    // le Gopher fait le malin : grand salto… et atterrit sur ses propres goroutines
+    // le perdant fait le malin : grand salto… et atterrit sur ses propres mini-combattants (goroutines, appels récursifs…)
     const dir = dirTo(att, def);
     const nx = CL(att.x + dir * 50);
     hop(att, T0, 0.75, { x: nx, h: 380, flips: 2, after: 'touche' });
     for (let k = 0; k < (e.mini || 0); k++) {
       const id = `${att.p}m${k}`, r = rng(seed + k);
       const x1 = nx + (-260 + k * 95) + (r() - 0.5) * 40;
-      S.minis += gopher(id).replace(`<g id="${id}-root">`, `<g id="${id}-root" opacity="0" transform="translate(${r2(nx)} ${FEET + 12}) scale(${r2(dir * 0.24)} 0.24)">`);
+      const ms = att.R.mini;
+      S.minis += att.R.draw(id).replace(`<g id="${id}-root">`, `<g id="${id}-root" opacity="0" transform="translate(${r2(nx)} ${FEET + 12}) scale(${r2(dir * ms)} ${ms})">`);
       set(`#${id}-root`, T0 + 0.55 + k * 0.04, { opacity: 1 });
       if (k % 2 === 0) snd(T0 + 0.55 + k * 0.04, 'pop.mp3', VOL.pop * 0.6);
-      attr(`#${id}-root`, T0 + 0.55 + k * 0.04, 0.35, 'power2.out', `translate(${r2(x1)} ${FEET + 14}) scale(${r2(dir * 0.24)} 0.24)`);
+      attr(`#${id}-root`, T0 + 0.55 + k * 0.04, 0.35, 'power2.out', `translate(${r2(x1)} ${FEET + 14}) scale(${r2(dir * ms)} ${ms})`);
       const xo = k % 2 ? -220 - k * 30 : W + 220 + k * 30;
-      attr(`#${id}-root`, T0 + 2.0 + k * 0.07, 0.9, 'power2.in', `translate(${xo} ${FEET + 14}) scale(${r2((xo < 0 ? -1 : 1) * 0.24)} 0.24)`);
+      attr(`#${id}-root`, T0 + 2.0 + k * 0.07, 0.9, 'power2.in', `translate(${xo} ${FEET + 14}) scale(${r2((xo < 0 ? -1 : 1) * ms)} ${ms})`);
     }
     // il glisse et tombe sur le dos
     eyes(att, 'hurt', T0 + 0.8);
@@ -617,7 +627,7 @@ function ropesFront() {
     ${[0.3, 0.6].map((k) => `<rect x="${x + 10}" y="${r2(1490 - h + h * k)}" width="${w - 20}" height="8" rx="4" fill="${K.midnight20}" opacity="0.4"/>`).join('')}`;
   return `<svg class="layer" data-layout-ignore viewBox="0 0 ${WORLD_W} ${H}" width="${WORLD_W}" height="${H}">
     ${bin(1120, 440, 320, K.cyanShade)}
-    <text x="1340" y="1420" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="40" fill="${K.cyanTint}">/dev/null</text>
+    <text x="1340" y="1420" text-anchor="middle" font-family="Space Mono" font-weight="700" font-size="40" fill="${GAG.couleur}">${GAG.benne}</text>
     <g transform="translate(1340 1166)"><g id="binlid"><rect x="-226" y="-14" width="452" height="24" rx="10" fill="${K.cyan}" stroke="${K.midnight20}" stroke-width="5"/><rect x="-16" y="-30" width="32" height="18" rx="6" fill="${K.cyan}" stroke="${K.midnight20}" stroke-width="5"/></g></g>
     ${frontRow()}
   </svg>`;
@@ -660,12 +670,12 @@ const CSS = `
   .hud-lag { background: ${K.flamingo}; }
   .gauche .hud-lag, .hud-fill.gauche { transform-origin: left center; }
   .droite .hud-lag, .hud-fill.droite { transform-origin: right center; }
-  .hud-fill.gauche { background: linear-gradient(90deg, ${K.purple}, ${K.magenta}); }
-  .hud-fill.droite { background: ${K.cyan}; }
+  .hud-fill.gauche { background: ${F.gauche.R.team.hud}; }
+  .hud-fill.droite { background: ${F.droite.R.team.hud}; }
   .hud-round { width: 92px; height: 92px; border-radius: 46px; background: ${K.yellow}; color: ${K.midnight10}; font-weight: 700; font-size: 38px; display: flex; align-items: center; justify-content: center; border: 5px solid #FFFFFF; flex: none; }
   .card { position: absolute; left: 110px; width: 860px; padding: 20px 30px 24px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
-  .card.db { background: ${K.purple}; color: #FFFFFF; }
-  .card.go { background: ${K.cyan}; color: ${K.midnight10}; }
+  .card.db { background: ${F.gauche.R.team.bg}; color: ${F.gauche.R.team.fg}; }
+  .card.go { background: ${F.droite.R.team.bg}; color: ${F.droite.R.team.fg}; }
   .card .tag { font-family: 'Space Mono'; font-weight: 700; font-size: 28px; letter-spacing: 0.08em; }
   .card .name { font-weight: 700; font-size: 54px; line-height: 1.02; letter-spacing: -0.02em; margin-top: 6px; }
   .card .code { font-family: 'Space Mono'; font-size: 28px; color: ${K.code}; background: ${K.midnight}; padding: 12px 18px; border-radius: 10px; margin-top: 16px; white-space: nowrap; }
@@ -763,12 +773,12 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
     .title { position: absolute; left: 0; right: 0; top: 210px; text-align: center; font-weight: 700; font-size: 64px; letter-spacing: 0.08em; color: ${K.yellow}; -webkit-text-stroke: 7px ${K.midnight10}; paint-order: stroke fill; }
     .vs { position: absolute; left: 0; right: 0; top: 340px; text-align: center; color: #FFFFFF; font-weight: 700; transform-origin: 540px 200px; }
     .vs-l, .vs-r { font-size: 68px; line-height: 1.05; letter-spacing: -0.03em; }
-    .vs-r { color: ${K.cyan}; }
+    .vs-r { color: ${F.droite.R.team.bg}; }
     .vs-v { font-family: 'Space Mono'; font-weight: 700; font-size: 30px; color: ${K.purpleTint}; margin-top: 4px; }
     .vs-x { font-size: 96px; line-height: 1; color: ${K.white}; -webkit-text-stroke: 8px ${K.midnight10}; paint-order: stroke fill; }
     .plate { position: absolute; top: 400px; width: 560px; padding: 20px 30px; border: 6px solid #FFFFFF; border-radius: 18px; opacity: 0; }
-    .plate.l { left: 60px; background: ${K.purple}; color: #FFFFFF; }
-    .plate.r { right: 60px; background: ${K.cyan}; color: ${K.midnight10}; text-align: right; }
+    .plate.l { left: 60px; background: ${F.gauche.R.team.bg}; color: ${F.gauche.R.team.fg}; }
+    .plate.r { right: 60px; background: ${F.droite.R.team.bg}; color: ${F.droite.R.team.fg}; text-align: right; }
     .plate-name { font-weight: 700; font-size: 68px; line-height: 1; letter-spacing: -0.03em; }
     .plate-ver { font-family: 'Space Mono'; font-weight: 700; font-size: 44px; margin-top: 12px; }`;
   finish(sc);
@@ -790,7 +800,7 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   inScene(sc).forEach((e) => exchange(e, E.indexOf(e)));
   // rappel « like » entre la carte de l'échange 5 et l'approche de l'échange 6
   const tR = E[4].at + 4.8, tRe = E[5].at - 0.1;
-  S.cards += `<div class="remind" id="remind">${icon(THUMB, 'r-thumb', 64, K.white)}<span>Team ${M.gauche.nom} ? <b>LIKE</b></span></div>`;
+  S.cards += `<div class="remind" id="remind">${icon(THUMB, 'r-thumb', 64, K.white)}<span>Team ${M.favori ?? M.gauche.nom} ? <b>LIKE</b></span></div>`;
   snd(tR, 'pop.mp3', VOL.pop);
   fromTo('#remind', tR, 0.2, 'back.out(1.6)', { opacity: 0, scale: 0.6, rotation: 0 }, { opacity: 1, scale: 1, rotation: -3 });
   to('#r-thumb', tR + 0.3, 0.12, 'power2.out', { rotation: -18, transformOrigin: '50% 80%' });
@@ -810,7 +820,7 @@ const inScene = (sc) => E.filter((e) => e.at >= sc.start && e.at < sc.end);
   announce(M.ko + 0.1, M.ko + 1.1, 'K.O.'); snd(M.ko + 0.1, 'bell-ko.wav', VOL.bell); snd(M.ko + 0.1, 'crowd.wav', VOL.crowd);
   S.camX = -560;
   to('#cam', M.ko + 1.2, 0.6, 'power3.inOut', { x: -560 }); snd(M.ko + 1.45, 'whoosh-short.mp3', VOL.whoosh);
-  S.cards += `<div class="caption" id="ko-cap">${M.droite.nom} finit dans les poubelles</div>`;
+  S.cards += `<div class="caption" id="ko-cap">${GAG.legende}</div>`;
   fromTo('#ko-cap', M.ko + 1.3, 0.2, 'expo.out', { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1 });
   sc.css = `.caption { position: absolute; left: 60px; right: 60px; top: 520px; text-align: center; font-weight: 700; font-size: 54px; line-height: 1.1; color: #FFFFFF; opacity: 0; }`;
   finish(sc, hud);
